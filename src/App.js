@@ -5,7 +5,8 @@ function App() {
   return (
     <div className="App">
       <div className="wireframe">
-        <h1>PULL UP APP HOME PAGE</h1>
+        <h1>PULL UP APP</h1>
+        <h2>The message from Lud</h2>
         <nav>
           Nav Bar
           <Logo />
