@@ -19,12 +19,33 @@ function ListingDetail(props) {
           <h3>1 Blue Jays Way, Toronto, ON</h3>
           <h3>M5V 1J1</h3>
           <br />
-          <h3>$0.25/H</h3>
+          <h3>Rate: $0.25/H</h3>
           <div className="AvailabilityCard">
             <h4>Available Aug 1st- Aug 6th</h4>
             <h4> 8:00-16:00</h4>
           </div>
+          <br />
+          <br />
           <button className="ReserveBtn">Reserve</button>
+        </div>
+      </div>
+      Other Close Places (Horizontally Scrollable)
+      <div className="OtherListings">
+        <div className="OtherListingsCard"> Other Listing & Info Here</div>
+        <div className="OtherListingsCard"> Other Listing & Info Here</div>
+        <div className="OtherListingsCard"> Other Listing & Info Here</div>
+        <div className="OtherListingsCard"> Other Listing & Info Here</div>
+      </div>
+      <div className="Comments">
+        Comments
+        <div className="CommentsCard">
+          Great Driveway! Close to Event! - Kala
+        </div>
+        <div className="CommentsCard">
+          Great Driveway! Close to Event! - Kala
+        </div>
+        <div className="CommentsCard">
+          Great Driveway! Close to Event! - Kala
         </div>
       </div>
     </div>
