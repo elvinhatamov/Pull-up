@@ -39,4 +39,112 @@
 
 .wireframe {
   border: 1px dashed rgb(96, 95, 95);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+/*======== HOME PAGE STYLING HERE *========*/
+
+/*======== LISTING DETAIL STYLING HERE *========*/
+.ListingDetail {
+  min-width: 320px;
+  max-width: 720px;
+  width: 100%;
+  border: 1px dashed red;
+}
+
+.ListingProfile {
+  width: 100%;
+  min-height: 320px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 1px dashed purple;
+}
+
+.ListingVisuals {
+  margin: 5px;
+  width: 50%;
+  max-width: 300px;
+  height: auto;
+  border: 1px dashed blue;
+}
+
+.GoogleMap {
+  margin: 5px;
+  width: 290px;
+  height: 290px;
+  border: 1px dashed green;
+}
+
+.ListingPhotos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.PhotoThumbnail {
+  margin: 5px;
+  width: 90px;
+  height: 90px;
+  border: 1px dashed green;
+}
+
+.ListingInfo {
+  margin: 5px;
+  width: 50%;
+  border: 1px dashed blue;
+  height: auto;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.AvailabilityCard {
+  border: 1px solid black;
+  width: 250px;
+}
+
+.ReserveBtn {
+  width: 200px;
+  height: 75x;
+  font-size: 25px;
+}
+
+.OtherListings {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 1px dashed purple;
+}
+
+.OtherListingsCard {
+  margin: 10px;
+  width: 150px;
+  height: 150px;
+  border: 1px dashed green;
+}
+
+.Comments {
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px dashed purple;
+}
+
+.CommentsCard {
+  margin: 5px;
+  width: 90%;
+  height: 30px;
+  border: 1px dashed green;
+  text-align: center;
+}
+
+/*======== STANDARD FORMS PAGE STYLING HERE *========*/
