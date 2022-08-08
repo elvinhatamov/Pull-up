@@ -1,0 +1,24 @@
+.Navbar {
+  width: 100%;
+  background-color: rgb(216, 198, 32);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.pullup-logo-p {
+  font-size: 40px;
+}
+
+.signup-login-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.signup-login-div > img {
+  width: 40px;
+  height: 40px;
+}
