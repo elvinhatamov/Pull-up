@@ -1,50 +1,51 @@
 import React from "react";
+import "./ListingDetail.css";
 
 function ListingDetail(props) {
   return (
     <div className="ListingDetail">
       ListingDetail Container
-      <div className="ListingProfile">
-        <div className="ListingVisuals">
+      <div className="listing-profile-div">
+        <div className="listing-visuals-div">
           Listing Visuals Div
-          <div className="GoogleMap">Google Map Here</div>
-          <div className="ListingPhotos">
-            <div className="PhotoThumbnail">Photo Thumbnails Here</div>
-            <div className="PhotoThumbnail">Photo Thumbnails Here</div>
-            <div className="PhotoThumbnail">Photo Thumbnails Here</div>
+          <div className="google-map">Google Map Here</div>
+          <div className="listing-photos">
+            <div className="photo-thumbnail">Photo Thumbnails Here</div>
+            <div className="photo-thumbnail">Photo Thumbnails Here</div>
+            <div className="photo-thumbnail">Photo Thumbnails Here</div>
           </div>
         </div>
-        <div className="ListingInfo">
+        <div className="listing-info-div">
           Listing Info Div
           <h3>1 Blue Jays Way, Toronto, ON</h3>
           <h3>M5V 1J1</h3>
           <br />
           <h3>Rate: $0.25/H</h3>
-          <div className="AvailabilityCard">
+          <div className="availability-card-div">
             <h4>Available Aug 1st- Aug 6th</h4>
             <h4> 8:00-16:00</h4>
           </div>
           <br />
           <br />
-          <button className="ReserveBtn">Reserve</button>
+          <button className="reserve-btn">Reserve</button>
         </div>
       </div>
       Other Close Places (Horizontally Scrollable)
-      <div className="OtherListings">
-        <div className="OtherListingsCard"> Other Listing & Info Here</div>
-        <div className="OtherListingsCard"> Other Listing & Info Here</div>
-        <div className="OtherListingsCard"> Other Listing & Info Here</div>
-        <div className="OtherListingsCard"> Other Listing & Info Here</div>
+      <div className="other-listings-div">
+        <div className="other-listings-card"> Other Listing & Info Here</div>
+        <div className="other-listings-card"> Other Listing & Info Here</div>
+        <div className="other-listings-card"> Other Listing & Info Here</div>
+        <div className="other-listings-card"> Other Listing & Info Here</div>
       </div>
-      <div className="Comments">
+      <div className="comments-div">
         Comments
-        <div className="CommentsCard">
+        <div className="comments-card">
           Great Driveway! Close to Event! - Kala
         </div>
-        <div className="CommentsCard">
+        <div className="comments-card">
           Great Driveway! Close to Event! - Kala
         </div>
-        <div className="CommentsCard">
+        <div className="comments-card">
           Great Driveway! Close to Event! - Kala
         </div>
       </div>
