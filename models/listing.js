@@ -16,6 +16,7 @@ const listingSchema = new Schema({
   },
   reservation: {
     type: Schema.Types.ObjectId,
+    ref: "Reservation",
     required: true,
   },
 });
