@@ -16,6 +16,7 @@ app.use(express.static(path.join(__dirname, "build")));
 
 //normal routes here
 app.use("/api/listings", require("./routes/api/listings"));
+app.use("/api/reservations", require("./routes/api/reservations"));
 
 //"catch all" route
 app.get("/*", function (req, res) {
