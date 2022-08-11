@@ -14,7 +14,10 @@ app.use(express.json());
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
-//  "catch all" route
+//normal routes here
+app.use("/api/listings", require("./routes/api/listings"));
+
+//"catch all" route
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
