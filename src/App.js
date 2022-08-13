@@ -10,7 +10,7 @@ function App() {
   //set state using hooks method
   const [user, setUser] = useState(null);
 
-  //check for token at start once
+  //check for token everytime something renders so we don't relogin
   useEffect(() => {
     //check local storage for a token
     let token = localStorage.getItem("token");
@@ -20,7 +20,11 @@ function App() {
       let userDoc = JSON.parse(atob(token.split(".")[1])).user;
       setUser(userDoc);
     }
-  });
+  }, []);
+
+  function handleUser(incomingUser) {
+    setUser(incomingUser);
+  }
 
   return (
     <div className="App">
@@ -28,11 +32,14 @@ function App() {
         {user ? (
           <Routes>
             <Route path="/" element={<ListingDetail />} />
-            <Route path="/login" element={<LoginForm />} />
+            <Route
+              path="/login"
+              element={<LoginForm handleUser={handleUser} />}
+            />
           </Routes>
         ) : (
           <Routes>
-            <Route path="*" element={<Navigate to="/login" replace />} />
+            <Route path="*" element={<LoginForm handleUser={handleUser} />} />
           </Routes>
         )}
       </div>
