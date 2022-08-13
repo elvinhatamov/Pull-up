@@ -1,5 +1,6 @@
 import { Component } from "react";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm(props) {
   //hook setup for some value to be relaced
@@ -7,6 +8,9 @@ function LoginForm(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  //to redirect to page after login
+  const navigate = useNavigate();
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -21,6 +25,7 @@ function LoginForm(props) {
         body: JSON.stringify({ email: email, password: password }),
       });
 
+      console.log(fetchResponse);
       if (!fetchResponse.ok)
         throw new Error("Login Fetch Failed - Something wrong");
 
@@ -29,7 +34,10 @@ function LoginForm(props) {
 
       //grab user's (Mongo) document from the json token
       const userDoc = JSON.parse(atob(token.split(".")[1])).user;
-      //NOT SURE WE NEED THIS PART JUST PASS TOKEN SO USER CAN BE PICKED OUT LATER
+      //PASSING USER JUST TO TRIGGER REFRESH
+      props.handleLoginUpdate(userDoc);
+
+      //at the end redirect them to home page
     } catch (err) {
       console.log("Login Form Error: ", err);
     }
