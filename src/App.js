@@ -1,9 +1,10 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import ListingDetail from "./Components/ListingDetail/ListingDetail";
 import Navbar from "./Components/Navbar/Navbar";
 import LoginForm from "./Components/LoginForm/LoginForm";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   //set state using hooks method
@@ -24,7 +25,16 @@ function App() {
   return (
     <div className="App">
       <div className="wireframe">
-        <LoginForm />
+        {user ? (
+          <Routes>
+            <Route path="/" element={<ListingDetail />} />
+            <Route path="/login" element={<LoginForm />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path="*" element={<Navigate to="/login" replace />} />
+          </Routes>
+        )}
       </div>
     </div>
   );
