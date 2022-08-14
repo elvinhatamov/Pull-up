@@ -1,12 +1,47 @@
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
+const bcrypt = require('bcrypt')
+
 
 //EXPORT CREATE(SIGNUP) LATER
 module.exports = {
   login,
+  signUp,
 };
 
 //CREATE "async function create(req, res) another time"
+async function signUp(req,res){
+  try {
+    const { email , password} = req.body;
+
+    const user = await User.findOne({email});
+
+    if(user){
+      res.status(409); //conflict error most relevat error code in this sitauition
+    }
+    const passwordHash = await bcrypt.hash(password, 10);
+
+    // const startingInfo = {
+
+    // }
+  const result = await User.insertOne({
+    email,
+    passwordHash,
+    isVerified:false
+  });
+  const {insertedId} = result
+
+ const token = jwt.sign({
+    id: insertedId,
+    email,
+    isVerified: false
+  },
+  process.env.SECRET, {expiresIn: '2d'},
+  res.status(200).json(token)
+ ) } catch (error) {
+    console.log(error)
+  }
+}
 
 //login function
 async function login(req, res) {
@@ -16,7 +51,7 @@ async function login(req, res) {
 
     console.log(user);
     //check if wrong password input, throw errors if wrong
-    if (req.body.password != user.password)
+    if (req.body.password !== user.password)
       throw new Error("Password Mismatch");
 
     console.log("Password is good!");
