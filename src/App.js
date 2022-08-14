@@ -6,6 +6,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import LoginForm from "./Components/LoginForm/LoginForm";
 
 import HomePage from "./Pages/HomePage/HomePage";
+import SignUpForm from "./Components/SignUpForm/SignUpForm";
 
 function App() {
   //set state using hooks method
@@ -31,25 +32,28 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="wireframe">
+    <div className='App'>
+      <div className='wireframe'>
         {user ? (
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/listing/detail" element={<ListingDetail />} />
-            <Route path="/login" element={<LoginForm />} />
+            <Route path='/' element={<HomePage />} />
+            <Route path='/listing/detail' element={<ListingDetail />} />
+            <Route path='/login' element={<LoginForm />} />
+            <Route path="/signup">
+              <SignUpForm />
+            </Route>
           </Routes>
         ) : (
           <Routes>
             <Route
-              path="*"
+              path='*'
               element={<LoginForm handleLoginUpdate={handleLoginUpdate} />}
             />
           </Routes>
         )}
       </div>
     </div>
-  );
+  )
 }
 
 export default App;
