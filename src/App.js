@@ -6,6 +6,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import LoginForm from "./Components/LoginForm/LoginForm";
 
 import HomePage from "./Pages/HomePage/HomePage";
+import SignUpForm from "./Components/SignUpForm/SignUpForm";
 
 function App() {
   //set state using hooks method
@@ -27,6 +28,9 @@ function App() {
   }, []);
 
   const handleLoginUpdate = (incomingUser) => {
+    console.log(
+      `handleLoginUpdate Triggered! incoming user is : ${incomingUser}`
+    );
     setUser(incomingUser);
   };
 
@@ -37,10 +41,18 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/listing/detail" element={<ListingDetail />} />
-            <Route path="/login" element={<LoginForm />} />
+
+            <Route
+              path="/signup"
+              element={<SignUpForm handleLoginUpdate={handleLoginUpdate} />}
+            ></Route>
           </Routes>
         ) : (
           <Routes>
+            <Route
+              path="/signup"
+              element={<SignUpForm handleLoginUpdate={handleLoginUpdate} />}
+            ></Route>
             <Route
               path="*"
               element={<LoginForm handleLoginUpdate={handleLoginUpdate} />}

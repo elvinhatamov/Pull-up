@@ -1,20 +1,23 @@
-import React from "react";
-import "./HomePage.css";
+import React, { Component } from 'react'
+import LoginForm from '../../Components/LoginForm/LoginForm'
+import SignUpForm from '../../Components/SignUpForm/SignUpForm'
 
-function HomePage(props) {
-  return (
-    <div className="HomePage">
-      <h1> HOME PAGE</h1>
-      <div className="search-inputs">
-        <h3>Search Bar here</h3>
-        <h3>Check-In Dates Here</h3>
-        <h3>Check-Out Dates Inputs Here</h3>
+export default class HomePage extends Component {
+  state ={
+    showLogin: true
+  }
+  render() {
+    return (
+      <div>
+        <h3 onClick={()=>this.setState({showLogin: this.state.showLogin})}>
+          {this.state.showLogin ? 'SIGN UP' : 'LOG IN'}
+        </h3>
+        {this.state.showLogin ?
+        <LoginForm setUserInState = {this.props.setUserInState} /> :
+        <SignUpForm setUserInState={this.props.setUserInState} />}
+
       </div>
-      <div className="advertised-listings">
-        Advertised Listings Square Cards Here
-      </div>
-    </div>
-  );
+    )
+  }
 }
 
-export default HomePage;
