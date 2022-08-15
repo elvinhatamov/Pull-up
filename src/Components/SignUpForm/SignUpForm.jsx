@@ -64,6 +64,8 @@ export default class SignUpForm extends Component {
     //const disable = this.state.password !== this.state.confirm;
     return (
       <div className="SignUpForm" onSubmit={this.signupHandle}>
+        <h1>Sign Up!</h1>
+
         <form>
           <label>Username </label>
           <input

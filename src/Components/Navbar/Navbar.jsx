@@ -10,6 +10,7 @@ function Navbar(props) {
   let nextPath = "";
   let nextPathName = "";
 
+  //checks current page if login or signup and prepares navbar button
   if (location.pathname != "/signup") {
     nextPath = "/signup";
     nextPathName = "Sign Up";
@@ -35,11 +36,10 @@ function Navbar(props) {
             <h1>My Hostings</h1>
           </div>
           <div className="signup-login-div">
-            <h1>Welcome </h1>
             <img src={process.env.PUBLIC_URL + "images/usericon.png"} />
-            <div className="logout" onClick={() => props.handleLogout()}>
+            <Link to="/login" onClick={() => props.handleLogout()}>
               <h1>Logout</h1>
-            </div>
+            </Link>
           </div>
         </div>
       ) : (

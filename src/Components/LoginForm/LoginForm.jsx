@@ -68,11 +68,6 @@ function LoginForm(props) {
         <button type="submit">LOG IN</button>
       </form>
       <p className="login-error-message">"Will put errors messages here"</p>
-      <br />
-      <h1>Click here to Sign Up!</h1>
-      <Link to="/signup">
-        <button>SIGN UP</button>
-      </Link>
     </div>
   );
 }
