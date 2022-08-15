@@ -17,8 +17,10 @@ async function signUp(req, res) {
     const { username, password, email, firstName, lastName, phone } = req.body;
 
     let user = await User.findOne({ email: req.body.email });
-    console.log("This is what searched User looks like: ", user);
-    if (user) throw new Error("User already exists!");
+
+    if (user) {
+      throw new Error("User already exists!", { cause: "UserExists" });
+    }
 
     //const passwordHash = await bcrypt.hash(password, 10);
 
@@ -47,7 +49,12 @@ async function signUp(req, res) {
     // );
   } catch (error) {
     console.log(error);
-    res.status(400).json(error);
+
+    if (error.cause == "UserExists") {
+      return res.status(400).json("User Already Exists");
+    }
+
+    res.status(400).json("Internal Server Error, try again later");
   }
 }
 
