@@ -30,10 +30,21 @@ function Navbar(props) {
           </div>
 
           <div className="nav-buttons-div">
-            <h1>Home</h1>
-            <h1>All Reservations</h1>
-            <h1>Register Hosting</h1>
-            <h1>My Hostings</h1>
+            <Link className="nav-links" to="/">
+              <h1>Home</h1>
+            </Link>
+
+            <Link className="nav-links" to="/">
+              <h1>All Reservations</h1>
+            </Link>
+
+            <Link className="nav-links" to="/hostings/create">
+              <h1>Register Hosting</h1>
+            </Link>
+
+            <Link className="nav-links" to="/">
+              <h1>My Hostings</h1>
+            </Link>
           </div>
           <div className="signup-login-div">
             <img src={process.env.PUBLIC_URL + "images/usericon.png"} />

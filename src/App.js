@@ -47,6 +47,7 @@ function App() {
         {user ? (
           <Routes>
             <Route path="/" element={<HomePage />} />
+
             <Route path="/listing/detail" element={<ListingDetail />} />
 
             <Route path="*" element={<HomePage />} />

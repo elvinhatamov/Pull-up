@@ -22,6 +22,10 @@
   justify-content: center;
 }
 
+.nav-links {
+  margin: 0 10px;
+}
+
 .nav-buttons-div > h1 {
   margin: 0 15px;
 }
