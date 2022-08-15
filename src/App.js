@@ -12,8 +12,8 @@ import Create from "./Components/Create/Create";
 
 function App() {
   //set state using hooks method
-  const [user, setUser] = useState(null);
 
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   //check for token everytime something renders so we don't relogin
@@ -37,12 +37,15 @@ function App() {
   };
 
   const handleLogout = () => {
-    console.log("This will logout");
+    setUser(null);
+    localStorage.removeItem("token");
+    navigate("/login");
   };
 
   return (
     <div className='App'>
       <div className='wireframe'>
+        <Navbar handleLogout={handleLogout} user={user} />
         {user ? (
           <Routes>
             <Route path='/' element={<HomePage />} />
