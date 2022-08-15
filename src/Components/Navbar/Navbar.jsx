@@ -1,7 +1,10 @@
 import React from "react";
 import "./Navbar.css";
+import { useNavigate } from "react-router-dom";
 
 function Navbar(props) {
+  let navigate = useNavigate();
+
   return (
     <nav className="Navbar">
       <div className="pullup-logo-div">
@@ -14,7 +17,9 @@ function Navbar(props) {
       </div>
       <div className="signup-login-div">
         <img src={process.env.PUBLIC_URL + "images/usericon.png"} />
-        <h1>Logout</h1>
+        <div className="logout" onClick={() => props.handleLogout()}>
+          <h1>Logout</h1>
+        </div>
       </div>
     </nav>
   );
