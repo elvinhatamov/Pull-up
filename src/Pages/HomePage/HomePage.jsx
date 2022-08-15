@@ -9,7 +9,6 @@ function HomePage(props) {
 
   return (
     <div className="HomePage">
-      <Navbar />
       <div className="search-container">
         <h1>Where Do You Plan To Be?</h1>
         <div className="search-inputs">
@@ -47,3 +46,5 @@ function HomePage(props) {
     </div>
   );
 }
+
+export default HomePage;

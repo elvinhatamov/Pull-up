@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { Router, Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import ListingDetail from "./Pages/ListingDetail/ListingDetail";
 import Navbar from "./Components/Navbar/Navbar";
 import LoginForm from "./Components/LoginForm/LoginForm";
@@ -32,6 +32,10 @@ function App() {
       `handleLoginUpdate Triggered! incoming user is : ${incomingUser}`
     );
     setUser(incomingUser);
+  };
+
+  const handleLogout = () => {
+    console.log("This will logout");
   };
 
   return (
