@@ -1,12 +1,13 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { Router, Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import ListingDetail from "./Pages/ListingDetail/ListingDetail";
 import Navbar from "./Components/Navbar/Navbar";
 import LoginForm from "./Components/LoginForm/LoginForm";
 
 import HomePage from "./Pages/HomePage/HomePage";
 import SignUpForm from "./Components/SignUpForm/SignUpForm";
+import PersonalListPage from "./Pages/PersonalListPage/PersonalListPage"
 
 function App() {
   //set state using hooks method
@@ -34,6 +35,10 @@ function App() {
     setUser(incomingUser);
   };
 
+  const handleLogout = () => {
+    console.log("This will logout");
+  };
+
   return (
     <div className="App">
       <div className="wireframe">
@@ -41,11 +46,9 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/listing/detail" element={<ListingDetail />} />
-
-            <Route
-              path="/signup"
-              element={<SignUpForm handleLoginUpdate={handleLoginUpdate} />}
-            ></Route>
+            <Route path="/hostings/index" element={<PersonalListPage />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="*" element={<HomePage />} />
           </Routes>
         ) : (
           <Routes>

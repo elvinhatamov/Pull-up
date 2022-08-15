@@ -1,0 +1,9 @@
+.PersonalList {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid var(--silver);
+    display: flex;
+    text-align: center;
+    gap: 30px;
+  }
+  

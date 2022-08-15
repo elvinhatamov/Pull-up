@@ -1,7 +1,6 @@
 import React from "react";
 import "./Navbar.css";
 
-
 function Navbar(props) {
   return (
     <nav className="Navbar">
@@ -15,7 +14,7 @@ function Navbar(props) {
       </div>
       <div className="signup-login-div">
         <img src={process.env.PUBLIC_URL + "images/usericon.png"} />
-        <h1>Login | Signup</h1>
+        <h1>Logout</h1>
       </div>
     </nav>
   );
