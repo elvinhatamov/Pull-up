@@ -10,8 +10,8 @@ import SignUpForm from "./Components/SignUpForm/SignUpForm";
 
 function App() {
   //set state using hooks method
-  const [user, setUser] = useState(null);
 
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   //check for token everytime something renders so we don't relogin
