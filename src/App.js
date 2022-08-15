@@ -28,32 +28,40 @@ function App() {
   }, []);
 
   const handleLoginUpdate = (incomingUser) => {
+    console.log(
+      `handleLoginUpdate Triggered! incoming user is : ${incomingUser}`
+    );
     setUser(incomingUser);
   };
 
   return (
-    <div className='App'>
-      <div className='wireframe'>
+    <div className="App">
+      <div className="wireframe">
         {user ? (
           <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/listing/detail' element={<ListingDetail />} />
-            <Route path='/login' element={<LoginForm />} />
-            <Route path="/signup">
-              <SignUpForm />
-            </Route>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/listing/detail" element={<ListingDetail />} />
+
+            <Route
+              path="/signup"
+              element={<SignUpForm handleLoginUpdate={handleLoginUpdate} />}
+            ></Route>
           </Routes>
         ) : (
           <Routes>
             <Route
-              path='*'
+              path="/signup"
+              element={<SignUpForm handleLoginUpdate={handleLoginUpdate} />}
+            ></Route>
+            <Route
+              path="*"
               element={<LoginForm handleLoginUpdate={handleLoginUpdate} />}
             />
           </Routes>
         )}
       </div>
     </div>
-  )
+  );
 }
 
 export default App;

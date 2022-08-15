@@ -1,6 +1,6 @@
 import { Component } from "react";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function LoginForm(props) {
   //hook setup for some value to be relaced
@@ -34,6 +34,7 @@ function LoginForm(props) {
 
       //grab user's (Mongo) document from the json token
       const userDoc = JSON.parse(atob(token.split(".")[1])).user;
+      console.log("This is userDoc from login after parsing token: ", userDoc);
       //PASSING USER JUST TO TRIGGER REFRESH
       props.handleLoginUpdate(userDoc);
 
@@ -42,10 +43,6 @@ function LoginForm(props) {
       console.log("Login Form Error: ", err);
     }
   };
-
-
-  
-
 
   return (
     <div className="LoginForm" onSubmit={handleSubmit}>
@@ -73,7 +70,9 @@ function LoginForm(props) {
       <p className="login-error-message">"Will put errors messages here"</p>
       <br />
       <h1>Click here to Sign Up!</h1>
-      <button>SIGN UP</button>
+      <Link to="/signup">
+        <button>SIGN UP</button>
+      </Link>
     </div>
   );
 }

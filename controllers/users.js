@@ -1,7 +1,6 @@
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
-const bcrypt = require('bcrypt')
-
+const bcrypt = require("bcrypt");
 
 //EXPORT CREATE(SIGNUP) LATER
 module.exports = {
@@ -10,36 +9,45 @@ module.exports = {
 };
 
 //CREATE "async function create(req, res) another time"
-async function signUp(req,res){
+async function signUp(req, res) {
+  console.log(
+    `Incoming req body from form: ${req.body.username} and ${req.body.email}`
+  );
   try {
-    const { email , password} = req.body;
+    const { username, password, email, firstName, lastName, phone } = req.body;
 
-    const user = await User.findOne({email});
+    let user = await User.findOne({ email: req.body.email });
+    console.log("This is what searched User looks like: ", user);
+    if (user) throw new Error("User already exists!");
 
-    if(user){
-      res.status(409); //conflict error most relevat error code in this sitauition
-    }
-    const passwordHash = await bcrypt.hash(password, 10);
+    //const passwordHash = await bcrypt.hash(password, 10);
 
     // const startingInfo = {
 
     // }
-  const result = await User.insertOne({
-    email,
-    passwordHash,
-    isVerified:false
-  });
-  const {insertedId} = result
 
- const token = jwt.sign({
-    id: insertedId,
-    email,
-    isVerified: false
-  },
-  process.env.SECRET, {expiresIn: '2d'},
-  res.status(200).json(token)
- ) } catch (error) {
-    console.log(error)
+    const result = await User.create({
+      username,
+      password,
+      email,
+      firstName,
+      lastName,
+      phone,
+    });
+
+    console.log(`This is what result looks like: `, result);
+    //re-search because result actually isn't the same as user query
+    user = await User.findOne({ email: req.body.email });
+
+    const token = jwt.sign({ user }, process.env.SECRET, {
+      expiresIn: "24h",
+    });
+
+    res.status(200).json(token);
+    // );
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
   }
 }
 
