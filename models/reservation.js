@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const reservationSchema = new Schema({
-  customer: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true,
@@ -18,7 +18,7 @@ const reservationSchema = new Schema({
     required: true,
   },
   totalCost: {
-    type: Float,
+    type: Number,
     required: true,
   },
   dateStart: {
@@ -27,7 +27,7 @@ const reservationSchema = new Schema({
   },
   dateEnd: {
     type: Date,
-    required: type,
+    required: true,
   },
 });
 

@@ -1,8 +1,13 @@
 //model here
+const Listings = require('../models/listing')
+
 
 //MAKE THIS ASYNC LATER WHEN WE ADD ACTUAL QUERIES
 async function create(req, res) {
+ console.log(req.body)
   try {
+     let list = new Listings(req.body)
+     list.save()
     //some query to add listing into the database
     console.log("pathing works on api/listings/create!!");
     res.status(200).json({ text: "Adding a Listing to MongoDB in the future" });

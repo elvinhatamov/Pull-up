@@ -6,19 +6,16 @@ const listingSchema = new Schema({
     type: String,
     required: true,
   },
+
   postalCode: {
     type: String,
     required: true,
   },
   rate: {
-    type: Float.toFixed(2),
+    type: Number,
     required: true,
   },
-  reservation: {
-    type: Schema.Types.ObjectId,
-    ref: "Reservation",
-    required: true,
-  },
+  
 });
 
 module.exports = mongoose.model("Listings", listingSchema);
