@@ -2,10 +2,9 @@ const express = require('express')
 const router = express.Router()
 const listingsCtrl = require('../../controllers/listings')
 
-router.post('/create', listingsCtrl.create)
-router.get('/create',(req,res)=>{
- res.status(200).render(req.body)
-})
+router.post('/', listingsCtrl.create)
 
+// router.put('/update/:id', listingsCtrl.update)
 
+router.get('/list', listingsCtrl.list)
 module.exports = router

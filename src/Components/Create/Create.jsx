@@ -25,7 +25,7 @@ async function onSubmit(e) {
 
 const newList = { ...form }
 
-await fetch("/api/hostings/create", {
+await fetch("/api/hostings/", {
      method: "POST",
      headers: {
        "Content-Type": "application/json",

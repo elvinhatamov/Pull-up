@@ -19,7 +19,7 @@ function LoginForm(props) {
 
     //Code ability to login authenticate token and login later!
     try {
-      const fetchResponse = await fetch("/api/users/login", {
+      const fetchResponse = await fetch("api/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email, password: password }),

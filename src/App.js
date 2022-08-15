@@ -7,7 +7,7 @@ import LoginForm from "./Components/LoginForm/LoginForm";
 
 import HomePage from "./Pages/HomePage/HomePage";
 import SignUpForm from "./Components/SignUpForm/SignUpForm";
-import Create from "./Components/Listing/Listing";
+import Create from "./Components/Create/Create";
 
 
 function App() {
@@ -52,6 +52,7 @@ function App() {
               path='/signup'
               element={<SignUpForm handleLoginUpdate={handleLoginUpdate} />}
             ></Route>
+            <Route path='/hostings/create' element={<Create />} />
           </Routes>
         ) : (
           <Routes>
@@ -62,10 +63,6 @@ function App() {
             <Route
               path='*'
               element={<LoginForm handleLoginUpdate={handleLoginUpdate} />}
-            />
-            <Route
-              path='/hostings/create'
-              element={<Create />}
             />
           </Routes>
         )}
