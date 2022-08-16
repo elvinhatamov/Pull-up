@@ -31,7 +31,7 @@ const UserModel = require("./models/user");
     {
       username: "paul3",
       password: "password",
-      email: "paul.r.yeung3@gmail.com",
+      email: ".rpaul.yeung3@gmail.com",
       firstName: "paul3",
       lastName: "yeung3",
       phone: "9012345678",

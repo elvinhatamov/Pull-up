@@ -1,25 +1,48 @@
 .Navbar {
   width: 100%;
   background-color: rgb(216, 198, 32);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;
 }
 
 .pullup-logo-p {
   font-size: 40px;
 }
 
+.navbar-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-buttons-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.nav-links {
+  margin: 0 10px;
+}
+
+.nav-buttons-div > h1 {
+  margin: 0 15px;
+}
+
 .signup-login-div {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-right: 10px;
 }
 
 .signup-login-div > img {
   width: 40px;
   height: 40px;
+  margin: 0 10px;
+}
+
+.logout {
   margin-right: 10px;
 }

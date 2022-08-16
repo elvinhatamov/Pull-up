@@ -8,11 +8,12 @@ import LoginForm from "./Components/LoginForm/LoginForm";
 import HomePage from "./Pages/HomePage/HomePage";
 import SignUpForm from "./Components/SignUpForm/SignUpForm";
 import PersonalListPage from "./Pages/PersonalListPage/PersonalListPage";
+import Create from "./Components/Create/Create";
 
 function App() {
   //set state using hooks method
-  const [user, setUser] = useState(null);
 
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   //check for token everytime something renders so we don't relogin
@@ -25,6 +26,7 @@ function App() {
       let userDoc = JSON.parse(atob(token.split(".")[1])).user;
 
       setUser(userDoc);
+      console.log(`This is user object passed by token: ${user}`);
     }
   }, []);
 
@@ -36,18 +38,22 @@ function App() {
   };
 
   const handleLogout = () => {
-    console.log("This will logout");
+    setUser(null);
+    localStorage.removeItem("token");
+    navigate("/login");
   };
 
   return (
     <div className="App">
       <div className="wireframe">
+        <Navbar handleLogout={handleLogout} user={user} />
         {user ? (
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/listing/detail" element={<ListingDetail />} />
             <Route path="/hostings/index" element={<PersonalListPage />} />
             <Route path="/login" element={<LoginForm />} />
+            <Route path="/hostings/create" element={<Create user={user} />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
         ) : (

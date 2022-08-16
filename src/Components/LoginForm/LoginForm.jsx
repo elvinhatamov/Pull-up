@@ -19,7 +19,7 @@ function LoginForm(props) {
 
     //Code ability to login authenticate token and login later!
     try {
-      const fetchResponse = await fetch("/api/users/login", {
+      const fetchResponse = await fetch("api/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email, password: password }),
@@ -68,11 +68,6 @@ function LoginForm(props) {
         <button type="submit">LOG IN</button>
       </form>
       <p className="login-error-message">"Will put errors messages here"</p>
-      <br />
-      <h1>Click here to Sign Up!</h1>
-      <Link to="/signup">
-        <button>SIGN UP</button>
-      </Link>
     </div>
   );
 }

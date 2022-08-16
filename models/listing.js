@@ -6,19 +6,23 @@ const listingSchema = new Schema({
     type: String,
     required: true,
   },
+
   postalCode: {
     type: String,
     required: true,
   },
   rate: {
-    type: Float.toFixed(2),
+    type: Number,
     required: true,
   },
-  reservation: {
+  user: {
     type: Schema.Types.ObjectId,
-    ref: "Reservation",
-    required: true,
+    ref: 'User',
+    // required: true,
   },
-});
+  lot:{
+    type:[String]
+  }
+})
 
 module.exports = mongoose.model("Listings", listingSchema);
