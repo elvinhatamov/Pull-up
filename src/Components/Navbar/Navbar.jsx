@@ -42,7 +42,7 @@ function Navbar(props) {
               <h1>Register Hosting</h1>
             </Link>
 
-            <Link className="nav-links" to="/">
+            <Link className="nav-links" to="/hostings/index">
               <h1>My Hostings</h1>
             </Link>
           </div>

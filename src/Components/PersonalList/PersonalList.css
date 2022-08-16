@@ -10,19 +10,6 @@
   --color-highlight-secondary: #b7f9e9;
   --border-radius-primary: 32px; }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
-  margin: 0; }
-
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
 @media (min-width: 576px) {
   :root {
     --font-size-title: 40px; } }
