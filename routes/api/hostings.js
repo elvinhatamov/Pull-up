@@ -4,7 +4,9 @@ const listingsCtrl = require('../../controllers/listings')
 
 router.post('/', listingsCtrl.create)
 
-// router.put('/update/:id', listingsCtrl.update)
+router.put('/:id', listingsCtrl.update)
+
+router.delete('/:id',listingsCtrl.deleted)
 
 router.get('/list', listingsCtrl.list)
 module.exports = router

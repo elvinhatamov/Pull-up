@@ -1,5 +1,6 @@
 import React , {useState} from 'react'
 import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 
 export default function Create(){
  const [form, setForm] = useState({
@@ -7,10 +8,11 @@ export default function Create(){
    postalCode: '',
    rate: Number,
    
+   
  })
 
 
-const navigate = useNavigate()
+// const navigate = useNavigate()
 
 function updateForm(e){
 setForm({ 
@@ -25,20 +27,22 @@ async function onSubmit(e) {
 
 const newList = { ...form }
 
-await fetch("/api/hostings/", {
+let response = await fetch("/api/hostings/", {
      method: "POST",
      headers: {
+      'Accept':'application/json',
        "Content-Type": "application/json",
      },
      body: JSON.stringify(newList),
    })
+   return await response.json()
    .catch(error => {
      console.log(error);
    });
  
-   setForm({ address: '', postalCode: '', rate: ''})
-   navigate("/");
- }
+//    setForm({ address: '', postalCode: '', rate: ''})
+//    navigate("/");
+  }
 
 return (
   <div>

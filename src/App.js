@@ -50,12 +50,8 @@ function App() {
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/listing/detail' element={<ListingDetail />} />
-
-            <Route
-              path='/signup'
-              element={<SignUpForm handleLoginUpdate={handleLoginUpdate} />}
-            ></Route>
-            <Route path='/hostings/create' element={<Create />} />
+            <Route path='/hostings/create' element={<Create  />} />
+            <Route path='*' element={<HomePage />} />
           </Routes>
         ) : (
           <Routes>

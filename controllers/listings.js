@@ -1,6 +1,18 @@
 //model here
 const Listings = require('../models/listing')
 
+async function deleted(req,res){
+  try {
+    
+    await Listings.findByIdAndDelete(req.params.id);
+    res.status(200).json("Ithem has been deleted")
+  } catch (error) {
+    res.status(500).json(error)
+    
+  }
+}
+
+
 
 //MAKE THIS ASYNC LATER WHEN WE ADD ACTUAL QUERIES
 async function create(req, res) {
@@ -16,32 +28,27 @@ async function create(req, res) {
   }
 }
 
+async function update(req, res) {
+  try {
+    let updateLot = await Listings.findByIdAndUpdate(req.params.id,{ $set: req.body})
+    res.status(200).json(updateLot)
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+}
 
-// async function update(req ,res){
-  
-//  try {
-//   let list = req.body
-//  } catch (err) {
-//   console.log(err)
-  
-//  }
-// }
-
-
-// List
 async function list(req,res){
   try {
     let list = await Listings.find().select(req.body.address)
-    res.json(list)
+    res.status(200).json(list)
 
   } catch (error) {
-    return res.status(400).json(error)
-      
-    
+     res.status(500).json(error)
     
   }
 }
 
+ 
 
 //MAKE THIS ASYNC LATER WHEN WE ADD ACTUAL QUERIES
 async function index(req, res) {
@@ -59,6 +66,7 @@ async function index(req, res) {
 module.exports = {
   create,
   index,
-  // update,
+  update,
+  deleted,
   list
 };

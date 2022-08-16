@@ -15,7 +15,14 @@ const listingSchema = new Schema({
     type: Number,
     required: true,
   },
-  
-});
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    // required: true,
+  },
+  lot:{
+    type:[String]
+  }
+})
 
 module.exports = mongoose.model("Listings", listingSchema);
