@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./ListingDetail.css";
 
 function ListingDetail(props) {
+  const id = props.id;
+
+  const [address, setAddress] = useState("");
+
+  useEffect(async () => {
+    console.log("Time for ajax call with id: ", id);
+
+    try {
+      const fetchResponse = await fetch("/api/listings/show", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: id }),
+      });
+      console.log(fetchResponse);
+
+      const listing = await fetchResponse.json();
+      setAddress(listing.address);
+
+      // in case fetch response is wrong
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   return (
     <div className="ListingDetail">
       ListingDetail Container
@@ -17,7 +41,7 @@ function ListingDetail(props) {
         </div>
         <div className="listing-info-div">
           Listing Info Div
-          <h3>1 Blue Jays Way, Toronto, ON</h3>
+          <h3>{address} here</h3>
           <h3>M5V 1J1</h3>
           <br />
           <h3>Rate: $0.25/H</h3>

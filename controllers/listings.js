@@ -58,10 +58,23 @@ async function index(req, res) {
   }
 }
 
+//Show listings individual detail page
+async function show(req, res) {
+  console.log("params id is : ", req.body.id);
+  try {
+    let listing = await Listings.findById(req.body.id);
+    console.log("Found the listing: ", listing);
+    res.status(200).json(listing);
+  } catch (err) {
+    res.status(500).json(error);
+  }
+}
+
 module.exports = {
   create,
   index,
   update,
   deleted,
   list,
+  show,
 };
