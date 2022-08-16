@@ -1,11 +1,24 @@
 import React, { useState, useEffect } from "react";
 import "./HomePage.css";
-import Navbar from "../../Components/Navbar/Navbar";
+import {
+  useJsApiLoader,
+  GoogleMap,
+  Autocomplete,
+} from "@react-google-maps/api";
 
 function HomePage(props) {
+  //setup state for each input
   const [searchAddress, setSearchAddress] = useState("");
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
+  const [timeFrom, setTimeFrom] = useState("");
+  const [timeTo, setTimeTo] = useState("");
+
+  //setup loader for google maps
+  // const { isLoaded } = useJsApiLoader({
+  //   googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
+  //   libraries: ["places"],
+  // });
 
   return (
     <div className="HomePage">
@@ -14,14 +27,16 @@ function HomePage(props) {
         <div className="search-inputs">
           <form autoComplete="off">
             <div className="search-input-bar">
-              <input
-                type="text"
-                name="searchaddress"
-                value={searchAddress}
-                onChange={(e) => setSearchAddress(e.target.value)}
-                placeholder="Input your destination"
-                required
-              />
+              <Autocomplete>
+                <input
+                  type="text"
+                  name="searchaddress"
+                  value={searchAddress}
+                  onChange={(e) => setSearchAddress(e.target.value)}
+                  placeholder="Input your destination"
+                  required
+                />
+              </Autocomplete>
               <button className="search-btn" type="submit">
                 Search Now
               </button>
@@ -30,9 +45,32 @@ function HomePage(props) {
               Date From:
               <input
                 type="date"
-                name="datefrom"
+                name="dateFrom"
                 value={dateFrom}
-                onChange={(e) => setSearchAddress(e.target.value)}
+                onChange={(e) => setDateFrom(e.target.value)}
+              />
+              To:
+              <input
+                type="date"
+                name="dateTo"
+                value={dateTo}
+                onChange={(e) => setDateTo(e.target.value)}
+              />
+            </div>
+            <div className="time-input-bar">
+              Time From:
+              <input
+                type="time"
+                name="timeFrom"
+                value={timeFrom}
+                onChange={(e) => setTimeFrom(e.target.value)}
+              />
+              To:
+              <input
+                type="time"
+                name="timeTo"
+                value={timeTo}
+                onChange={(e) => setTimeTo(e.target.value)}
               />
             </div>
           </form>
