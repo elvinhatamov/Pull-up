@@ -7,7 +7,7 @@ import LoginForm from "./Components/LoginForm/LoginForm";
 
 import HomePage from "./Pages/HomePage/HomePage";
 import SignUpForm from "./Components/SignUpForm/SignUpForm";
-import PersonalListPage from "./Pages/PersonalListPage/PersonalListPage"
+import PersonalListPage from "./Pages/PersonalListPage/PersonalListPage";
 
 function App() {
   //set state using hooks method
