@@ -7,6 +7,7 @@ import LoginForm from "./Components/LoginForm/LoginForm";
 
 import HomePage from "./Pages/HomePage/HomePage";
 import SignUpForm from "./Components/SignUpForm/SignUpForm";
+import PersonalListPage from "./Pages/PersonalListPage/PersonalListPage";
 import Create from "./Components/Create/Create";
 
 function App() {
@@ -50,6 +51,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/listing/detail" element={<ListingDetail />} />
+            <Route path="/hostings/index" element={<PersonalListPage />} />
+            <Route path="/login" element={<LoginForm />} />
             <Route path="/hostings/create" element={<Create user={user} />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
