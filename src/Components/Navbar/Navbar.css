@@ -40,7 +40,7 @@
 .signup-login-div > img {
   width: 40px;
   height: 40px;
-  margin-right: 10px;
+  margin: 0 10px;
 }
 
 .logout {
