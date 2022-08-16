@@ -5,41 +5,63 @@ import {
   GoogleMap,
   Autocomplete,
 } from "@react-google-maps/api";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import { Link, useNavigate, Redirect } from "react-router-dom";
+
+//grab API key from env file
+const { REACT_APP_GOOGLE_MAPS_API_KEY } = process.env;
 
 function HomePage(props) {
   //setup state for each input
-  const [searchAddress, setSearchAddress] = useState("");
+  const [searchAddress, setSearchAddress] = useState(null);
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
-  const [timeFrom, setTimeFrom] = useState("");
-  const [timeTo, setTimeTo] = useState("");
+  const [timeSlot, setTimeSlot] = useState("");
+
+  //setup navigation
+  const navigate = useNavigate();
 
   //setup loader for google maps
   // const { isLoaded } = useJsApiLoader({
-  //   googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
+  //   googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   //   libraries: ["places"],
   // });
+
+  // console.log(REACT_APP_GOOGLE_MAPS_API_KEY);
+
+  // if (!isLoaded) {
+  //   console.log("API not loaded!");
+  // }
+
+  const handleSubmitSearch = (event) => {
+    event.preventDefault();
+
+    const props = {
+      searchAddress: searchAddress,
+      dateFrom: dateFrom,
+      dateTo: dateTo,
+      //timeslot: timeSlot,
+    };
+
+    console.log(props);
+
+    navigate("/listings/detail", { props });
+  };
 
   return (
     <div className="HomePage">
       <div className="search-container">
         <h1>Where Do You Plan To Be?</h1>
         <div className="search-inputs">
-          <form autoComplete="off">
+          <form autoComplete="off" onSubmit={handleSubmitSearch}>
             <div className="search-input-bar">
-              <Autocomplete>
-                <input
-                  type="text"
-                  name="searchaddress"
-                  value={searchAddress}
-                  onChange={(e) => setSearchAddress(e.target.value)}
-                  placeholder="Input your destination"
-                  required
-                />
-              </Autocomplete>
-              <button className="search-btn" type="submit">
-                Search Now
-              </button>
+              <GooglePlacesAutocomplete
+                apiKey={REACT_APP_GOOGLE_MAPS_API_KEY}
+                selectProps={{
+                  value: searchAddress,
+                  onChange: setSearchAddress,
+                }}
+              />
             </div>
             <div className="date-input-bar">
               Date From:
@@ -57,25 +79,11 @@ function HomePage(props) {
                 onChange={(e) => setDateTo(e.target.value)}
               />
             </div>
-            <div className="time-input-bar">
-              Time From:
-              <input
-                type="time"
-                name="timeFrom"
-                value={timeFrom}
-                onChange={(e) => setTimeFrom(e.target.value)}
-              />
-              To:
-              <input
-                type="time"
-                name="timeTo"
-                value={timeTo}
-                onChange={(e) => setTimeTo(e.target.value)}
-              />
-            </div>
+
+            <button className="search-btn" type="submit">
+              Search Now
+            </button>
           </form>
-          <h3>Check-In Dates Here</h3>
-          <h3>Check-Out Dates Inputs Here</h3>
         </div>
       </div>
       <div className="advertised-listings">
