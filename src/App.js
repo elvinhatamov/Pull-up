@@ -9,7 +9,6 @@ import HomePage from "./Pages/HomePage/HomePage";
 import SignUpForm from "./Components/SignUpForm/SignUpForm";
 import Create from "./Components/Create/Create";
 
-
 function App() {
   //set state using hooks method
 
@@ -26,6 +25,7 @@ function App() {
       let userDoc = JSON.parse(atob(token.split(".")[1])).user;
 
       setUser(userDoc);
+      console.log(`This is user object passed by token: ${user}`);
     }
   }, []);
 
@@ -43,31 +43,31 @@ function App() {
   };
 
   return (
-    <div className='App'>
-      <div className='wireframe'>
+    <div className="App">
+      <div className="wireframe">
         <Navbar handleLogout={handleLogout} user={user} />
         {user ? (
           <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/listing/detail' element={<ListingDetail />} />
-            <Route path='/hostings/create' element={<Create  />} />
-            <Route path='*' element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/listing/detail" element={<ListingDetail />} />
+            <Route path="/hostings/create" element={<Create user={user} />} />
+            <Route path="*" element={<HomePage />} />
           </Routes>
         ) : (
           <Routes>
             <Route
-              path='/signup'
+              path="/signup"
               element={<SignUpForm handleLoginUpdate={handleLoginUpdate} />}
             ></Route>
             <Route
-              path='*'
+              path="*"
               element={<LoginForm handleLoginUpdate={handleLoginUpdate} />}
             />
           </Routes>
         )}
       </div>
     </div>
-  )
+  );
 }
 
 export default App;

@@ -47,6 +47,7 @@ function Navbar(props) {
             </Link>
           </div>
           <div className="signup-login-div">
+            <h1>Welcome {props.user.username} </h1>
             <img src={process.env.PUBLIC_URL + "images/usericon.png"} />
             <Link to="/login" onClick={() => props.handleLogout()}>
               <h1>Logout</h1>
