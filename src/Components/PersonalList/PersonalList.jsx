@@ -4,21 +4,21 @@ import "./PersonalList.css";
 class PersonalList extends React.Component {
   render(props) {
     return (
-      <div className="listing-section">
-        <div className="list-item">
-          <div className="image-box">
-            <div className="images">
-              <img src={this.props.listImageUrl} />
+      <div class="card">
+        <ul class="cards">
+          <li class="cards__item">
+            <div class="card">
+              <div class="card__image card__image--fence">
+                <img src={this.props.listImageUrl} />
+              </div>
+              <div class="card__content">
+                <div class="card__title">{this.props.title}</div>
+                <p class="card__text">{this.props.description}</p>
+                <button class="btn btn--block card__btn">Detail</button>
+              </div>
             </div>
-          </div>
-          <div className="text-box">
-            <h2 className="item">{this.props.title}</h2>
-            <p className="description">{this.props.description}</p>
-            <button type="button" name="item-1-button" id="item-1-button">
-              Detail
-            </button>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     );
   }
