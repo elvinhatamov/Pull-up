@@ -5,6 +5,8 @@ function ListingDetail(props) {
   const id = props.id;
 
   const [address, setAddress] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [rate, setRate] = useState("");
 
   useEffect(async () => {
     console.log("Time for ajax call with id: ", id);
@@ -19,7 +21,11 @@ function ListingDetail(props) {
 
       const listing = await fetchResponse.json();
       setAddress(listing.address);
+      setPostalCode(listing.postalCode);
+      setRate(listing.rate);
 
+      console.log(listing);
+      console.log("Username is ", listing.user.username);
       // in case fetch response is wrong
     } catch (error) {
       console.log(error);
@@ -40,11 +46,11 @@ function ListingDetail(props) {
           </div>
         </div>
         <div className="listing-info-div">
-          Listing Info Div
-          <h3>{address} here</h3>
-          <h3>M5V 1J1</h3>
+          <h3>Address</h3>
+          <h3>{address}</h3>
+          <h3>{postalCode}</h3>
           <br />
-          <h3>Rate: $0.25/H</h3>
+          <h3>Rate: ${rate}/H</h3>
           <div className="availability-card-div">
             <h4>Available Aug 1st- Aug 6th</h4>
             <h4> 8:00-16:00</h4>
