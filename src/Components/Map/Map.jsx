@@ -1,7 +1,6 @@
 import React from "react";
 import { GoogleMap, LoadScript, Autocomplete } from "@react-google-maps/api";
 import MapStyle from "./MapStyle";
-import Marker from "react-google-maps/lib/components/Marker";
 
 export default function Map() {
   return (
