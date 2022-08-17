@@ -37,6 +37,7 @@ class PersonalListPage extends React.Component {
   render() {
     return (
       <div style={{ paddingTop: "25px" }}>
+        <h1>Luds Houses {this.props.name}</h1>
         {this.state.lists.map((l) => (
           <PersonalList
             id={l.id}
