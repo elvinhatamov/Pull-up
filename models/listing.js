@@ -17,12 +17,14 @@ const listingSchema = new Schema({
   },
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'User',
+    ref: "User",
     // required: true,
   },
-  lot:{
-    type:[String]
-  }
-})
+  lot: {
+    type: [String],
+  },
+  daybooked: [Date],
+  nightsbooked: [Date],
+});
 
 module.exports = mongoose.model("Listings", listingSchema);

@@ -12,8 +12,6 @@ async function deleted(req, res) {
 
 //MAKE THIS ASYNC LATER WHEN WE ADD ACTUAL QUERIES
 async function create(req, res) {
-  console.log("Ajax works for hosting form to create!");
-  console.log(req.body);
   let list = new Listings(req.body);
   try {
     await list.save();
