@@ -9,6 +9,10 @@ function ListingDetail(props) {
   const [rate, setRate] = useState("");
   const [fetchResponse, setFetchResponse] = useState("");
 
+  //Reservations setup
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
+
   useEffect(() => {
     console.log("Time for ajax call with id: ", id);
 
@@ -57,8 +61,23 @@ function ListingDetail(props) {
           <br />
           <h3>Rate: ${rate}/H</h3>
           <div className="availability-card-div">
-            <h4>Available Aug 1st- Aug 6th</h4>
-            <h4> 8:00-16:00</h4>
+            <h4>Plan your Reservation</h4>
+            <div className="date-input-bar">
+              Date From:
+              <input
+                type="date"
+                name="dateFrom"
+                value={dateFrom}
+                onChange={(e) => setDateFrom(e.target.value)}
+              />
+              To:
+              <input
+                type="date"
+                name="dateTo"
+                value={dateTo}
+                onChange={(e) => setDateTo(e.target.value)}
+              />
+            </div>
           </div>
           <br />
           <br />
