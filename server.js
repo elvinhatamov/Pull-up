@@ -19,7 +19,7 @@ app.use("/api/users", require("./routes/api/users"));
 
 //normal routes here
 app.use("/api/listings", require("./routes/api/listings"));
-app.use('/api/hostings', require('./routes/api/hostings'))
+app.use("/api/hostings", require("./routes/api/hostings"));
 app.use("/api/reservations", require("./routes/api/reservations"));
 
 //"catch all" route

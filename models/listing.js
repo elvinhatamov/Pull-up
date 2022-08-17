@@ -9,7 +9,6 @@ const listingSchema = new Schema({
 
   postalCode: {
     type: String,
-    required: true,
   },
   rate: {
     type: Number,
@@ -17,12 +16,22 @@ const listingSchema = new Schema({
   },
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'User',
-    // required: true,
+    ref: "User",
+    required: true,
   },
-  lot:{
-    type:[String]
-  }
-})
+  lat: {
+    type: String,
+    required: true,
+  },
+  lng: {
+    type: String,
+    required: true,
+  },
+  lot: {
+    type: [String],
+  },
+  daybooked: [Date],
+  nightsbooked: [Date],
+});
 
 module.exports = mongoose.model("Listings", listingSchema);
