@@ -34,6 +34,7 @@ class PersonalListPage extends React.Component {
       },
     ],
   };
+
   render() {
     return (
       <div style={{ paddingTop: "25px" }}>
@@ -43,7 +44,6 @@ class PersonalListPage extends React.Component {
             id={l.id}
             title={l.title}
             description={l.description}
-            url={l.url}
             listImageUrl={l.listImageUrl}
           />
         ))}

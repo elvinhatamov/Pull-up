@@ -1,75 +1,43 @@
-@charset "utf-8";
-@import url(http://weloveiconfonts.com/api/?family=fontawesome);
-
-[class*="fontawesome-"]:before {
-  font-family: "FontAwesome", sans-serif;
+#register-form {
+  margin-top: 100px;
+  width: 500px;
+  height: 125px;
 }
 
-#login input {
-  border: none;
-  font-family: "Open Sans", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5em;
-  padding: 0;
-  -webkit-appearance: none;
+#number-bar {
+  width: 475px;
+  height: 30px;
+  border-color: rgb(224, 224, 224);
 }
 
-#login {
-  margin: 50px auto;
-  width: 320px;
-}
-
-#login form {
-  margin: auto;
-  padding: 22px 22px 22px 22px;
-  width: 100%;
-  border-radius: 5px;
-  background: #d2d3d4;
-}
-
-#login form span {
-  background-color: #8d8f91;
-  border-radius: 3px 0px 0px 3px;
-  border-right: 3px solid #c8cacb;
-  color: #606468;
-  display: block;
-  float: left;
-  line-height: 50px;
-  text-align: center;
-  width: 50px;
-  height: 50px;
-}
-
-#login form input[type="text"] {
-  background-color: #9c9e9f;
-  border-radius: 0px 3px 3px 0px;
-  color: #151515;
-  margin-bottom: 1em;
-  padding: 0 16px;
-  width: 235px;
-  height: 50px;
-}
-
-#login form input[type="password"] {
-  background-color: #9c9e9f;
-  border-radius: 0px 3px 3px 0px;
-  color: #151515;
-  margin-bottom: 1em;
-  padding: 0 16px;
-  width: 235px;
-  height: 50px;
-}
-
-#login form input[type="submit"] {
-  background: #9c9e9f;
-  border: 0;
-  width: 100%;
-  height: 40px;
-  border-radius: 3px;
-  color: rgb(217, 217, 217);
+.button-r {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, 0.1) 0 6px 20px;
+  box-sizing: border-box;
+  color: #121212;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
-#login form input[type="submit"]:hover {
-  background: #d7ca19;
+
+.button-r:hover {
+  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
