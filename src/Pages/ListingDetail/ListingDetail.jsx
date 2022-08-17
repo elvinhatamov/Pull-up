@@ -7,19 +7,24 @@ function ListingDetail(props) {
   const [address, setAddress] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [rate, setRate] = useState("");
+  const [fetchResponse, setFetchResponse] = useState("");
 
-  useEffect(async () => {
+  useEffect(() => {
     console.log("Time for ajax call with id: ", id);
 
     try {
-      const fetchResponse = await fetch("/api/listings/show", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: id }),
-      });
+      async function fetchData() {
+        const response = await fetch("/api/listings/show", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id: id }),
+        });
+      }
+      fetchData();
+
       console.log(fetchResponse);
 
-      const listing = await fetchResponse.json();
+      const listing = fetchResponse.json();
       setAddress(listing.address);
       setPostalCode(listing.postalCode);
       setRate(listing.rate);
