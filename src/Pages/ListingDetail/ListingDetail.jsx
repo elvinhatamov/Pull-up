@@ -16,29 +16,25 @@ function ListingDetail(props) {
   useEffect(() => {
     console.log("Time for ajax call with id: ", id);
 
-    try {
-      async function fetchData() {
-        const response = await fetch("/api/listings/show", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ id: id }),
-        });
-      }
-      fetchData();
+    const listings = fetch("/api/listings/show", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: id }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setFetchResponse(data);
+      });
 
-      console.log(fetchResponse);
+    setAddress(fetchResponse.address);
+    setPostalCode(fetchResponse.postalCode);
+    setRate(fetchResponse.rate);
 
-      const listing = fetchResponse.json();
-      setAddress(listing.address);
-      setPostalCode(listing.postalCode);
-      setRate(listing.rate);
-
-      console.log(listing);
-      console.log("Username is ", listing.user.username);
-      // in case fetch response is wrong
-    } catch (error) {
-      console.log(error);
-    }
+    //console.log(listing);
+    //console.log("Username is ", listing.user.username);
+    // in case fetch response is wrong
   }, []);
 
   return (
