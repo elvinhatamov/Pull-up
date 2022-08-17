@@ -3,7 +3,9 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import "./Create.css";
 
-export default function Create() {
+export default function Create(props) {
+  const user = props.user;
+
   const [form, setForm] = useState({
     address: "",
     postalCode: "",
@@ -22,34 +24,32 @@ export default function Create() {
   async function onSubmit(e) {
     e.preventDefault();
 
-    const newList = { ...form };
+    const newList = { ...form, user };
+    console.log(newList);
 
-    let response = await fetch("/api/hostings/", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newList),
-    });
-    return await response.json().catch((error) => {
-      console.log(error);
-    });
-
-    //    setForm({ address: '', postalCode: '', rate: ''})
-    //    navigate("/");
+    //even though this is hosting form, it really creates a listing
+    //path will be listings/create instead of hostings/create
+    try {
+      let response = await fetch("/api/listings/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newList),
+      });
+    } catch (error) {
+      console.log("Create error:", error);
+    }
   }
 
   return (
     <div className="LoginForm" id="login">
-      <form onSubmit={onSubmit}>
+      <form name="form-login" onSubmit={onSubmit}>
         <span class="fontawesome-user"></span>
         <input
           type="text"
           value={form.address}
           onChange={updateForm}
           name="address"
-          placeholder="address"
+          placeholder="Address"
         />
         <span class="fontawesome-user"></span>
         <input
@@ -57,7 +57,7 @@ export default function Create() {
           value={form.postalCode}
           onChange={updateForm}
           name="postalCode"
-          placeholder="postalCode"
+          placeholder="PostalCode"
         />
         <span class="fontawesome-user"></span>
         <input
@@ -65,7 +65,7 @@ export default function Create() {
           value={form.rate}
           onChange={updateForm}
           name="rate"
-          placeholder="rate"
+          placeholder="Rate"
         />
         <input type="submit" value="Submit" onClick={updateForm} />
       </form>
