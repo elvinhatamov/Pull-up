@@ -9,7 +9,6 @@ const listingSchema = new Schema({
 
   postalCode: {
     type: String,
-    required: true,
   },
   rate: {
     type: Number,
@@ -18,7 +17,7 @@ const listingSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",
-    // required: true,
+    required: true,
   },
   lot: {
     type: [String],
