@@ -9,32 +9,32 @@ function ListingDetail(props) {
   const [rate, setRate] = useState("");
   const [fetchResponse, setFetchResponse] = useState("");
 
+  //Reservations setup
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
+
   useEffect(() => {
     console.log("Time for ajax call with id: ", id);
 
-    try {
-      async function fetchData() {
-        const response = await fetch("/api/listings/show", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ id: id }),
-        });
-      }
-      fetchData();
+    const listings = fetch("/api/listings/show", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: id }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setFetchResponse(data);
+      });
 
-      console.log(fetchResponse);
+    setAddress(fetchResponse.address);
+    setPostalCode(fetchResponse.postalCode);
+    setRate(fetchResponse.rate);
 
-      const listing = fetchResponse.json();
-      setAddress(listing.address);
-      setPostalCode(listing.postalCode);
-      setRate(listing.rate);
-
-      console.log(listing);
-      console.log("Username is ", listing.user.username);
-      // in case fetch response is wrong
-    } catch (error) {
-      console.log(error);
-    }
+    //console.log(listing);
+    //console.log("Username is ", listing.user.username);
+    // in case fetch response is wrong
   }, []);
 
   return (
@@ -57,8 +57,23 @@ function ListingDetail(props) {
           <br />
           <h3>Rate: ${rate}/H</h3>
           <div className="availability-card-div">
-            <h4>Available Aug 1st- Aug 6th</h4>
-            <h4> 8:00-16:00</h4>
+            <h4>Plan your Reservation</h4>
+            <div className="date-input-bar">
+              Date From:
+              <input
+                type="date"
+                name="dateFrom"
+                value={dateFrom}
+                onChange={(e) => setDateFrom(e.target.value)}
+              />
+              To:
+              <input
+                type="date"
+                name="dateTo"
+                value={dateTo}
+                onChange={(e) => setDateTo(e.target.value)}
+              />
+            </div>
           </div>
           <br />
           <br />

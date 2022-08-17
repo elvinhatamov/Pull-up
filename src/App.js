@@ -30,9 +30,6 @@ function App() {
   }, []);
 
   const handleLoginUpdate = (incomingUser) => {
-    console.log(
-      `handleLoginUpdate Triggered! incoming user is : ${incomingUser}`
-    );
     setUser(incomingUser);
   };
 

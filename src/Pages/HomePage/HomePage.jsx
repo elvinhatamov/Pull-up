@@ -5,7 +5,10 @@ import {
   GoogleMap,
   Autocomplete,
 } from "@react-google-maps/api";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import GooglePlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from "react-google-places-autocomplete";
 import { Link, useNavigate, Redirect } from "react-router-dom";
 
 //grab API key from env file
@@ -16,30 +19,48 @@ function HomePage(props) {
   const [searchAddress, setSearchAddress] = useState(null);
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
-  const [timeSlot, setTimeSlot] = useState("");
+
+  //prepare states for latitude and longitude
+  const [lat, setLat] = useState("");
+  const [lng, setLng] = useState("");
 
   //setup navigation
   const navigate = useNavigate();
 
-  //setup loader for google maps
-  // const { isLoaded } = useJsApiLoader({
-  //   googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-  //   libraries: ["places"],
-  // });
-
-  // console.log(REACT_APP_GOOGLE_MAPS_API_KEY);
-
-  // if (!isLoaded) {
-  //   console.log("API not loaded!");
-  // }
-
   const handleSubmitSearch = (event) => {
     event.preventDefault();
 
+    console.log("The Search Address is ", searchAddress.label);
+    //use geocode to grab coordinates from address
+    const promiseobj = geocodeByAddress(searchAddress.label)
+      .then((results) => getLatLng(results[0]))
+      .then((coordinates) => {
+        console.log(
+          `Successfully got latitude and longitude of ${searchAddress.label} at`,
+          coordinates.lat,
+          coordinates.lng
+        );
+        return coordinates;
+      });
+
+    async function getCoordinates() {
+      try {
+        const coordinates = await promiseobj;
+        setLat(coordinates.lat);
+        setLng(coordinates.lng);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getCoordinates();
+
+    //save necessary info as props to pass to maps
     const props = {
       searchAddress: searchAddress,
       dateFrom: dateFrom,
       dateTo: dateTo,
+      lat: lat,
+      lng: lng,
       //timeslot: timeSlot,
     };
 
