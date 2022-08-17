@@ -19,6 +19,14 @@ const listingSchema = new Schema({
     ref: "User",
     required: true,
   },
+  lat: {
+    type: String,
+    required: true,
+  },
+  lng: {
+    type: String,
+    required: true,
+  },
   lot: {
     type: [String],
   },

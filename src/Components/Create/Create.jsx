@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 import GooglePlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
@@ -15,10 +15,10 @@ export default function Create(props) {
 
   //This is for Autocomplete
   const [searchAddress, setSearchAddress] = useState(null);
-  const [lat, setLat] = useState("");
-  const [lng, setLng] = useState("");
+
   const [rate, setRate] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const navigate = useNavigate();
 
   // const navigate = useNavigate()
 
@@ -52,14 +52,13 @@ export default function Create(props) {
     async function getCoordinates() {
       try {
         const coordinates = await promiseobj;
-        setLat(coordinates.lat);
-        setLng(coordinates.lng);
 
+        //insend the rest of the information here
         const newList = {
           address: searchAddress.label,
           rate: rate,
-          lat: lat,
-          lng: lng,
+          lat: coordinates.lat,
+          lng: coordinates.lng,
           user: user,
         };
 
@@ -67,7 +66,6 @@ export default function Create(props) {
 
         //even though this is hosting form, it really creates a listing
         //path will be listings/create instead of hostings/create
-
         let response = await fetch("/api/listings/create", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -79,6 +77,8 @@ export default function Create(props) {
       }
     }
     getCoordinates();
+
+    navigate("/hostings/index");
   }
 
   return (
