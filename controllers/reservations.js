@@ -1,12 +1,20 @@
 //model here
+const Listings = require("../models/listing");
+
+//Method to add days by 1
+Date.prototype.addDays = function (days) {
+  var date = new Date(this.valueOf());
+  date.setDate(date.getDate() + days);
+  return date;
+};
 
 //MAKE THIS ASYNC LATER WHEN WE ADD ACTUAL QUERIES
 async function create(req, res) {
   try {
     //some query to add listing into the database
-    console.log("pathing works on api/reservations/create!!");
+    //console.log("pathing works on api/reservations/create!!");
 
-    console.log(req.body);
+    console.log("Here is the request body: ", req.body);
 
     //set two date times for calculation
     const date1 = new Date(req.body.dateFrom);
@@ -25,26 +33,77 @@ async function create(req, res) {
     console.log("Days you attempted to book for: ", totalDays);
 
     //check if any field is in the past
-    const day1past = Math.round((date1 - today) / one_day);
-    const day2past = Math.round((date2 - today) / one_day);
+    const day1past = Math.round((date1 - today) / one_day + 1);
+    const day2past = Math.round((date2 - today) / one_day + 1);
 
     //Error handling for invalid date ranges
     if (isNaN(totalDays)) {
+      console.log("Please select 2 dates branch");
       return res.status(200).json({
         userError: true,
         msg: "Please select two dates!",
       });
     } else if (day1past < 0 || day2past < 0) {
+      console.log("Past dates branch");
       return res.status(200).json({
         userError: true,
         msg: "Cant book dates in the past!",
       });
     } else if (totalDays < 0) {
+      console.log("backwards dates branch");
       return res.status(200).json({
         userError: true,
         msg: "Your check-in and check-out dates are backwards!",
       });
     } else {
+      console.log("made it to listing dates branch");
+      //Finally try to book, but first check if days are existing
+      //Grab the listing data in general
+      let listing = await Listings.findById(req.body.id);
+
+      //const daysBooked = listing.daysbooked;
+
+      const daysBooked = [
+        "Fri Aug 19 2022",
+        "Sat Aug 20 2022",
+        "Sun Aug 21 2022",
+      ];
+
+      //this array is to display for error message which days are in conflict
+      conflictDays = [];
+
+      //iterate through each day and check if its in daysbooked, if not
+      let availableDays = [];
+
+      //because of UTC TO EST CONVERSTION, DAYS ARE BEHIND BY 1, FIX BY ADDING 1
+      // date1 = date1.addDays(1);
+      // date2 = date2.addDays(2);
+
+      let curDate = date1;
+      console.log("This is curDate: ", curDate);
+      curDate = curDate.addDays(1);
+      console.log("This is curDate after adding days: ", curDate);
+
+      while (curDate <= date2.addDays(1)) {
+        //check if this date has already been booked
+        if (daysBooked.includes(curDate.toDateString())) {
+          conflictDays.push(curDate.toDateString());
+          curDate = curDate.addDays(1);
+        } else {
+          availableDays.push(curDate.toDateString());
+          curDate = curDate.addDays(1);
+        }
+      }
+      console.log("Blocked days array at the edn: ", conflictDays);
+      console.log("available days array at the end: ", availableDays);
+
+      if (conflictDays) {
+        return res.status(200).json({
+          userError: true,
+          msg: `Sorry! ${conflictDays} have been booked!`,
+        });
+      }
+
       res.status(200).json("Adding a Reservation to MongoDB in the future");
     }
 

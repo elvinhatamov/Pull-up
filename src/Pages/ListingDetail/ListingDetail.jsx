@@ -45,7 +45,7 @@ function ListingDetail(props) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          listingId: id,
+          id: id,
           rate: listing.rate,
           dateTo: dateTo,
           dateFrom: dateFrom,
