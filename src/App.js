@@ -4,7 +4,7 @@ import { Router, Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import ListingDetail from "./Pages/ListingDetail/ListingDetail";
 import Navbar from "./Components/Navbar/Navbar";
 import LoginForm from "./Components/LoginForm/LoginForm";
-
+import MapListingsPage from "./Pages/MapListingsPage/MapListingsPage";
 import HomePage from "./Pages/HomePage/HomePage";
 import SignUpForm from "./Components/SignUpForm/SignUpForm";
 import PersonalListPage from "./Pages/PersonalListPage/PersonalListPage";
@@ -50,10 +50,12 @@ function App() {
         {user ? (
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/listing/detail" element={<ListingDetail />} />
+            <Route path="/listings/detail" element={<ListingDetail />} />
+
             <Route path="/hostings/index" element={<PersonalListPage />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/hostings/create" element={<Create user={user} />} />
+            <Route path="/listings/map" element={<MapListingsPage />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
         ) : (
