@@ -1,5 +1,6 @@
 //model here
 const Listings = require("../models/listing");
+const Reservations = require("../models/reservation");
 
 //Method to add days by 1
 Date.prototype.addDays = function (days) {
@@ -17,8 +18,8 @@ async function create(req, res) {
     console.log("Here is the request body: ", req.body);
 
     //set two date times for calculation
-    const date1 = new Date(req.body.dateFrom);
-    const date2 = new Date(req.body.dateTo);
+    let date1 = new Date(req.body.dateFrom);
+    let date2 = new Date(req.body.dateTo);
     console.log(`Date From is ${date1} and Date To is ${date2}`);
     //grab today's date too
     const today = new Date();
@@ -97,14 +98,40 @@ async function create(req, res) {
       console.log("Blocked days array at the edn: ", conflictDays);
       console.log("available days array at the end: ", availableDays);
 
-      if (conflictDays) {
+      if (conflictDays.length != 0) {
         return res.status(200).json({
           userError: true,
           msg: `Sorry! ${conflictDays} have been booked!`,
         });
-      }
+      } else {
+        //After all this, finally you can book
+        console.log("made it to booking stage!");
+        const totalCost = parseInt(req.body.rate) * (totalDays + 1);
+        console.log("total cost is ", totalCost);
 
-      res.status(200).json("Adding a Reservation to MongoDB in the future");
+        date1 = date1.addDays(1).toDateString();
+        date2 = date2.addDays(1).toDateString();
+
+        const inputs = {
+          user: req.body.user._id,
+          listing: req.body.id,
+          totalCost: totalCost,
+          dateStart: date1,
+          dateEnd: date2,
+        };
+
+        console.log("Building inputs for mongo: ", inputs);
+        let reservation = new Reservations(inputs);
+        try {
+          await reservation.save();
+          //some query to add listing into the database
+
+          res.status(200).json({ text: "Successfully added reservation!" });
+        } catch (err) {
+          console.log(err);
+          res.json(err);
+        }
+      }
     }
 
     //PUSH DATES INTO DAYSBOOKED IN LISTING

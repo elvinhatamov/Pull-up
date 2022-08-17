@@ -91,8 +91,6 @@ function ListingDetail(props) {
             <br />
             <h3>Rate: ${listing.rate}/H</h3>
             <div className="availability-card-div">
-              <h4>{errorMsg}</h4>
-
               <div className="date-input-bar">
                 <form onSubmit={handleReserve}>
                   <h3>Date</h3>
@@ -122,6 +120,7 @@ function ListingDetail(props) {
           </div>
         </div>
       )}
+      <h4>{errorMsg}</h4>
       <div className="other-listings-div">
         <div className="other-listings-card"> Other Listing & Info Here</div>
         <div className="other-listings-card"> Other Listing & Info Here</div>
