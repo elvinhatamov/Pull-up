@@ -15,7 +15,6 @@ const reservationSchema = new Schema({
   car: {
     type: Schema.Types.ObjectId,
     ref: "Car",
-    required: true,
   },
   totalCost: {
     type: Number,
