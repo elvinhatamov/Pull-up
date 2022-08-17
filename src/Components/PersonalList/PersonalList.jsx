@@ -3,6 +3,11 @@ import "./PersonalList.css";
 
 class PersonalList extends React.Component {
   render(props) {
+    // const handleDetailBtn = () => {
+    //   const navigate = navigate();
+    // };
+
+    // //navigate("/hostings/detail" )
     return (
       <div class="card">
         <img
@@ -14,7 +19,9 @@ class PersonalList extends React.Component {
           <span className="card__title">{this.props.title}</span>
           <br />
           <span className="card__title">{this.props.description}</span>
-          <button className="card_button">Detail</button>
+          <button path="/" className="card_button">
+            Detail
+          </button>
         </div>
       </div>
     );
