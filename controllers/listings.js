@@ -12,13 +12,16 @@ async function deleted(req, res) {
 
 //MAKE THIS ASYNC LATER WHEN WE ADD ACTUAL QUERIES
 async function create(req, res) {
+  console.log("pathing works on api/listings/create!!");
+  console.log(req.body);
   let list = new Listings(req.body);
   try {
     await list.save();
     //some query to add listing into the database
-    console.log("pathing works on api/listings/create!!");
-    res.status(200).json({ text: "Adding a Listing to MongoDB in the future" });
+
+    res.status(200).json({ text: "Successfully added listing!" });
   } catch (err) {
+    console.log(err);
     res.json(err);
   }
 }
