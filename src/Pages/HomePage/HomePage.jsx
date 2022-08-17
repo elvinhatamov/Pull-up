@@ -66,7 +66,7 @@ function HomePage(props) {
 
     console.log(props);
 
-    navigate("/listings/detail", { props });
+    navigate("/listings/map", { props });
   };
 
   return (
