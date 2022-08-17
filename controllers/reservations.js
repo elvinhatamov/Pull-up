@@ -25,22 +25,29 @@ async function create(req, res) {
     console.log("Days you attempted to book for: ", totalDays);
 
     //check if any field is in the past
-    const day1past = Math.round((date1-today) / one_day);
-    const day2past = Math.round((date2-today) / one_day);
-
+    const day1past = Math.round((date1 - today) / one_day);
+    const day2past = Math.round((date2 - today) / one_day);
 
     //Error handling for invalid date ranges
-    if (totalDays < 0) {
+    if (isNaN(totalDays)) {
+      return res.status(200).json({
+        userError: true,
+        msg: "Please select two dates!",
+      });
+    } else if (day1past < 0 || day2past < 0) {
+      return res.status(200).json({
+        userError: true,
+        msg: "Cant book dates in the past!",
+      });
+    } else if (totalDays < 0) {
       return res.status(200).json({
         userError: true,
         msg: "Your check-in and check-out dates are backwards!",
       });
-    } else if ()
-    
-    {
+    } else {
       res.status(200).json("Adding a Reservation to MongoDB in the future");
     }
-    
+
     //PUSH DATES INTO DAYSBOOKED IN LISTING
     //   const dateArray = [];
     // let currentDate = new Date(startDate);

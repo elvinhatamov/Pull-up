@@ -63,6 +63,8 @@ function ListingDetail(props) {
       //check for user errors
       if (message.userError) {
         setErrorMsg(message.msg);
+      } else {
+        setErrorMsg("");
       }
     } catch (error) {
       console.log(error);
@@ -89,7 +91,7 @@ function ListingDetail(props) {
             <br />
             <h3>Rate: ${listing.rate}/H</h3>
             <div className="availability-card-div">
-              <h4>Plan your Reservation</h4>
+              <h4>{errorMsg}</h4>
 
               <div className="date-input-bar">
                 <form onSubmit={handleReserve}>
@@ -115,7 +117,6 @@ function ListingDetail(props) {
                     Reserve
                   </button>
                 </form>
-                <h3>{errorMsg}</h3>
               </div>
             </div>
           </div>
