@@ -49,7 +49,10 @@ function App() {
         {user ? (
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/listings/detail" element={<ListingDetail />} />
+            <Route
+              path="/listings/detail"
+              element={<ListingDetail id="62fc20f07c6b345020bbc194" />}
+            />
             <Route path="/hostings/index" element={<PersonalListPage />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/hostings/create" element={<Create user={user} />} />

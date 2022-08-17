@@ -3,6 +3,8 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
 export default function Create(props) {
+  const user = props.user;
+
   const [form, setForm] = useState({
     address: "",
     postalCode: "",
@@ -21,22 +23,20 @@ export default function Create(props) {
   async function onSubmit(e) {
     e.preventDefault();
 
-    const newList = { ...form };
+    const newList = { ...form, user };
+    console.log(newList);
 
-    let response = await fetch("/api/hostings/", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newList),
-    });
-    return await response.json().catch((error) => {
-      console.log(error);
-    });
-
-    //    setForm({ address: '', postalCode: '', rate: ''})
-    //    navigate("/");
+    //even though this is hosting form, it really creates a listing
+    //path will be listings/create instead of hostings/create
+    try {
+      let response = await fetch("/api/listings/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newList),
+      });
+    } catch (error) {
+      console.log("Create error:", error);
+    }
   }
 
   return (

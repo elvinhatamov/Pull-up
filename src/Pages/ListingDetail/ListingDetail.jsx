@@ -1,7 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./ListingDetail.css";
 
 function ListingDetail(props) {
+  const id = props.id;
+
+  const [address, setAddress] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [rate, setRate] = useState("");
+  const [fetchResponse, setFetchResponse] = useState("");
+
+  useEffect(() => {
+    console.log("Time for ajax call with id: ", id);
+
+    try {
+      async function fetchData() {
+        const response = await fetch("/api/listings/show", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id: id }),
+        });
+      }
+      fetchData();
+
+      console.log(fetchResponse);
+
+      const listing = fetchResponse.json();
+      setAddress(listing.address);
+      setPostalCode(listing.postalCode);
+      setRate(listing.rate);
+
+      console.log(listing);
+      console.log("Username is ", listing.user.username);
+      // in case fetch response is wrong
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   return (
     <div className="ListingDetail">
       ListingDetail Container
@@ -16,11 +51,11 @@ function ListingDetail(props) {
           </div>
         </div>
         <div className="listing-info-div">
-          Listing Info Div
-          <h3>1 Blue Jays Way, Toronto, ON</h3>
-          <h3>M5V 1J1</h3>
+          <h3>Address</h3>
+          <h3>{address}</h3>
+          <h3>{postalCode}</h3>
           <br />
-          <h3>Rate: $0.25/H</h3>
+          <h3>Rate: ${rate}/H</h3>
           <div className="availability-card-div">
             <h4>Available Aug 1st- Aug 6th</h4>
             <h4> 8:00-16:00</h4>
