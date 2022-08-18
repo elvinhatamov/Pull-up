@@ -66,8 +66,9 @@
 .banner-heading h1 {
   font-size: 100px;
   font-weight: normal;
-  color: #fde02f;
+  color: #e2cd46;
   font-family: Satisfy;
+  padding-top: 80px;
 }
 
 .banner-text-item .form {
@@ -79,7 +80,7 @@
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   width: 70%;
-  padding: 1% 2%;
+  padding: 1% 6%;
 }
 
 .banner-text-item input,
@@ -122,9 +123,146 @@
   text-transform: uppercase;
   padding: 10px;
   cursor: pointer;
-  background-color: #fde02f;
+  background-color: #dfcc50;
   font-size: 16px;
   font-weight: normal;
   font-family: "Barlow Condensed";
   width: 20%;
+}
+
+.services {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-item {
+  flex: 1;
+  padding: 50px 10px;
+  border: lightcyan solid 1px;
+  text-align: center;
+  margin: 180px 50px;
+  transition: all 1s;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-item:hover {
+  box-shadow: 3px 3px 20px lightsteelblue;
+}
+
+.service-item h2 {
+  font-family: Barlow Condensed;
+  font-size: 18px;
+  width: 120px;
+  color: #001f38;
+  flex: 1;
+}
+
+.service-item img {
+  width: 60px;
+  height: 60px;
+  flex: 1;
+}
+
+.places-text {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.places-text small {
+  font-family: Roboto;
+  color: #ffc342;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.places-text h2 {
+  font-family: Barlow Condensed;
+  font-size: 55px;
+  color: #191d34;
+  letter-spacing: 1px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 30px;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.card {
+  border: 1px solid lightgray;
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 80%;
+  height: auto;
+}
+
+.card img {
+  max-width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cards .text {
+  padding: 20px;
+  font-family: Barlow Condensed;
+  line-height: 50px;
+}
+
+.cards .card-box {
+  display: flex;
+  flex-flow: row;
+  background-color: #fde02f;
+  font-size: 18px;
+  font-family: Roboto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cards .time {
+  flex: 1;
+}
+
+.cards .location {
+  flex: 2;
+}
+
+.cards .cost {
+  color: #4cafad;
+  font-size: 20px;
+}
+
+/*------------Zoom in Photos--------------*/
+.zoom-img {
+  float: left;
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.zoom-img .img-card {
+  position: absolute;
+  overflow: hidden;
+}
+
+.img-card img {
+  -webkit-transition: 0.8s ease;
+  transition: 0.8s ease;
+}
+
+.card:hover .zoom-img img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }

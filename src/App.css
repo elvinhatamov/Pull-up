@@ -48,3 +48,7 @@
 a {
   text-decoration: none;
 }
+
+html {
+  background-color: rgb(178, 155, 142);
+}

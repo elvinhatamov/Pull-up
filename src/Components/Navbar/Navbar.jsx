@@ -25,7 +25,7 @@ function Navbar(props) {
         <div className="navbar-container">
           <div className="pullup-logo-div">
             <h1>
-              <span className="pullup-logo-p">P</span>ULLUP
+              <img src="https://i.imgur.com/bWQE0Ps.png" />
             </h1>
           </div>
 
@@ -58,12 +58,12 @@ function Navbar(props) {
         <div className="navbar-container">
           <div className="pullup-logo-div">
             <h1>
-              <span className="pullup-logo-p">P</span>ULLUP
+              <img src="https://i.imgur.com/bWQE0Ps.png" />
             </h1>
           </div>
 
           <div className="nav-buttons-div">
-            <h1>WELCOME TO PULL UP!</h1>
+            <h1>PULL UP - The Top</h1>
           </div>
           <div className="signup-login-div">
             <img src={process.env.PUBLIC_URL + "images/usericon.png"} />
