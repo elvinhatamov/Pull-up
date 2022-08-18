@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import "./InfoCard.css";
 
 export default function InfoCard(props) {
   const handleSubmit = () => {
@@ -8,9 +9,10 @@ export default function InfoCard(props) {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="InfoCard">
       <h2>{props.address}</h2>
-      <h3>${props.rate}/day</h3>
+      <img src={props.photo} />
+      <h2>${props.rate}/day</h2>
       <button
         onClick={() => {
           handleSubmit();
