@@ -1,5 +1,6 @@
 .Navbar {
   width: 100%;
+  height: 100px;
   background-color: rgb(235, 204, 102);
 }
 
@@ -13,7 +14,7 @@
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 }
 

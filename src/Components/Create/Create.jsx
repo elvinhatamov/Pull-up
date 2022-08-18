@@ -82,32 +82,35 @@ export default function Create(props) {
   }
 
   return (
-    <div>
-      <br />
-      <form id="register-form" onSubmit={onSubmit}>
-        <div id="address-bar">
-          <GooglePlacesAutocomplete
-            apiKey={REACT_APP_GOOGLE_MAPS_API_KEY}
-            selectProps={{
-              value: searchAddress,
-              onChange: setSearchAddress,
-            }}
-          />
+    <div className="HomePage">
+      <div class="banner">
+        <div class="banner-text-item">
+          <div class="banner-heading">
+            <h1>Become a Host</h1>
+          </div>
+          <form class="form" autoComplete="off" onSubmit={onSubmit}>
+            <div className="search-input-bar">
+              <GooglePlacesAutocomplete
+                apiKey={REACT_APP_GOOGLE_MAPS_API_KEY}
+                selectProps={{
+                  value: searchAddress,
+                  onChange: setSearchAddress,
+                }}
+              />
+            </div>
+            <input
+              type="number"
+              name="rate"
+              value={rate}
+              placeholder="Rate ($/hr)"
+              onChange={(e) => setRate(e.target.value)}
+            />
+            <a href="/hostings/index" type="submit" class="book">
+              Submit
+            </a>
+          </form>
         </div>
-        <br />
-        <input
-          id="number-bar"
-          type="number"
-          value={rate}
-          onChange={(e) => setRate(e.target.value)}
-          name="rate"
-          placeholder="Rate ($/hr)"
-        />
-      </form>
-      <br />
-      <button class="button-r" role="button" type="submit">
-        Submit
-      </button>
+      </div>
       <h3>{errorMsg}</h3>
     </div>
   );
