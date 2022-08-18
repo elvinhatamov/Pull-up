@@ -7,12 +7,34 @@ import {
   InfoWindow,
 } from "@react-google-maps/api";
 import MapStyle from "./MapStyle";
-import { format } from "morgan";
 
-export default function Map() {
+import { useEffect } from "react";
+
+
+export default function Map(props) {
+  let listings = props.listings;
+  console.log("Passed the listings down!", listings);
   const [markers, setMarkers] = React.useState([]);
   const [selected, setSelected] = React.useState(null);
   const image = require("../../assets/iconparking2.png");
+
+  let mark = [];
+  let index = 0;
+
+  listings.map((l) => {
+    console.log(`Lat and lng are ${l.lat} and ${l.lng}`);
+    mark.push({
+      lat: parseFloat(l.lat),
+      lng: parseFloat(l.lng),
+      time: index,
+    });
+    index = index + 1;
+  });
+
+  useEffect(() => {
+    console.log("Lets see Mark ", mark);
+    setMarkers(mark);
+  }, []);
 
   return (
     <GoogleMap
