@@ -48,7 +48,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route
-              path="/listings/detail"
+              path="/listings/detail/:list_id"
               element={
                 <ListingDetail id="62fc20f07c6b345020bbc194" user={user} />
               }
