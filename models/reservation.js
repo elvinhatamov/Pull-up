@@ -12,10 +12,13 @@ const reservationSchema = new Schema({
     ref: "Listings",
     required: true,
   },
+  address: {
+    type: String,
+    required: true,
+  },
   car: {
     type: Schema.Types.ObjectId,
     ref: "Car",
-    required: true,
   },
   totalCost: {
     type: Number,

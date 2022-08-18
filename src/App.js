@@ -4,11 +4,12 @@ import { Router, Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import ListingDetail from "./Pages/ListingDetail/ListingDetail";
 import Navbar from "./Components/Navbar/Navbar";
 import LoginForm from "./Components/LoginForm/LoginForm";
-
+import MapListingsPage from "./Pages/MapListingsPage/MapListingsPage";
 import HomePage from "./Pages/HomePage/HomePage";
 import SignUpForm from "./Components/SignUpForm/SignUpForm";
 import PersonalListPage from "./Pages/PersonalListPage/PersonalListPage";
 import Create from "./Components/Create/Create";
+import ReservationsPage from "./Pages/ReservationsPage/ReservationsPage";
 
 function App() {
   //set state using hooks method
@@ -47,14 +48,21 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route
-              path="/listings/detail"
-              element={<ListingDetail id="62fc20f07c6b345020bbc194" />}
+              path="/listings/detail/:list_id"
+              element={
+                <ListingDetail id="62fc20f07c6b345020bbc194" user={user} />
+              }
+            />
+            <Route path="/hostings/index" element={<PersonalListPage />} />
+            <Route path="/hostings/create" element={<Create user={user} />} />
+            <Route
+              path="/listings/map"
+              element={<MapListingsPage user={user} />}
             />
             <Route
-              path="/hostings/index"
-              element={<PersonalListPage user={user} />}
+              path="/reservations/index"
+              element={<ReservationsPage user={user} />}
             />
-            <Route path="/hostings/create" element={<Create user={user} />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
         ) : (
