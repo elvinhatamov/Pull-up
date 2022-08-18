@@ -8,9 +8,9 @@ function ListingDetail(props) {
   const navigate = useNavigate();
 
   //const id = props.id;
-  const id = "62fd2c03b5533a13e50a01b8";
-  let { list_id } = useParams();
-  console.log("Here is the url params id! ", list_id);
+  //const id = "62fd2c03b5533a13e50a01b8";
+  let { id } = useParams();
+  console.log("Here is the url params id! ", id);
 
   //user will be passed too
 
@@ -93,7 +93,7 @@ function ListingDetail(props) {
             <h3>Address</h3>
             <h3>{listing.address}</h3>
             <br />
-            <h3>Rate: ${listing.rate}/H</h3>
+            <h3>Rate: ${listing.rate}/day</h3>
             <div className="availability-card-div">
               <div className="date-input-bar">
                 <form onSubmit={handleReserve}>
