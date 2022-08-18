@@ -1,0 +1,75 @@
+@charset "utf-8";
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+[class*="fontawesome-"]:before {
+  font-family: "FontAwesome", sans-serif;
+}
+
+#login input {
+  border: none;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+  padding: 0;
+  -webkit-appearance: none;
+}
+
+#login {
+  margin: 50px auto;
+  width: 320px;
+}
+
+#login form {
+  margin: auto;
+  padding: 22px 22px 22px 22px;
+  width: 100%;
+  border-radius: 5px;
+  background: #d2d3d4;
+}
+
+#login form span {
+  background-color: #8d8f91;
+  border-radius: 3px 0px 0px 3px;
+  border-right: 3px solid #c8cacb;
+  color: #606468;
+  display: block;
+  float: left;
+  line-height: 50px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+}
+
+#login form input[type="text"] {
+  background-color: #9c9e9f;
+  border-radius: 0px 3px 3px 0px;
+  color: #151515;
+  margin-bottom: 1em;
+  padding: 0 16px;
+  width: 235px;
+  height: 50px;
+}
+
+#login form input[type="password"] {
+  background-color: #9c9e9f;
+  border-radius: 0px 3px 3px 0px;
+  color: #151515;
+  margin-bottom: 1em;
+  padding: 0 16px;
+  width: 235px;
+  height: 50px;
+}
+
+#login form input[type="submit"] {
+  background: #9c9e9f;
+  border: 0;
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  color: rgb(217, 217, 217);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+#login form input[type="submit"]:hover {
+  background: #d7ca19;
+}
