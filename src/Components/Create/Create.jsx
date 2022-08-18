@@ -10,6 +10,20 @@ import { set } from "mongoose";
 //grab API key from env file
 const { REACT_APP_GOOGLE_MAPS_API_KEY } = process.env;
 
+//array of house photos
+const photos = [
+  "https://i.imgur.com/x4oQww9.jpg",
+  "https://i.imgur.com/RUb9Mjc.jpg",
+  "https://i.imgur.com/yWnXcqx.jpg",
+  "https://i.imgur.com/Ow0gcSh.jpg",
+];
+const photos_len = photos.length;
+console.log("Length of photos array is ", photos_len);
+
+function randomNum(n) {
+  return Math.floor(Math.random() * n);
+}
+
 export default function Create(props) {
   const user = props.user;
 
