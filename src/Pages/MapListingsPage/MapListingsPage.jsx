@@ -6,10 +6,18 @@ import { useState } from "react";
 
 export default function MapListingsPage(props) {
   const location = useLocation();
-  //console.log("Is location working?", location);
+  // console.log("Is location working? Lat", location.state.lat);
+  // console.log("Is location working? Address", location.state.searchAddress);
 
   const [listings, setListings] = useState(null);
   const user = props.user;
+  const searchAddress = location.state.searchAddress;
+  const lat = location.state.lat;
+  const lng = location.state.lng;
+
+  //future use
+  const dateFrom = location.state.lat;
+  const dateTo = location.state.lng;
 
   //grab all the listings in preparation to populate with markers
   useEffect(() => {
@@ -38,7 +46,16 @@ export default function MapListingsPage(props) {
 
   return (
     <div style={{ width: "100vw", height: "90vh" }}>
-      {listings ? <Map listings={listings} /> : <h3>Now Loading...</h3>}
+      {listings ? (
+        <Map
+          listings={listings}
+          searchAddress={searchAddress}
+          lat={lat}
+          lng={lng}
+        />
+      ) : (
+        <h3>Now Loading...</h3>
+      )}
     </div>
   );
 }
