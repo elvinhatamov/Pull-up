@@ -7,8 +7,8 @@ import {
   InfoWindow,
 } from "@react-google-maps/api";
 import MapStyle from "./MapStyle";
-
 import { useEffect } from "react";
+import InfoCard from "../InfoCard/InfoCard";
 
 export default function Map(props) {
   let listings = props.listings;
@@ -65,8 +65,7 @@ export default function Map(props) {
       {selected ? (
         <InfoWindow position={selected}>
           <div>
-            <h2>Parking here!</h2>
-            <button>Reserve</button>
+            <InfoCard />
           </div>
         </InfoWindow>
       ) : null}
