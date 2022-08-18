@@ -21,7 +21,7 @@
 .nav-buttons-div {
   display: flex;
   flex-direction: row;
-  justify-content: right;
+  justify-content: start;
 }
 
 .nav-links {
@@ -37,6 +37,7 @@
   flex-direction: row;
   align-items: center;
   margin-right: 10px;
+  width: 150px;
 }
 
 .signup-login-div > img {
