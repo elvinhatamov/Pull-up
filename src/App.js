@@ -55,7 +55,10 @@ function App() {
             />
             <Route path="/hostings/index" element={<PersonalListPage />} />
             <Route path="/hostings/create" element={<Create user={user} />} />
-            <Route path="/listings/map" element={<MapListingsPage />} />
+            <Route
+              path="/listings/map"
+              element={<MapListingsPage user={user} />}
+            />
             <Route
               path="/reservations/index"
               element={<ReservationsPage user={user} />}
