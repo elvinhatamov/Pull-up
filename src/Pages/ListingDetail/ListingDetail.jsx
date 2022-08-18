@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ListingDetail.css";
 
 function ListingDetail(props) {
   //LISTING ID
   const user = props.user;
+  const navigate = useNavigate();
 
   //const id = props.id;
   const id = "62fd2c03b5533a13e50a01b8";
@@ -64,6 +66,7 @@ function ListingDetail(props) {
         setErrorMsg(message.msg);
       } else {
         setErrorMsg("");
+        navigate("/reservations/index");
       }
     } catch (error) {
       console.log(error);
