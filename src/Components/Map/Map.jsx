@@ -45,6 +45,7 @@ export default function Map(props) {
       lng: parseFloat(l.lng),
       address: l.address,
       rate: l.rate,
+      photo: l.photo,
     });
     index = index + 1;
   });
@@ -87,6 +88,7 @@ export default function Map(props) {
               id={selected.id}
               address={selected.address}
               rate={selected.rate}
+              photo={selected.photo}
             />
           </div>
         </InfoWindow>

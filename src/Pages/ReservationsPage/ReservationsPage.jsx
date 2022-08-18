@@ -29,6 +29,17 @@ function ReservationPage(props) {
       });
   }, []);
 
+  if (myReservations != null) {
+    myReservations.map((reserv) => {
+      reserv.dateStart = new Date(reserv.dateStart);
+      reserv.dateEnd = new Date(reserv.dateEnd);
+      reserv.dateStart = reserv.dateStart.toDateString();
+      reserv.dateEnd = reserv.dateEnd.toDateString();
+
+      console.log("The date start has been changed to ", reserv.dateStart);
+    });
+  }
+
   return (
     <div className="ReservationPage">
       <h1>My Parking Reservations</h1>
