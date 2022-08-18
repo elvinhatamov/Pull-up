@@ -88,17 +88,20 @@ function ListingDetail(props) {
       {listing && (
         <div className="listing-profile-div">
           <div className="listing-visuals-div">
-            <div className="google-map-mini">
-              <Map
-                listings={[listing]}
-                searchAddress={listing.searchAddress}
-                lat={listing.lat}
-                lng={listing.lng}
-              />
-            </div>
-            <div className="listing-photo-div">
-              <h3>Photo here</h3>
-            </div>
+            <Map
+              listings={[listing]}
+              searchAddress={listing.searchAddress}
+              lat={listing.lat}
+              lng={listing.lng}
+              mapWidth={"400px"}
+              mapHeight={"400px"}
+              zoom={15}
+            />
+
+            <img
+              className="listing-photo"
+              src="https://i.imgur.com/RUb9Mjc.jpg"
+            />
           </div>
 
           <div className="listing-info-div">
