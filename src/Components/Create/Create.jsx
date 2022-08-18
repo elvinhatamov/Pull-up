@@ -30,7 +30,7 @@ export default function Create(){
     }
 
     //fetch the latitude and longitude of address
-    const promiseobj = geocodeByAddress(searchAddress.label)
+    geocodeByAddress(searchAddress.label)
       .then((results) => getLatLng(results[0]))
       .then((coordinates) => {
         console.log(
@@ -38,58 +38,67 @@ export default function Create(){
           coordinates.lat,
           coordinates.lng
         );
-        return coordinates;
+
+        const newList = {
+          address: searchAddress.label,
+          rate: rate,
+          lat: coordinates.lat,
+          lng: coordinates.lng,
+          user: user,
+        };
+        console.log("Final new list is ", newList);
+
+        try {
+          //even though this is hosting form, it really creates a listing
+          //path will be listings/create instead of hostings/create
+          fetch("/api/listings/create", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newList),
+          });
+        } catch (err) {
+          console.log(err);
+          setErrorMsg(err);
+        }
+
+        navigate("/hostings/index");
       });
 
     //set lat and lng states from the promise object
     //fulfill rest of the work in this async function
-    async function getCoordinates() {
-      try {
-        const coordinates = await promiseobj;
-
-
-const newList = { ...form, user }
-
-let response = await fetch("/api/hostings/", {
-     method: "POST",
-     headers: {
-      'Accept':'application/json',
-       "Content-Type": "application/json",
-     },
-     body: JSON.stringify(newList),
-   })
-   return await response.json()
-   .catch(error => {
-     console.log(error);
-   });
- 
-//    setForm({ address: '', postalCode: '', rate: ''})
-//    navigate("/");
   }
 
-return (
-  <div>
-    <form onSubmit={onSubmit}>
-      
-      <label>Address</label>
-      <input
-        type='text'
-        value={form.address}
-        onChange={updateForm}
-        name='address'
-      />
-      <label>PostalCode:</label>
-      <input
-        type='text'
-        value={form.postalCode}
-        onChange={updateForm}
-        name='postalCode'
-      />
-      <label>Rate:</label>
-      <input type='text' value={form.rate} onChange={updateForm} name='rate' />
-
-      <button onClick={updateForm}>Submit</button>
-    </form>
-  </div>
-)
+  return (
+    <div className="HomePage">
+      <div class="banner">
+        <div class="banner-text-item">
+          <div class="banner-heading">
+            <h1>Become a Host</h1>
+          </div>
+          <form class="form" autoComplete="off" onSubmit={onSubmit}>
+            <div className="search-input-bar">
+              <GooglePlacesAutocomplete
+                apiKey={REACT_APP_GOOGLE_MAPS_API_KEY}
+                selectProps={{
+                  value: searchAddress,
+                  onChange: setSearchAddress,
+                }}
+              />
+            </div>
+            <input
+              type="number"
+              name="rate"
+              value={rate}
+              placeholder="Rate ($/day)"
+              onChange={(e) => setRate(e.target.value)}
+            />
+            <button type="submit" class="book">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+      <h3>{errorMsg}</h3>
+    </div>
+  );
 }
