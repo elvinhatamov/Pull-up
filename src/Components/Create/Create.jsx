@@ -16,8 +16,13 @@ const photos = [
   "https://i.imgur.com/RUb9Mjc.jpg",
   "https://i.imgur.com/yWnXcqx.jpg",
   "https://i.imgur.com/Ow0gcSh.jpg",
+  "https://i.imgur.com/b7E7Fd2.jpg",
+  "https://i.imgur.com/GMzqUZ2.jpg",
+  "https://i.imgur.com/FJzdEnW.jpg",
+  "https://i.imgur.com/yq4TWa3.jpg",
 ];
 const photos_len = photos.length;
+
 console.log("Length of photos array is ", photos_len);
 
 function randomNum(n) {
@@ -59,12 +64,17 @@ export default function Create(props) {
           coordinates.lng
         );
 
+        //generate random number for different photo
+        const rand = randomNum(photos_len);
+        console.log("Random number is ", rand);
+
         const newList = {
           address: searchAddress.label,
           rate: rate,
           lat: coordinates.lat,
           lng: coordinates.lng,
           user: user,
+          photo: photos[rand],
         };
 
         console.log("Final new list is ", newList);
@@ -110,7 +120,7 @@ export default function Create(props) {
               type="number"
               name="rate"
               value={rate}
-              placeholder="Rate ($/hr)"
+              placeholder="Rate ($/day)"
               onChange={(e) => setRate(e.target.value)}
             />
             <button type="submit" class="book">
