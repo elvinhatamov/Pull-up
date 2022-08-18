@@ -115,6 +115,7 @@ async function create(req, res) {
         const inputs = {
           user: req.body.user._id,
           listing: req.body.id,
+          address: req.body.address,
           totalCost: totalCost,
           dateStart: date1,
           dateEnd: date2,

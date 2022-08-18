@@ -46,6 +46,7 @@ function ListingDetail(props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           id: id,
+          address: listing.address,
           rate: listing.rate,
           dateTo: dateTo,
           dateFrom: dateFrom,
