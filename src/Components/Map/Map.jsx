@@ -9,6 +9,7 @@ import {
 import MapStyle from "./MapStyle";
 import { useEffect } from "react";
 import InfoCard from "../InfoCard/InfoCard";
+import InfoCardSearch from "../InfoCardSearch/InfoCardSearch";
 
 export default function Map(props) {
   let listings = props.listings;
@@ -30,7 +31,8 @@ export default function Map(props) {
 
   //Listing markers setup
   const [markers, setMarkers] = React.useState([]);
-  const [selected, setSelected] = React.useState(null);
+  const [selected, setSelected] = React.useState(null); // parking markers
+  const [selected2, setSelected2] = React.useState(null); //for search markers
   const image = require("../../assets/iconparking2.png");
 
   let mark = [];
@@ -97,12 +99,24 @@ export default function Map(props) {
         position={{ lat: searchlat, lng: searchlng }}
         icon={{
           url: searchImage,
-          scaledSize: new window.google.maps.Size(54.5, 75),
+          scaledSize: new window.google.maps.Size(66.5, 75),
         }}
         onClick={() => {
-          setSelected(searchMarker);
+          setSelected2(searchMarker);
         }}
       />
+      {selected2 ? (
+        <InfoWindow
+          position={selected2}
+          onCloseClick={() => {
+            setSelected2(null);
+          }}
+        >
+          <div>
+            <InfoCardSearch searchAddress={selected2.searchAddress} />
+          </div>
+        </InfoWindow>
+      ) : null}
     </GoogleMap>
   );
 }
