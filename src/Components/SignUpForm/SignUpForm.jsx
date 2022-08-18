@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SignUpForm.css";
+
 export default class SignUpForm extends Component {
   state = {
     username: "",
