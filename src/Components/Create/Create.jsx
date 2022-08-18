@@ -36,24 +36,15 @@ export default function Create(props) {
     }
 
     //fetch the latitude and longitude of address
-    const promiseobj = geocodeByAddress(searchAddress.label)
+    geocodeByAddress(searchAddress.label)
       .then((results) => getLatLng(results[0]))
       .then((coordinates) => {
         console.log(
           `Successfully got latitude and longitude of ${searchAddress.label} at`,
           coordinates.lat,
           coordinates.lng
-        )
-        return coordinates
-      })
+        );
 
-    //set lat and lng states from the promise object
-    //fulfill rest of the work in this async function
-    async function getCoordinates() {
-      try {
-        const coordinates = await promiseobj
-
-        //insend the rest of the information here
         const newList = {
           address: searchAddress.label,
           rate: rate,
@@ -64,21 +55,24 @@ export default function Create(props) {
 
         console.log('Final new list is ', newList)
 
-        //even though this is hosting form, it really creates a listing
-        //path will be listings/create instead of hostings/create
-        let response = await fetch('/api/listings/create', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(newList),
-        })
-      } catch (err) {
-        console.log(err)
-        setErrorMsg(err)
-      }
-    }
-    getCoordinates()
+        try {
+          //even though this is hosting form, it really creates a listing
+          //path will be listings/create instead of hostings/create
+          fetch("/api/listings/create", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newList),
+          });
+        } catch (err) {
+          console.log(err);
+          setErrorMsg(err);
+        }
 
-    navigate('/hostings/index')
+        navigate("/hostings/index");
+      });
+
+    //set lat and lng states from the promise object
+    //fulfill rest of the work in this async function
   }
 
   return (
@@ -102,12 +96,12 @@ export default function Create(props) {
               type='number'
               name='rate'
               value={rate}
-              placeholder='Rate ($/hr)'
+              placeholder="Rate ($/hr)"
               onChange={(e) => setRate(e.target.value)}
             />
-            <a href='/hostings/index' type='submit' class='book'>
+            <button type="submit" class="book">
               Submit
-            </a>
+            </button>
           </form>
         </div>
       </div>

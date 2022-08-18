@@ -48,10 +48,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route
-              path="/listings/detail/:list_id"
-              element={
-                <ListingDetail id="62fc20f07c6b345020bbc194" user={user} />
-              }
+              path="/listings/detail/:id"
+              element={<ListingDetail user={user} />}
             />
             <Route path="/hostings/index" element={<PersonalListPage />} />
             <Route path="/hostings/create" element={<Create user={user} />} />
