@@ -71,10 +71,13 @@ function HomePage(props) {
 
   return (
     <div className="HomePage">
-      <div className="search-container">
-        <h1>Where Do You Plan To Be?</h1>
-        <div className="search-inputs">
-          <form autoComplete="off" onSubmit={handleSubmitSearch}>
+      <div class="banner">
+        <div class="banner-text-item">
+          <div class="banner-heading">
+            <h1>Where would you like to be!</h1>
+            <h1>Have no fear Pull up Park here</h1>
+          </div>
+          <form class="form" autoComplete="off" onSubmit={handleSubmitSearch}>
             <div className="search-input-bar">
               <GooglePlacesAutocomplete
                 apiKey={REACT_APP_GOOGLE_MAPS_API_KEY}
@@ -84,31 +87,27 @@ function HomePage(props) {
                 }}
               />
             </div>
-            <div className="date-input-bar">
-              Date From:
-              <input
-                type="date"
-                name="dateFrom"
-                value={dateFrom}
-                onChange={(e) => setDateFrom(e.target.value)}
-              />
-              To:
-              <input
-                type="date"
-                name="dateTo"
-                value={dateTo}
-                onChange={(e) => setDateTo(e.target.value)}
-              />
-            </div>
-
-            <button className="search-btn" type="submit">
-              Search Now
-            </button>
+            From:
+            <input
+              type="date"
+              name="dateFrom"
+              value={dateFrom}
+              className="date"
+              onChange={(e) => setDateFrom(e.target.value)}
+            />
+            To:
+            <input
+              type="date"
+              name="dateTo"
+              value={dateTo}
+              className="date"
+              onChange={(e) => setDateTo(e.target.value)}
+            />
+            <a href="/hostings/index" type="submit" class="book">
+              book
+            </a>
           </form>
         </div>
-      </div>
-      <div className="advertised-listings">
-        Advertised Listings Square Cards Here
       </div>
     </div>
   );
