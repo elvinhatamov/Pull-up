@@ -9,7 +9,7 @@ function PersonalListPage(props) {
   const myHost = props.reservation
   
 
-  const [ lists, setLists] = useState()
+  const [ lists, setLists] = useState([])
 
   useEffect(()=>{
     console.log("My Hosting Page");
@@ -38,6 +38,8 @@ function PersonalListPage(props) {
       {lists.map((hosting) => (
         <PersonalList
           address={hosting.address}
+           img={hosting.img}
+          
           // user={hosting.user}
           
         />

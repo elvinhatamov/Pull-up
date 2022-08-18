@@ -7,11 +7,11 @@ console.log(props, 'this is the props in personal list component')
 
     return (
       <div class="card">
-        {/* <img
-          src={this.props.listImageUrl}
+        <img
+          src={props.img}
           className="card__image"
           alt="drive way"
-        /> */}
+        />
         <div className="card__content">
           <span className="card__title">{props.address}</span>
           <br />

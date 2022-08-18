@@ -99,6 +99,14 @@ export default function Create(props) {
               placeholder="Rate ($/hr)"
               onChange={(e) => setRate(e.target.value)}
             />
+
+<input
+              type='file'
+              name='rate'
+              value={rate}
+              placeholder="Rate ($/hr)"
+              onChange={(e) => setRate(e.target.value)}
+            />
             <button type="submit" class="book">
               Submit
             </button>
