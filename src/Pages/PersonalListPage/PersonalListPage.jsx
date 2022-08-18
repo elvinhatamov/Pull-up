@@ -29,12 +29,13 @@ function PersonalListPage(props) {
 
   return (
     <div class="HostingsList">
-      <h1>Luds Houses</h1>
+      <h1>My Hostings</h1>
       {lists.map((hosting) => (
         <PersonalList
           address={hosting.address}
-          rate={hosting.rate}
-          //  img={hosting.img}
+          img={hosting.photo}
+
+          // user={hosting.user}
         />
       ))}
     </div>
