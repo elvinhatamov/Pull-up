@@ -4,11 +4,14 @@ import {
   Marker,
   LoadScript,
   Autocomplete,
+  InfoWindow,
 } from "@react-google-maps/api";
 import MapStyle from "./MapStyle";
+import { format } from "morgan";
 
 export default function Map() {
   const [markers, setMarkers] = React.useState([]);
+  const [selected, setSelected] = React.useState(null);
   const image = require("../../assets/iconparking2.png");
 
   return (
@@ -29,8 +32,25 @@ export default function Map() {
       }}
     >
       {markers.map((marker) => (
-        <Marker position={marker} icon={image} />
+        <Marker
+          position={marker}
+          icon={{
+            url: image,
+            scaledSize: new window.google.maps.Size(54.5, 75),
+          }}
+          onClick={() => {
+            setSelected(marker);
+          }}
+        />
       ))}
+      {selected ? (
+        <InfoWindow position={selected}>
+          <div>
+            <h2>Parking here!</h2>
+            <button>Reserve</button>
+          </div>
+        </InfoWindow>
+      ) : null}
     </GoogleMap>
   );
 }
