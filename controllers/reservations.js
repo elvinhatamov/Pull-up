@@ -9,7 +9,7 @@ Date.prototype.addDays = function (days) {
   return date;
 };
 
-//MAKE THIS ASYNC LATER WHEN WE ADD ACTUAL QUERIES
+//HUGE CREATE FUNCTION AND LOGIC FOR USER HANDLING AND DEAL WITH TIME
 async function create(req, res) {
   try {
     //some query to add listing into the database
@@ -155,9 +155,12 @@ async function index(req, res) {
   try {
     //some query to grab all  into the database
     console.log("pathing works on api/reservations/index!!");
-    res
-      .status(200)
-      .json("Show all Reservations for User from MongoDB in the future");
+    console.log(req.body.user);
+
+    let reservations = await Reservations.find({ user: req.body.user._id });
+
+    console.log("Found reservations: ", reservations);
+    res.status(200).json(reservations);
   } catch (err) {
     res.json(err);
   }
