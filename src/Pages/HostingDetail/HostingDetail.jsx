@@ -53,4 +53,4 @@ function HostingDetail(props) {
   );
 }
 
-export default HostingDetail
+export default HostingDetail;

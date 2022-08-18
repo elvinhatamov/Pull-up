@@ -36,8 +36,6 @@ export default function Map(props) {
   let mark = [];
   let index = 0;
 
-  console.log("Listing info for 1 place: ", listings[0]);
-
   listings.map((l) => {
     mark.push({
       id: l._id,
@@ -55,10 +53,10 @@ export default function Map(props) {
 
   return (
     <GoogleMap
-      zoom={10}
+      zoom={props.zoom}
       center={{ lat: centerLat, lng: centerLng }}
       options={{ styles: MapStyle }}
-      mapContainerStyle={{ width: "100vw", height: "90vh" }}
+      mapContainerStyle={{ width: props.mapWidth, height: props.mapHeight }}
     >
       {markers.map((marker, idx) => (
         <Marker
@@ -97,7 +95,7 @@ export default function Map(props) {
         position={{ lat: searchlat, lng: searchlng }}
         icon={{
           url: searchImage,
-          scaledSize: new window.google.maps.Size(54.5, 75),
+          scaledSize: new window.google.maps.Size(66.5, 75),
         }}
         onClick={() => {
           setSelected(searchMarker);
