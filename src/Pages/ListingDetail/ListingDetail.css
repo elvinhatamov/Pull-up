@@ -10,52 +10,51 @@
   width: 100%;
   min-height: 320px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   border: 1px dashed purple;
 }
 
 .listing-visuals-div {
+  display: flex;
+  flex-direction: row;
   margin: 5px;
-  width: 50%;
-  max-width: 300px;
+  width: 100%;
+
   height: auto;
   border: 1px dashed blue;
 }
 
-.google-map {
+.google-map-mini {
   margin: 5px;
-  width: 290px;
+  width: 50%;
   height: 290px;
   border: 1px dashed green;
 }
 
-.listing-photos {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.photo-thumbnail {
-  margin: 5px;
-  width: 90px;
-  height: 90px;
-  border: 1px dashed green;
+.listing-photo-div {
+  width: 50%;
+  height: auto;
+  border: 1px dashed purple;
 }
 
 .listing-info-div {
   margin: 5px;
-  width: 50%;
+  width: 100%;
   border: 1px dashed blue;
   height: auto;
   text-align: right;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .availability-card-div {
-  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  border: 1px dashed green;
 }
 
 .reserve-btn {
@@ -68,8 +67,8 @@
   width: 100%;
   height: auto;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: center;
+  align-items: center;
   border: 1px dashed purple;
 }
 
@@ -95,5 +94,20 @@
   width: 90%;
   height: 30px;
   border: 1px dashed green;
+  text-align: center;
+}
+
+.banner-text-item input,
+.banner-text-item > .search-input-bar,
+.banner-text-item .date,
+.banner-text-item .book {
+  padding: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 18px;
+  font-family: Roboto;
+  border-radius: 5px;
+  outline: 0;
+  border: none;
   text-align: center;
 }

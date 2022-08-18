@@ -1,6 +1,8 @@
+import Map from "../../Components/Map/Map";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./ListingDetail.css";
+import { useLoadScript, Marker } from "@react-google-maps/api";
 
 function ListingDetail(props) {
   //LISTING ID
@@ -75,20 +77,30 @@ function ListingDetail(props) {
     }
   };
 
+  //LOAD THE MAP
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY,
+  });
+  if (!isLoaded) return <div>Loading...</div>;
+
   return (
     <div className="ListingDetail">
-      ListingDetail Container
       {listing && (
         <div className="listing-profile-div">
           <div className="listing-visuals-div">
-            Listing Visuals Div
-            <div className="google-map">Google Map Here</div>
-            <div className="listing-photos">
-              <div className="photo-thumbnail">Photo Thumbnails Here</div>
-              <div className="photo-thumbnail">Photo Thumbnails Here</div>
-              <div className="photo-thumbnail">Photo Thumbnails Here</div>
+            <div className="google-map-mini">
+              <Map
+                listings={[listing]}
+                searchAddress={listing.searchAddress}
+                lat={listing.lat}
+                lng={listing.lng}
+              />
+            </div>
+            <div className="listing-photo-div">
+              <h3>Photo here</h3>
             </div>
           </div>
+
           <div className="listing-info-div">
             <h3>Address</h3>
             <h3>{listing.address}</h3>
@@ -125,24 +137,6 @@ function ListingDetail(props) {
         </div>
       )}
       <h4>{errorMsg}</h4>
-      <div className="other-listings-div">
-        <div className="other-listings-card"> Other Listing & Info Here</div>
-        <div className="other-listings-card"> Other Listing & Info Here</div>
-        <div className="other-listings-card"> Other Listing & Info Here</div>
-        <div className="other-listings-card"> Other Listing & Info Here</div>
-      </div>
-      <div className="comments-div">
-        Comments
-        <div className="comments-card">
-          Great Driveway! Close to Event! - Kala
-        </div>
-        <div className="comments-card">
-          Great Driveway! Close to Event! - Kala
-        </div>
-        <div className="comments-card">
-          Great Driveway! Close to Event! - Kala
-        </div>
-      </div>
     </div>
   );
 }

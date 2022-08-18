@@ -36,8 +36,6 @@ export default function Map(props) {
   let mark = [];
   let index = 0;
 
-  console.log("Listing info for 1 place: ", listings[0]);
-
   listings.map((l) => {
     mark.push({
       id: l._id,
