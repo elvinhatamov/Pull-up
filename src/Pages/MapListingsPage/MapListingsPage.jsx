@@ -6,8 +6,8 @@ import { useState } from "react";
 
 export default function MapListingsPage(props) {
   const location = useLocation();
-  console.log("Is location working? Lat", location.state.lat);
-  console.log("Is location working? Address", location.state.searchAddress);
+  // console.log("Is location working? Lat", location.state.lat);
+  // console.log("Is location working? Address", location.state.searchAddress);
 
   const [listings, setListings] = useState(null);
   const user = props.user;
