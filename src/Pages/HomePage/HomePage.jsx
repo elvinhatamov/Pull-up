@@ -139,16 +139,14 @@ function HomePage(props) {
         <div class="cards">
           <div class="card">
             <div class="text">
-              <div class="zoom-img">
-                <div class="img-card">
-                  <img src="https://i.imgur.com/x4oQww9.jpg" />
-                </div>
+              <div class="img-card">
+                <img src="https://i.imgur.com/x4oQww9.jpg" />
               </div>
               <span class="rating">
                 &#11088;&#11088;&#11088;&#11088;&#11088;
               </span>
               <h2>Modern House DriveWay for Rent</h2>
-              <p class="cost">$1 / Per Min</p>
+              <p class="cost">$1 / Per Day</p>
               <div class="card-box">
                 <p class="time">&#128339; 7 Days</p>
                 <p class="location">📍 Toronto Downtown</p>
@@ -157,38 +155,34 @@ function HomePage(props) {
           </div>
           <div class="card">
             <div class="text">
-              <div class="zoom-img">
-                <div class="img-card">
-                  <img src="https://i.imgur.com/RUb9Mjc.jpg" />
-                </div>
+              <div class="img-card">
+                <img src="https://i.imgur.com/RUb9Mjc.jpg" />
               </div>
               <span class="rating">
                 &#11088;&#11088;&#11088;&#11088;&#11088;
               </span>
               <h2>Basic house DriveWay for rent</h2>
-              <p class="cost">$10 / Per Hr</p>
+              <p class="cost">$10 / Per Day</p>
               <div class="card-box">
                 <p class="time">&#128339; 7 Days</p>
-                <p class="location">📍 Markham</p>
+                <p class="location">📍 Markham Toronto</p>
               </div>
             </div>
           </div>
 
           <div class="card">
             <div class="text">
-              <div class="zoom-img">
-                <div class="img-card">
-                  <img src="https://i.imgur.com/yWnXcqx.jpg" />
-                </div>
+              <div class="img-card">
+                <img src="https://i.imgur.com/yWnXcqx.jpg" />
               </div>
               <span class="rating">
                 &#11088;&#11088;&#11088;&#11088;&#11088;
               </span>
               <h2>Nature House DriveWay for Rent</h2>
-              <p class="cost">$1 / Per Hr</p>
+              <p class="cost">$1 / Per Day</p>
               <div class="card-box">
                 <p class="time">&#128339; 7 Days</p>
-                <p class="location">📍 Newmarket</p>
+                <p class="location">📍 Newmarket Toronto</p>
               </div>
             </div>
           </div>
@@ -196,7 +190,7 @@ function HomePage(props) {
       </section>
       <section class="about">
         <div class="about-img">
-          <img src="https://i.imgur.com/zIURnIp.png" />
+          <img src="https://i.imgur.com/aMkA30O.png" />
         </div>
         <div class="about-text">
           <small>ABOUT OUR COMPANY</small>

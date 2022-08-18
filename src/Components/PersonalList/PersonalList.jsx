@@ -16,7 +16,7 @@ class PersonalList extends React.Component {
           <span className="card__title">{this.props.title}</span>
           <br />
           <span className="card__title">{this.props.description}</span>
-          <button className="card_button">Detail</button>
+          <button className="card_button">Delete</button>
         </div>
       </div>
     );
