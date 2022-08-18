@@ -1,38 +1,38 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom";
 import GooglePlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
-} from 'react-google-places-autocomplete'
-import './Create.css'
-import { set } from 'mongoose'
+} from "react-google-places-autocomplete";
+import "./Create.css";
+import { set } from "mongoose";
 //grab API key from env file
-const { REACT_APP_GOOGLE_MAPS_API_KEY } = process.env
+const { REACT_APP_GOOGLE_MAPS_API_KEY } = process.env;
 
 export default function Create(props) {
-  const user = props.user
+  const user = props.user;
 
   //This is for Autocomplete
-  const [searchAddress, setSearchAddress] = useState(null)
+  const [searchAddress, setSearchAddress] = useState(null);
 
-  const [rate, setRate] = useState('')
-  const [errorMsg, setErrorMsg] = useState('')
-  const navigate = useNavigate()
+  const [rate, setRate] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const navigate = useNavigate();
 
   // const navigate = useNavigate()
 
   async function onSubmit(e) {
-    e.preventDefault()
-    console.log('Current search address after click ', searchAddress)
+    e.preventDefault();
+    console.log("Current search address after click ", searchAddress);
 
     //handle if fields are empty
     if (!searchAddress) {
-      setErrorMsg('Please input an address!')
-      return
+      setErrorMsg("Please input an address!");
+      return;
     } else if (!rate) {
-      setErrorMsg('Please input a rate!')
-      return
+      setErrorMsg("Please input a rate!");
+      return;
     }
 
     //fetch the latitude and longitude of address
@@ -51,9 +51,9 @@ export default function Create(props) {
           lat: coordinates.lat,
           lng: coordinates.lng,
           user: user,
-        }
+        };
 
-        console.log('Final new list is ', newList)
+        console.log("Final new list is ", newList);
 
         try {
           //even though this is hosting form, it really creates a listing
@@ -76,14 +76,14 @@ export default function Create(props) {
   }
 
   return (
-    <div className='HomePage'>
-      <div class='banner'>
-        <div class='banner-text-item'>
-          <div class='banner-heading'>
+    <div className="HomePage">
+      <div class="banner">
+        <div class="banner-text-item">
+          <div class="banner-heading">
             <h1>Become a Host</h1>
           </div>
-          <form class='form' autoComplete='off' onSubmit={onSubmit}>
-            <div className='search-input-bar'>
+          <form class="form" autoComplete="off" onSubmit={onSubmit}>
+            <div className="search-input-bar">
               <GooglePlacesAutocomplete
                 apiKey={REACT_APP_GOOGLE_MAPS_API_KEY}
                 selectProps={{
@@ -93,16 +93,8 @@ export default function Create(props) {
               />
             </div>
             <input
-              type='number'
-              name='rate'
-              value={rate}
-              placeholder="Rate ($/hr)"
-              onChange={(e) => setRate(e.target.value)}
-            />
-
-<input
-              type='file'
-              name='rate'
+              type="number"
+              name="rate"
               value={rate}
               placeholder="Rate ($/hr)"
               onChange={(e) => setRate(e.target.value)}
@@ -115,5 +107,5 @@ export default function Create(props) {
       </div>
       <h3>{errorMsg}</h3>
     </div>
-  )
+  );
 }
