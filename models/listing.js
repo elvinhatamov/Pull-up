@@ -19,6 +19,9 @@ const listingSchema = new Schema({
     ref: "User",
     required: true,
   },
+  photo: {
+    type: String,
+  },
   lat: {
     type: String,
     required: true,

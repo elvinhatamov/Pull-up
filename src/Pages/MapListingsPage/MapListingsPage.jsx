@@ -52,6 +52,9 @@ export default function MapListingsPage(props) {
           searchAddress={searchAddress}
           lat={lat}
           lng={lng}
+          mapWidth={"100vw"}
+          mapHeight={"90vh"}
+          zoom={10}
         />
       ) : (
         <h3>Now Loading...</h3>
