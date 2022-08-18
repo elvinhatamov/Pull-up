@@ -1,6 +1,7 @@
 import { Component } from "react";
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import "./LoginForm.css";
 
 function LoginForm(props) {
   //hook setup for some value to be relaced
@@ -19,7 +20,7 @@ function LoginForm(props) {
 
     //Code ability to login authenticate token and login later!
     try {
-      const fetchResponse = await fetch("api/users/login", {
+      const fetchResponse = await fetch("/api/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email, password: password }),
@@ -45,27 +46,29 @@ function LoginForm(props) {
   };
 
   return (
-    <div className="LoginForm" onSubmit={handleSubmit}>
-      <h1> Login</h1>
-      <br />
-      <form autoComplete="off">
-        <label>Email</label>
+    <div className="LoginForm" onSubmit={handleSubmit} id="login">
+      <form name="form-login">
+        <span class="fontawesome-user"></span>
         <input
           type="text"
+          id="user"
+          placeholder="Username"
           name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <label>Password</label>
+        <span class="fontawesome-lock"></span>
         <input
           type="password"
+          id="pass"
+          placeholder="Password"
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">LOG IN</button>
+        <input type="submit" value="Login" />
       </form>
       <p className="login-error-message">"Will put errors messages here"</p>
     </div>

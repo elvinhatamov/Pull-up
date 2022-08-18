@@ -1,31 +1,51 @@
-import { Schema } from 'mongoose'
-import React , {useState} from 'react'
-import { useNavigate } from 'react-router'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
 
-
-export default function Create(props){
-const user = props.user._id
+export default function Create(){
  const [form, setForm] = useState({
    address: '',
    postalCode: '',
-   rate: Number
+   rate: Number,
+   
+   
  })
 
+  const [rate, setRate] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const navigate = useNavigate();
 
-const navigate = useNavigate()
+  // const navigate = useNavigate()
 
-function updateForm(e){
-setForm({ 
- ...form, 
- [e.target.name]: e.target.value
-})
+  async function onSubmit(e) {
+    e.preventDefault();
+    console.log("Current search address after click ", searchAddress);
 
-}
+    //handle if fields are empty
+    if (!searchAddress) {
+      setErrorMsg("Please input an address!");
+      return;
+    } else if (!rate) {
+      setErrorMsg("Please input a rate!");
+      return;
 
-async function onSubmit(e) {
-   e.preventDefault();
-  //  navigate('../hostings/list')
+    }
+
+    //fetch the latitude and longitude of address
+    const promiseobj = geocodeByAddress(searchAddress.label)
+      .then((results) => getLatLng(results[0]))
+      .then((coordinates) => {
+        console.log(
+          `Successfully got latitude and longitude of ${searchAddress.label} at`,
+          coordinates.lat,
+          coordinates.lng
+        );
+        return coordinates;
+      });
+
+    //set lat and lng states from the promise object
+    //fulfill rest of the work in this async function
+    async function getCoordinates() {
+      try {
+        const coordinates = await promiseobj;
 
 
 const newList = { ...form, user }

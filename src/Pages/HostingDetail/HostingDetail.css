@@ -1,0 +1,100 @@
+/*======== LISTING DETAIL STYLING HERE *========*/
+.ListingDetail {
+  min-width: 320px;
+  max-width: 720px;
+  width: 100%;
+  border: 1px dashed red;
+}
+
+.listing-profile-div {
+  width: 100%;
+  min-height: 320px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 1px dashed purple;
+}
+
+.listing-visuals-div {
+  margin: 5px;
+  width: 50%;
+  max-width: 300px;
+  height: auto;
+  border: 1px dashed blue;
+}
+
+.google-map {
+  margin: 5px;
+  width: 290px;
+  height: 290px;
+  border: 1px dashed green;
+}
+
+.listing-photos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.photo-thumbnail {
+  margin: 5px;
+  width: 90px;
+  height: 90px;
+  border: 1px dashed green;
+}
+
+.listing-info-div {
+  margin: 5px;
+  width: 50%;
+  border: 1px dashed blue;
+  height: auto;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.availability-card-div {
+  border: 1px solid black;
+  width: 250px;
+}
+
+.reserve-btn {
+  width: 200px;
+  height: 75x;
+  font-size: 25px;
+}
+
+.other-listings-div {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 1px dashed purple;
+}
+
+.other-listings-card {
+  margin: 10px;
+  width: 150px;
+  height: 150px;
+  border: 1px dashed green;
+}
+
+.comments-div {
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px dashed purple;
+}
+
+.comments-card {
+  margin: 5px;
+  width: 90%;
+  height: 30px;
+  border: 1px dashed green;
+  text-align: center;
+}

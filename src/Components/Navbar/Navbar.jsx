@@ -3,8 +3,8 @@ import "./Navbar.css";
 import { Link, useLocation } from "react-router-dom";
 
 function Navbar(props) {
+  //checks current url
   const location = useLocation();
-  console.log("Current location url: ", location.pathname);
 
   const user = props.user;
   let nextPath = "";
@@ -34,20 +34,20 @@ function Navbar(props) {
               <h1>Home</h1>
             </Link>
 
-            <Link className="nav-links" to="/">
-              <h1>All Reservations</h1>
+            <Link className="nav-links" to="/reservations/index">
+              <h1>My Reservations</h1>
             </Link>
 
             <Link className="nav-links" to="/hostings/create">
               <h1>Register Hosting</h1>
             </Link>
 
-            <Link className="nav-links" to="/">
+            <Link className="nav-links" to="/hostings/index">
               <h1>My Hostings</h1>
             </Link>
           </div>
           <div className="signup-login-div">
-            <h1>Welcome {props.user.username} </h1>
+            <h1>Welcome {props.user.username}!</h1>
             <img src={process.env.PUBLIC_URL + "images/usericon.png"} />
             <Link to="/login" onClick={() => props.handleLogout()}>
               <h1>Logout</h1>
