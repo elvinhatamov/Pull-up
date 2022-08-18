@@ -12,27 +12,25 @@ export default function Map() {
   const image = require("../../assets/iconparking2.png");
 
   return (
-    <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_KEY}>
-      <GoogleMap
-        zoom={10}
-        center={{ lat: 43.65107, lng: -79.347015 }}
-        options={{ styles: MapStyle }}
-        mapContainerStyle={{ width: "100vw", height: "90vh" }}
-        onClick={(event) => {
-          setMarkers((current) => [
-            ...current,
-            {
-              lat: event.latLng.lat(),
-              lng: event.latLng.lng(),
-              time: new Date(),
-            },
-          ]);
-        }}
-      >
-        {markers.map((marker) => (
-          <Marker position={marker} icon={image} />
-        ))}
-      </GoogleMap>
-    </LoadScript>
+    <GoogleMap
+      zoom={10}
+      center={{ lat: 43.65107, lng: -79.347015 }}
+      options={{ styles: MapStyle }}
+      mapContainerStyle={{ width: "100vw", height: "90vh" }}
+      onClick={(event) => {
+        setMarkers((current) => [
+          ...current,
+          {
+            lat: event.latLng.lat(),
+            lng: event.latLng.lng(),
+            time: new Date(),
+          },
+        ]);
+      }}
+    >
+      {markers.map((marker) => (
+        <Marker position={marker} icon={image} />
+      ))}
+    </GoogleMap>
   );
 }
