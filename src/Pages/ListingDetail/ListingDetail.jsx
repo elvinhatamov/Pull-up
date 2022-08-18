@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./ListingDetail.css";
 
 function ListingDetail(props) {
@@ -9,6 +9,8 @@ function ListingDetail(props) {
 
   //const id = props.id;
   const id = "62fd2c03b5533a13e50a01b8";
+  let { list_id } = useParams();
+  console.log("Here is the url params id! ", list_id);
 
   //user will be passed too
 
