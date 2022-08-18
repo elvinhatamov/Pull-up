@@ -1,26 +1,25 @@
 import React from "react";
 import "./PersonalList.css";
 
-class PersonalList extends React.Component {
-  render(props) {
-    console.log(props, "this is a console.log");
+function PersonalList(props){
+  
+console.log(props, 'this is the props in personal list component')
 
     return (
       <div class="card">
-        <img
+        {/* <img
           src={this.props.listImageUrl}
           className="card__image"
           alt="drive way"
-        />
+        /> */}
         <div className="card__content">
-          <span className="card__title">{this.props.title}</span>
+          <span className="card__title">{props.address}</span>
           <br />
-          <span className="card__title">{this.props.description}</span>
+          <span className="card__title">{props.user}</span>
           <button className="card_button">Delete</button>
         </div>
       </div>
     );
   }
-}
 
 export default PersonalList;
