@@ -6,12 +6,10 @@ import { useState } from "react";
 
 export default function MapListingsPage(props) {
   const location = useLocation();
-  //console.log("Is location working?", location);
+  console.log("Is location working?", location);
 
   const [listings, setListings] = useState(null);
   const user = props.user;
-
-  //console.log(`Props is working? Passed Lat ${lat} and Lng ${lng}`);
 
   //grab all the listings in preparation to populate with markers
   useEffect(() => {

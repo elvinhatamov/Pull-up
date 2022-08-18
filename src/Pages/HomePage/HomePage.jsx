@@ -43,6 +43,8 @@ function HomePage(props) {
           coordinates.lat,
           coordinates.lng
         );
+        setLat(coordinates.lat);
+        setLng(coordinates.lng);
         return coordinates;
       });
 

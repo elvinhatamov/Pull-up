@@ -10,10 +10,9 @@ import MapStyle from "./MapStyle";
 
 import { useEffect } from "react";
 
-
 export default function Map(props) {
   let listings = props.listings;
-  console.log("Passed the listings down!", listings);
+
   const [markers, setMarkers] = React.useState([]);
   const [selected, setSelected] = React.useState(null);
   const image = require("../../assets/iconparking2.png");
@@ -22,7 +21,6 @@ export default function Map(props) {
   let index = 0;
 
   listings.map((l) => {
-    console.log(`Lat and lng are ${l.lat} and ${l.lng}`);
     mark.push({
       lat: parseFloat(l.lat),
       lng: parseFloat(l.lng),
@@ -32,7 +30,6 @@ export default function Map(props) {
   });
 
   useEffect(() => {
-    console.log("Lets see Mark ", mark);
     setMarkers(mark);
   }, []);
 

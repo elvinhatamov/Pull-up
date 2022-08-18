@@ -1,55 +1,52 @@
-import React from "react";
+import React, { Component, useState, useEffect } from "react";
+
 import PersonalList from "../../Components/PersonalList/PersonalList";
 
-class PersonalListPage extends React.Component {
-  state = {
-    lists: [
-      {
-        id: 1,
-        title: "Paul's House",
-        description: "220 Yonge St, Toronto, ON M5B 2H1",
-        url: "#",
-        listImageUrl: "https://i.imgur.com/RUb9Mjc.jpg",
-      },
-      {
-        id: 2,
-        title: "Shadab's House",
-        description: "220 Yonge St, Toronto, ON M5B 2H1",
-        url: "#",
-        listImageUrl: "https://i.imgur.com/x4oQww9.jpg",
-      },
-      {
-        id: 3,
-        title: "Elvin's House",
-        description: "220 Yonge St, Toronto, ON M5B 2H1",
-        url: "#",
-        listImageUrl: "https://i.imgur.com/Ow0gcSh.jpg",
-      },
-      {
-        id: 4,
-        title: "Lud's House",
-        description: "220 Yonge St, Toronto, ON M5B 2H1",
-        url: "#",
-        listImageUrl: "https://i.imgur.com/yWnXcqx.jpg",
-      },
-    ],
-  };
+function PersonalListPage(props) {
+  let lists = [
+    {
+      id: 1,
+      title: "Paul's House",
+      description: "220 Yonge St, Toronto, ON M5B 2H1",
+      url: "#",
+      listImageUrl: "https://i.imgur.com/RUb9Mjc.jpg",
+    },
+    {
+      id: 2,
+      title: "Shadab's House",
+      description: "220 Yonge St, Toronto, ON M5B 2H1",
+      url: "#",
+      listImageUrl: "https://i.imgur.com/x4oQww9.jpg",
+    },
+    {
+      id: 3,
+      title: "Elvin's 24 House",
+      description: "220 Yonge St, Toronto, ON M5B 2H1",
+      url: "#",
+      listImageUrl: "https://i.imgur.com/Ow0gcSh.jpg",
+    },
+    {
+      id: 4,
+      title: "Lud's House",
+      description: "220 Yonge St, Toronto, ON M5B 2H1",
+      url: "#",
+      listImageUrl: "https://i.imgur.com/yWnXcqx.jpg",
+    },
+  ];
 
-  render() {
-    return (
-      <div style={{ paddingTop: "25px" }}>
-        <h1>Luds Houses {this.props.name}</h1>
-        {this.state.lists.map((l) => (
-          <PersonalList
-            id={l.id}
-            title={l.title}
-            description={l.description}
-            listImageUrl={l.listImageUrl}
-          />
-        ))}
-      </div>
-    );
-  }
+  return (
+    <div style={{ paddingTop: "25px" }}>
+      <h1>Luds Houses</h1>
+      {lists.map((l) => (
+        <PersonalList
+          id={l.id}
+          title={l.title}
+          description={l.description}
+          listImageUrl={l.listImageUrl}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default PersonalListPage;
