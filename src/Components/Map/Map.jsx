@@ -40,6 +40,7 @@ export default function Map(props) {
 
   listings.map((l) => {
     mark.push({
+      id: l._id,
       lat: parseFloat(l.lat),
       lng: parseFloat(l.lng),
       address: l.address,
@@ -82,7 +83,11 @@ export default function Map(props) {
           }}
         >
           <div>
-            <InfoCard />
+            <InfoCard
+              id={selected.id}
+              address={selected.address}
+              rate={selected.rate}
+            />
           </div>
         </InfoWindow>
       ) : null}

@@ -3,14 +3,14 @@ import React from "react";
 
 export default function InfoCard(props) {
   const handleSubmit = () => {
-    navigate("/listings/detail/62fe749d8f2bb3e53bd15b0f");
+    navigate("/listings/detail/" + props.id);
   };
   const navigate = useNavigate();
   return (
     <div>
-      <h2>Address</h2>
+      <h2>{props.address}</h2>
       <img></img>
-      <h3>$10/hour</h3>
+      <h3>{props.rate}</h3>
       <button
         onClick={() => {
           handleSubmit();
