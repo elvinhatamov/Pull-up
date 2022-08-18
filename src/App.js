@@ -9,6 +9,7 @@ import HomePage from "./Pages/HomePage/HomePage";
 import SignUpForm from "./Components/SignUpForm/SignUpForm";
 import PersonalListPage from "./Pages/PersonalListPage/PersonalListPage";
 import Create from "./Components/Create/Create";
+import ReservationsPage from "./Pages/ReservationsPage/ReservationsPage";
 
 function App() {
   //set state using hooks method
@@ -48,14 +49,17 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route
               path="/listings/detail"
-              element={<ListingDetail id="62fc20f07c6b345020bbc194" />}
+              element={
+                <ListingDetail id="62fc20f07c6b345020bbc194" user={user} />
+              }
             />
-            <Route
-              path="/hostings/index"
-              element={<PersonalListPage user={user} />}
-            />
+            <Route path="/hostings/index" element={<PersonalListPage />} />
             <Route path="/hostings/create" element={<Create user={user} />} />
             <Route path="/listings/map" element={<MapListingsPage />} />
+            <Route
+              path="/reservations/index"
+              element={<ReservationsPage user={user} />}
+            />
             <Route path="*" element={<HomePage />} />
           </Routes>
         ) : (

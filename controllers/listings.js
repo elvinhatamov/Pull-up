@@ -55,19 +55,24 @@ async function index(req, res) {
       .status(200)
       .json({ text: "Show all listings from MongoDB in the future" });
   } catch (err) {
+    console.log(err);
     res.json(err);
   }
 }
 
 //Show listings individual detail page
 async function show(req, res) {
-  console.log("params id is : ", req.body.id);
+  console.log("For show params id is : ", req.body.id);
   try {
     let listing = await Listings.findById(req.body.id);
+    console.log("This listing found is", listing);
+    if (!listing) {
+      console.log(listing);
+    }
     console.log("Found the listing: ", listing);
     res.status(200).json(listing);
   } catch (err) {
-    res.status(500).json(error);
+    res.status(500).json(err);
   }
 }
 

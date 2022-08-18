@@ -1,0 +1,12 @@
+.ReservationPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reservation-card {
+  width: 800px;
+  height: 300px;
+  border: 1px solid blue;
+}
