@@ -40,7 +40,7 @@ export default function MapListingsPage(props) {
 
   return (
     <div style={{ width: "100vw", height: "90vh" }}>
-      <Map />
+      {listings ? <Map listings={listings} /> : <h3>Now Loading...</h3>}
     </div>
   );
 }

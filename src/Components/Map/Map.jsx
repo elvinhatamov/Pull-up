@@ -8,11 +8,29 @@ import {
 import MapStyle from "./MapStyle";
 import { useEffect } from "react";
 
-export default function Map() {
+export default function Map(props) {
+  let listings = props.listings;
+  console.log("Passed the listings down!", listings);
   const [markers, setMarkers] = React.useState([]);
   const image = require("../../assets/iconparking2.png");
 
-  const mark = { lat: 0, lng: 0 };
+  let mark = [];
+  let index = 0;
+
+  listings.map((l) => {
+    console.log(`Lat and lng are ${l.lat} and ${l.lng}`);
+    mark.push({
+      lat: parseFloat(l.lat),
+      lng: parseFloat(l.lng),
+      time: index,
+    });
+    index = index + 1;
+  });
+
+  useEffect(() => {
+    console.log("Lets see Mark ", mark);
+    setMarkers(mark);
+  }, []);
 
   return (
     <GoogleMap
