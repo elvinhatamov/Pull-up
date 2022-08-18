@@ -20,9 +20,11 @@ const listingSchema = new Schema({
     ref: 'User',
     // required: true,
   },
-  lot:{
-    type:[String]
-  }
+
+  image: {
+    data: Buffer,
+    contentType: String,
+  },
 })
 
 module.exports = mongoose.model("Listings", listingSchema);

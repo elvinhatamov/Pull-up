@@ -1,31 +1,34 @@
+import { Schema } from 'mongoose'
 import React , {useState} from 'react'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 
-export default function Create(){
+
+export default function Create(props){
+const user = props.user._id
  const [form, setForm] = useState({
    address: '',
    postalCode: '',
-   rate: Number,
-   
-   
+   rate: Number
  })
 
 
-// const navigate = useNavigate()
+const navigate = useNavigate()
 
 function updateForm(e){
 setForm({ 
  ...form, 
  [e.target.name]: e.target.value
 })
+
 }
 
 async function onSubmit(e) {
    e.preventDefault();
+  //  navigate('../hostings/list')
 
 
-const newList = { ...form }
+const newList = { ...form, user }
 
 let response = await fetch("/api/hostings/", {
      method: "POST",
@@ -47,6 +50,7 @@ let response = await fetch("/api/hostings/", {
 return (
   <div>
     <form onSubmit={onSubmit}>
+      
       <label>Address</label>
       <input
         type='text'
@@ -63,8 +67,7 @@ return (
       />
       <label>Rate:</label>
       <input type='text' value={form.rate} onChange={updateForm} name='rate' />
-      
-      
+
       <button onClick={updateForm}>Submit</button>
     </form>
   </div>
