@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Component } from "react";
 import "./ReservationsPage.css";
+import ReservationCard from "../../Components/ReservationCard/ReservationCard";
 
 function ReservationPage(props) {
   const user = props.user;
@@ -24,19 +25,30 @@ function ReservationPage(props) {
         // address = data.address;
         // rate = data.rate;
         setMyReservations(data);
+        console.log("The data at the end is", data);
       });
   }, []);
 
   return (
     <div className="ReservationPage">
       <h1>My Parking Reservations</h1>
-      {myReservations && <h1>This works!</h1>}
-      <div className="reservation-card">
-        <h1>Address</h1>
-        <h1>Total Cost($): </h1>
-        <h1>Check-In </h1>
-        <h1>Check-Out</h1>
-      </div>
+
+      {myReservations ? (
+        <div className="reservations-container">
+          {myReservations.map((reservation) => (
+            <ReservationCard
+              address={reservation.address}
+              totalCost={reservation.totalCost}
+              dateStart={reservation.dateStart}
+              dateEnd={reservation.dateEnd}
+            />
+          ))}
+        </div>
+      ) : (
+        <div>
+          <h1>You have No Reservations</h1>
+        </div>
+      )}
     </div>
   );
 }

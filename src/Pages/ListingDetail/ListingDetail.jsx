@@ -19,8 +19,6 @@ function ListingDetail(props) {
 
   //LOAD DETAILS ON TO THE PAGE UPON COMPONENT LOADING
   useEffect(() => {
-    console.log("Time for ajax call with id: ", id);
-
     fetch("/api/listings/show", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

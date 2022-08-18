@@ -63,12 +63,8 @@ async function create(req, res) {
       let listing = await Listings.findById(req.body.id);
 
       //const daysBooked = listing.daysbooked;
-
-      const daysBooked = [
-        "Fri Aug 19 2022",
-        "Sat Aug 20 2022",
-        "Sun Aug 21 2022",
-      ];
+      //will implement booking blockage later
+      const daysBooked = [];
 
       //this array is to display for error message which days are in conflict
       conflictDays = [];
