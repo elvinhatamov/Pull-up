@@ -51,7 +51,7 @@ function App() {
               path="/listings/detail/:id"
               element={<ListingDetail user={user} />}
             />
-            <Route path="/hostings/index" element={<PersonalListPage />} />
+            <Route path="/hostings/index" element={<PersonalListPage user={user} />} />
             <Route path="/hostings/create" element={<Create user={user} />} />
             <Route
               path="/listings/map"
