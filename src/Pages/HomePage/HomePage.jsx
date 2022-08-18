@@ -24,6 +24,9 @@ function HomePage(props) {
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
 
+  let lat2 = "";
+  let lng2 = "";
+
   //setup navigation
   const navigate = useNavigate();
 
@@ -64,9 +67,11 @@ function HomePage(props) {
       //timeslot: timeSlot,
     };
 
-    console.log(props);
+    console.log("Here are the props", props);
 
-    navigate("/listings/map", { props: props });
+    navigate("/listings/map", {
+      state: props,
+    });
   };
 
   return (

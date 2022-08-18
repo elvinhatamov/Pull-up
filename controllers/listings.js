@@ -50,10 +50,12 @@ async function list(req, res) {
 async function index(req, res) {
   try {
     //some query to grab all  into the database
-    console.log("pathing works on api/listings/index!!");
-    res
-      .status(200)
-      .json({ text: "Show all listings from MongoDB in the future" });
+
+    console.log("Map pathing works on api/listings/index!!");
+    let listings = await Listings.find();
+    console.log(listings);
+
+    res.status(200).json(listings);
   } catch (err) {
     console.log(err);
     res.json(err);

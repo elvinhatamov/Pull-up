@@ -6,10 +6,13 @@ import {
   Autocomplete,
 } from "@react-google-maps/api";
 import MapStyle from "./MapStyle";
+import { useEffect } from "react";
 
 export default function Map() {
   const [markers, setMarkers] = React.useState([]);
   const image = require("../../assets/iconparking2.png");
+
+  const mark = { lat: 0, lng: 0 };
 
   return (
     <GoogleMap
