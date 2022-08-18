@@ -69,7 +69,6 @@ function HomePage(props) {
             onSubmit={handleSubmitSearch}
           >
             <div className="search-input-bar">
-              /reservations/index
               <GooglePlacesAutocomplete
                 apiKey={REACT_APP_GOOGLE_MAPS_API_KEY}
                 selectProps={{
