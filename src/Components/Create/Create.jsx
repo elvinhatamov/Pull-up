@@ -5,8 +5,8 @@ import GooglePlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-google-places-autocomplete";
+import "./Create.css";
 import { set } from "mongoose";
-
 //grab API key from env file
 const { REACT_APP_GOOGLE_MAPS_API_KEY } = process.env;
 
@@ -83,25 +83,31 @@ export default function Create(props) {
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
-        <label>Address</label>
-        <GooglePlacesAutocomplete
-          apiKey={REACT_APP_GOOGLE_MAPS_API_KEY}
-          selectProps={{
-            value: searchAddress,
-            onChange: setSearchAddress,
-          }}
-        />{" "}
+      <br />
+      <form id="register-form" onSubmit={onSubmit}>
+        <div id="address-bar">
+          <GooglePlacesAutocomplete
+            apiKey={REACT_APP_GOOGLE_MAPS_API_KEY}
+            selectProps={{
+              value: searchAddress,
+              onChange: setSearchAddress,
+            }}
+          />
+        </div>
         <br />
-        <label>Rate ($/hr) </label>
         <input
+          id="number-bar"
           type="number"
           value={rate}
           onChange={(e) => setRate(e.target.value)}
           name="rate"
+          placeholder="Rate ($/hr)"
         />
-        <button type="submit">Submit</button>
       </form>
+      <br />
+      <button class="button-r" role="button" type="submit">
+        Submit
+      </button>
       <h3>{errorMsg}</h3>
     </div>
   );

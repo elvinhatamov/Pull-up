@@ -113,5 +113,18 @@
 }
 
 .card_button {
-  margin-left: 90%;
+  margin-left: 80%;
+  background-color: rgb(224, 220, 214);
+  color: rgb(116, 114, 114);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px 2px rgb(216, 214, 214);
+  min-height: 30px;
+  min-width: 100px;
+  cursor: pointer;
+}
+
+.card_button:hover {
+  background-color: rgb(235, 204, 102);
+  transition: 0.5s;
 }

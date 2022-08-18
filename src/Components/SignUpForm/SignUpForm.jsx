@@ -64,65 +64,69 @@ export default class SignUpForm extends Component {
   render() {
     //const disable = this.state.password !== this.state.confirm;
     return (
-      <div className="SignUpForm" onSubmit={this.signupHandle}>
-        <h1>Sign Up!</h1>
-
-        <form>
-          <label>Username </label>
+      <div className="SignUpForm" onSubmit={this.signupHandle} id="login">
+        <form name="form-login">
+          <span class="fontawesome-user"></span>
           <input
             type="text"
+            id="user"
+            placeholder="Username"
             name="username"
             value={this.state.username}
             onChange={this.handleChange}
             required
-          />{" "}
-          <br />
-          <label>Password </label>
+          />
+          <span class="fontawesome-lock"></span>
           <input
             type="password"
+            id="pass"
+            placeholder="Password"
             name="password"
             value={this.state.password}
             onChange={this.handleChange}
             required
           />
-          <br />
-          <label>Email </label>
+          <span class="fontawesome-user"></span>
           <input
-            type="email"
+            id="pass"
+            placeholder="email"
+            type="text"
             name="email"
             value={this.state.email}
             onChange={this.handleChange}
             required
           />
-          <br />
-          <label>First Name </label>
+          <span class="fontawesome-user"></span>
           <input
+            id="pass"
+            placeholder="FirstName"
             type="text"
             name="firstName"
             value={this.state.firstName}
             onChange={this.handleChange}
             required
           />
-          <br />
-          <label>Last Name </label>
+          <span class="fontawesome-user"></span>
           <input
+            id="pass"
+            placeholder="LastName"
             type="text"
             name="lastName"
             value={this.state.lastName}
             onChange={this.handleChange}
             required
           />
-          <br />
-          <label>Phone Number </label>
+          <span class="fontawesome-user"></span>
           <input
             type="text"
+            id="pass"
+            placeholder="Phone"
             name="phone"
             value={this.state.phone}
             onChange={this.handleChange}
             required
           />
-          <br />
-          <button type="submit">SIGN UP</button>
+          <input type="submit" value="SIGN UP" />
         </form>
         <p className="error-message">&nbsp;{this.state.error}</p>
       </div>

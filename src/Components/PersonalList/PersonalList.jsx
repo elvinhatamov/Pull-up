@@ -3,6 +3,8 @@ import "./PersonalList.css";
 
 class PersonalList extends React.Component {
   render(props) {
+    console.log(props, "this is a console.log");
+
     return (
       <div class="card">
         <img
