@@ -109,9 +109,9 @@ function HomePage(props) {
               className="date"
               onChange={(e) => setDateTo(e.target.value)}
             />
-            <a href="/hostings/index" type="submit" class="book">
-              book
-            </a>
+            <button type="submit" class="book">
+              Search
+            </button>
           </form>
         </div>
       </div>
