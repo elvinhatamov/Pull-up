@@ -111,142 +111,97 @@ function HomePage(props) {
       <section class="services">
         <div class="service-item">
           <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293634/tour-guide_onzla9.png" />
-          <h2>7+ Workers</h2>
+          <h2>4+ Workers</h2>
+          <p>Friendly Platform</p>
         </div>
         <div class="service-item">
           <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293738/reliability_jbpn4g.png" />
-          <h2>100% openness </h2>
+          <h2>100% </h2>
+          <p>openness </p>
         </div>
         <div class="service-item">
           <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293635/experience_a3fduk.png" />
-          <h2>1+day Experience</h2>
+          <h2>1+day </h2>
+          <p>Experience </p>
         </div>
         <div class="service-item">
           <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293634/feedback_s8z7d9.png" />
-          <h2>98% Our Travelers are Happy</h2>
+          <h2>You Happy </h2>
+          <h2>We Happy </h2>
         </div>
       </section>
       <section class="places">
         <div class="places-text">
-          <small>FEATURED TOURS PACKAGES</small>
-          <h2>Favourite Places</h2>
+          <small>TOP RATING SPOT</small>
+          <h2>Your Favourite Pull Up</h2>
         </div>
 
         <div class="cards">
           <div class="card">
-            <div class="zoom-img">
-              <div class="img-card">
-                <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293736/james-wheeler_xqmq2y.jpg" />
-              </div>
-            </div>
-
             <div class="text">
+              <div class="zoom-img">
+                <div class="img-card">
+                  <img src="https://i.imgur.com/x4oQww9.jpg" />
+                </div>
+              </div>
               <span class="rating">
                 &#11088;&#11088;&#11088;&#11088;&#11088;
               </span>
-              <h2>The Dark Forest Adventure</h2>
-              <p class="cost">$1870 / Per Person</p>
+              <h2>Modern House DriveWay for Rent</h2>
+              <p class="cost">$1 / Per Min</p>
               <div class="card-box">
-                <p class="time">&#128339; 3 Days</p>
-                <p class="location">&#9992; Vancouver, Canada</p>
+                <p class="time">&#128339; 7 Days</p>
+                <p class="location">📍 Toronto Downtown</p>
               </div>
             </div>
           </div>
           <div class="card">
-            <div class="zoom-img">
-              <div class="img-card">
-                <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293755/paris_uj8wum.jpg" />
-              </div>
-            </div>
-
             <div class="text">
+              <div class="zoom-img">
+                <div class="img-card">
+                  <img src="https://i.imgur.com/RUb9Mjc.jpg" />
+                </div>
+              </div>
               <span class="rating">
                 &#11088;&#11088;&#11088;&#11088;&#11088;
               </span>
-              <h2>The Dark Forest Adventure</h2>
-              <p class="cost">$1870 / Per Person</p>
+              <h2>Basic house DriveWay for rent</h2>
+              <p class="cost">$10 / Per Hr</p>
               <div class="card-box">
-                <p class="time">&#128339; 3 Days</p>
-                <p class="location">&#9992; Paris, France</p>
+                <p class="time">&#128339; 7 Days</p>
+                <p class="location">📍 Markham</p>
               </div>
             </div>
           </div>
+
           <div class="card">
-            <div class="zoom-img">
-              <div class="img-card">
-                <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293955/monaco_usu7xb.jpg" />
-              </div>
-            </div>
-
             <div class="text">
+              <div class="zoom-img">
+                <div class="img-card">
+                  <img src="https://i.imgur.com/yWnXcqx.jpg" />
+                </div>
+              </div>
               <span class="rating">
                 &#11088;&#11088;&#11088;&#11088;&#11088;
               </span>
-              <h2>The Dark Forest Adventure</h2>
-              <p class="cost">$1870 / Per Person</p>
+              <h2>Nature House DriveWay for Rent</h2>
+              <p class="cost">$1 / Per Hr</p>
               <div class="card-box">
-                <p class="time">&#128339; 3 Days</p>
-                <p class="location">&#9992; Monaco, Monaco</p>
+                <p class="time">&#128339; 7 Days</p>
+                <p class="location">📍 Newmarket</p>
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="zoom-img">
-              <div class="img-card">
-                <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293874/switzerland_tubxcm.jpg" />
-              </div>
-            </div>
-
-            <div class="text">
-              <span class="rating">
-                &#11088;&#11088;&#11088;&#11088;&#11088;
-              </span>
-              <h2>The Dark Forest Adventure</h2>
-              <p class="cost">$1870 / Per Person</p>
-              <div class="card-box">
-                <p class="time">&#128339; 3 Days</p>
-                <p class="location">&#9992; Bern, Switzerland</p>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="zoom-img">
-              <div class="img-card">
-                <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293673/korea_bxrcj5.jpg" />
-              </div>
-            </div>
-
-            <div class="text">
-              <span class="rating">
-                &#11088;&#11088;&#11088;&#11088;&#11088;
-              </span>
-              <h2>The Dark Forest Adventure</h2>
-              <p class="cost">$1870 / Per Person</p>
-              <div class="card-box">
-                <p class="time">&#128339; 3 Days</p>
-                <p class="location">&#9992; Seoul, South Korea</p>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="zoom-img">
-              <div class="img-card">
-                <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293673/night-4336403_1920_demehp.jpg" />
-              </div>
-            </div>
-
-            <div class="text">
-              <span class="rating">
-                &#11088;&#11088;&#11088;&#11088;&#11088;
-              </span>
-              <h2>The Dark Forest Adventure</h2>
-              <p class="cost">$1870 / Per Person</p>
-              <div class="card-box">
-                <p class="time">&#128339; 3 Days</p>
-                <p class="location">&#9992; Tokyo, japan</p>
-              </div>
-            </div>
-          </div>
+        </div>
+      </section>
+      <section class="about">
+        <div class="about-img">
+          <img src="https://i.imgur.com/zIURnIp.png" />
+        </div>
+        <div class="about-text">
+          <small>ABOUT OUR COMPANY</small>
+          <h2>We are Your Parking Support Company</h2>
+          <p>Pull Up The TOP</p>
         </div>
       </section>
     </div>
