@@ -15,7 +15,8 @@
     --font-size-title: 40px; } }
 
 .card {
-  max-width: 960px;
+  background-color: #c9c9c9;
+  max-width: 1000px;
   border-radius: var(--border-radius-primary);
   box-shadow: 24px 24px 80px rgba(0, 0, 0, 0.1);
   padding: 20px 20px 28px 20px;

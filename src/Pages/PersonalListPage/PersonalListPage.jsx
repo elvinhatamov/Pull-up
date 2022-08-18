@@ -3,6 +3,7 @@ import React, { Component, useState, useEffect } from "react";
 
 
 import PersonalList from "../../Components/PersonalList/PersonalList";
+import "./PersonalListPage.css";
 
 function PersonalListPage(props) {
 
@@ -33,7 +34,7 @@ function PersonalListPage(props) {
   
 
   return (
-    <div style={{ paddingTop: "25px" }}>
+    <div class="HostingsList">
       <h1>Luds Houses</h1>
       {lists.map((hosting) => (
         <PersonalList
