@@ -55,7 +55,7 @@ function LoginForm(props) {
         <input
           type="text"
           id="user"
-          placeholder="Username"
+          placeholder="Email Address"
           name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
