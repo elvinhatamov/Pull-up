@@ -122,18 +122,20 @@
 }
 
 .ListingDetail h3,
-.ListingDetail span,
+.ListingDetail span {
+  color: rgb(39, 38, 38);
+}
 .ListingDetail p {
-  font-family: "Avenir";
+  color: rgb(17, 14, 14);
 }
 
 .ListingDetail .profile_container,
 .ListingDetail .info,
 .ListingDetail .back {
   margin: 60px 100px 0px;
-  max-width: 900px;
   display: flex;
   overflow-x: hidden;
+  justify-content: center;
 }
 
 .ListingDetail .back {
@@ -148,13 +150,12 @@
 
 .ListingDetail .profile_img-LG {
   height: 400px;
-  width: 300px;
+  width: 400px;
   border-radius: 40px;
-
   object-fit: cover;
   object-position: 50% 50%;
-
   background-position: 40% 50%;
+  margin-left: 50px;
 }
 
 .ListingDetail .flag_wrapper {
@@ -180,11 +181,12 @@
 
 .ListingDetail .description {
   margin-bottom: 30px;
-  margin-top: 0px;
+  margin-top: -100px;
 }
 
 .ListingDetail .profile_img_section {
   margin-right: 50px;
+  border-radius: 100px;
 }
 
 .profile_desc_section {
@@ -243,7 +245,7 @@ li {
 
 li p {
   margin-left: 30px;
-  color: rgba(34, 34, 34, 0.5);
+  color: rgba(27, 27, 27, 0.5);
 }
 
 @media screen and (max-width: 1000px) {
@@ -280,4 +282,86 @@ li p {
     margin-top: 10px;
     margin-left: 33px;
   }
+}
+
+.profile_banner-text-item {
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 20px;
+  align-items: flex-end;
+}
+
+.profile_banner-text-item .form {
+  flex: 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  width: 70%;
+  padding: 1% 6%;
+}
+
+.profile_form {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 25px px;
+  width: 100%;
+  padding: 20px;
+}
+
+.profile_banner-text-item input,
+.profile_banner-text-item .date,
+.profile_banner-text-item .book {
+  padding: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 18px;
+  font-family: Roboto;
+  border-radius: 5px;
+  outline: 0;
+  border: none;
+  text-align: center;
+}
+
+.profile_banner-text-item input {
+  width: 50%;
+  flex: 2;
+}
+.profile_banner-text-item > .profile_search-input-bar {
+  width: 50%;
+  flex: 2;
+}
+
+.profile_banner-text-item .date {
+  width: 20%;
+  flex: 1;
+}
+
+.profile_book {
+  width: 20%;
+  flex: 1;
+}
+
+.profile_book {
+  text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #e2cc3f;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: "Barlow Condensed";
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+}
+
+.profile_book:hover {
+  transition: 0.5s;
+  color: rgb(33, 28, 22);
 }

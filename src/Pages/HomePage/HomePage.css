@@ -285,6 +285,7 @@
   width: 100px;
   display: flex;
   flex-flow: column wrap;
+  text-align: center;
 }
 
 .about-text small,
@@ -299,7 +300,6 @@
   color: #ffc342;
   font-size: 18px;
   display: flex;
-  justify-content: center;
 }
 
 .about-text h2 {

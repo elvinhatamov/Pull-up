@@ -14,7 +14,7 @@ function PersonalList(props) {
       <div className="card__content">
         <span className="card__title">{props.address}</span>
         <br />
-        <span className="card__title">Cost:{props.rate}</span>
+        <span className="card__title">Cost: ${props.rate} /Day</span>
         <button className="card_button">Delete</button>
       </div>
     </div>

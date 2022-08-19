@@ -34,6 +34,7 @@ function PersonalListPage(props) {
         <PersonalList
           address={hosting.address}
           img={hosting.photo}
+          rate={hosting.rate}
 
           // user={hosting.user}
         />

@@ -1,18 +1,29 @@
 :root {
   --font-family-primary: "Vollkorn", serif;
   --font-family-secondary: "PT Sans", sans-serif;
+
   --font-size-title: 32px;
   --line-height-title: 1.4;
   --font-size-caption: 14px;
   --line-height-caption: 1.2;
+
   --color-text: #222022;
   --color-highlight-primary: #ffef7e;
   --color-highlight-secondary: #b7f9e9;
-  --border-radius-primary: 32px; }
+  --border-radius-primary: 32px;
+}
 
-@media (min-width: 576px) {
+@mixin mediaBig {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@include mediaBig {
   :root {
-    --font-size-title: 40px; } }
+    --font-size-title: 40px;
+  }
+}
 
 .ReservationCard {
   background-color: #c9c9c9;
@@ -23,17 +34,21 @@
   box-sizing: border-box;
   margin: 20px;
   display: flex;
-  flex-direction: column; }
-  @media (min-width: 576px) {
-    .ReservationCard {
-      flex-direction: row;
-      align-items: center;
-      margin: 40px;
-      padding: 32px; } }
+  flex-direction: column;
 
-@media (min-width: 576px) {
-  .ReservationCard__content {
-    width: 100%; } }
+  @include mediaBig {
+    flex-direction: row;
+    align-items: center;
+    margin: 40px;
+    padding: 32px;
+  }
+}
+
+.ReservationCard__content {
+  @include mediaBig {
+    width: 100%;
+  }
+}
 
 .ReservationCard__title {
   font-family: var(--font-family-primary);
@@ -41,24 +56,31 @@
   line-height: var(--line-height-title);
   color: var(--color-text);
   box-decoration-break: clone;
-  background-image: linear-gradient(90deg, var(--color-highlight-primary), var(--color-highlight-secondary));
+  background-image: linear-gradient(
+    90deg,
+    var(--color-highlight-primary),
+    var(--color-highlight-secondary)
+  );
   background-size: 100% 42%;
   background-repeat: no-repeat;
   background-position: 0 85%;
   padding: 0 4px;
-  margin-left: -4px; }
+  margin-left: -4px;
+}
 
 .ReservationCard_button {
   margin-left: 80%;
-  background-color: #e0dcd6;
-  color: #747272;
+  background-color: rgb(224, 220, 214);
+  color: rgb(116, 114, 114);
   border: none;
   border-radius: 10px;
-  box-shadow: 0px 0px 2px 2px #d8d6d6;
+  box-shadow: 0px 0px 2px 2px rgb(216, 214, 214);
   min-height: 30px;
   min-width: 100px;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .ReservationCard_button:hover {
-  background-color: #ebcc66;
-  transition: 0.5s; }
+  background-color: rgb(235, 204, 102);
+  transition: 0.5s;
+}

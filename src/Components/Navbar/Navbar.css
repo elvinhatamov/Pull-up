@@ -26,6 +26,11 @@
 
 .nav-links {
   margin: 0 10px;
+  color: rgb(29, 29, 29);
+}
+.nav-links :hover {
+  transition: 0.5s;
+  color: rgb(178, 155, 142);
 }
 
 .nav-buttons-div > h1 {

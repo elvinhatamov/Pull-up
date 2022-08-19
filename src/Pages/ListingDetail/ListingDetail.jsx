@@ -152,13 +152,41 @@ function ListingDetail(props) {
             zoom={15}
           />
         </div>
-
+        <div class="profile_img_section">
+          <img class="profile_img-LG" src="https://i.imgur.com/x4oQww9.jpg" />
+        </div>
+      </section>
+      <section class="profile_container_info">
         <div class="profile_desc_section">
           <h2>Lud's House</h2>
           <h3>Verified</h3>
 
-          <p class="description">{listing.address}</p>
-
+          <p class="description">
+            <div class="info">
+              <ul>
+                <li>
+                  <div class="link_img_wrapper">
+                    <img
+                      class="link_img"
+                      src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/round-pushpin_1f4cd.png"
+                      alt=""
+                    />
+                  </div>
+                  <p>{listing.address}</p>
+                </li>
+                <li>
+                  <div class="link_img_wrapper">
+                    <img
+                      class="link_img"
+                      src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/samsung/265/globe-with-meridians_1f310.png"
+                      alt=""
+                    />
+                  </div>
+                  <p>Rate: ${listing.rate}/day</p>
+                </li>
+              </ul>
+            </div>
+          </p>
           <div class="interests">
             <span class="interests_item">Self check-in</span>
             <span class="interests_item">Superhost</span>
@@ -166,65 +194,31 @@ function ListingDetail(props) {
           </div>
         </div>
       </section>
-      <section class="profile_container">
-        <div class="profile_img_section">
-          <img class="profile_img-LG" src="https://i.imgur.com/x4oQww9.jpg" />
-        </div>
 
-        <div class="info">
-          <ul>
-            <li>
-              <div class="link_img_wrapper">
-                <img
-                  class="link_img"
-                  src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/round-pushpin_1f4cd.png"
-                  alt=""
-                />
-              </div>
-              <p>Seoul, South Korea</p>
-            </li>
-            <li>
-              <div class="link_img_wrapper">
-                <img
-                  class="link_img"
-                  src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/speaking-head_1f5e3-fe0f.png"
-                  alt=""
-                />
-              </div>
-              <p>
-                Check In:
-                <input
-                  type="date"
-                  name="dateFrom"
-                  value={dateFrom}
-                  onChange={(e) => setDateFrom(e.target.value)}
-                />
-              </p>
-            </li>
-            <li>
-              <div class="link_img_wrapper">
-                <img
-                  class="link_img"
-                  src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/samsung/265/globe-with-meridians_1f310.png"
-                  alt=""
-                />
-              </div>
-              <p>
-                Check Out:
-                <input
-                  type="date"
-                  name="dateTo"
-                  value={dateTo}
-                  onChange={(e) => setDateTo(e.target.value)}
-                />
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <button className="reserve-btn" type="submit">
-        Reserch
-      </button>
+      <div className="profile_banner-text-item">
+        <form className="profile_form" onSubmit={handleReserve}>
+          From:
+          <input
+            type="date"
+            name="dateFrom"
+            value={dateFrom}
+            className="profile_date"
+            onChange={(e) => setDateFrom(e.target.value)}
+          />
+          To:
+          <input
+            type="date"
+            name="dateTo"
+            value={dateTo}
+            className="profile_date"
+            onChange={(e) => setDateTo(e.target.value)}
+          />
+          <button type="submit" className="profile_book">
+            Reserve
+          </button>
+        </form>
+      </div>
+      <h4>{errorMsg}</h4>
     </div>
   );
 }
