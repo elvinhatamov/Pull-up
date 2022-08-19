@@ -108,7 +108,7 @@ function ListingDetail(props) {
           </section>
           <section class="profile_container_info">
             <div class="profile_desc_section">
-              <h2>Lud's House</h2>
+              <h2>HomeOwner</h2>
               <h3>Verified</h3>
 
               <p class="description">
