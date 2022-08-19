@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./HomePage.css";
-import {
-  useJsApiLoader,
-  GoogleMap,
-  Autocomplete,
-} from "@react-google-maps/api";
+
 import GooglePlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
