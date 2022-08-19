@@ -38,8 +38,10 @@ async function update(req, res) {
 }
 
 async function list(req, res) {
+  console.log("Made it to hostings/list!", req.body);
+
   try {
-    let list = await Listings.find().select(req.body.address);
+    let list = await Listings.find({ user: req.body.user._id });
     res.status(200).json(list);
   } catch (error) {
     res.status(500).json(error);

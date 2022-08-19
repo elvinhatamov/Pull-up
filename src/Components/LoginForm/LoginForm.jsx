@@ -27,8 +27,9 @@ function LoginForm(props) {
       });
 
       console.log(fetchResponse);
-      if (!fetchResponse.ok)
-        throw new Error("Login Fetch Failed - Something wrong");
+      if (!fetchResponse.ok) {
+        throw new Error("Incorrect Credentials");
+      }
 
       let token = await fetchResponse.json();
       localStorage.setItem("token", token);
@@ -42,12 +43,14 @@ function LoginForm(props) {
       //at the end redirect them to home page
     } catch (err) {
       console.log("Login Form Error: ", err);
+      setError(err.message);
     }
   };
 
   return (
     <div className="LoginForm" onSubmit={handleSubmit} id="login">
       <form name="form-login">
+        <h1>LOG IN TO BEGIN</h1>
         <span className="fontawesome-user"></span>
         <input
           type="text"
@@ -70,7 +73,7 @@ function LoginForm(props) {
         />
         <input type="submit" value="Login" />
       </form>
-      <p className="login-error-message">"Will put errors messages here"</p>
+      <p className="login-error-message">{error}</p>
     </div>
   );
 }

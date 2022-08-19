@@ -5,6 +5,7 @@ import "./PersonalListPage.css";
 
 function PersonalListPage(props) {
   const myHost = props.reservation;
+  const user = props.user;
 
   const [lists, setLists] = useState([]);
 
@@ -12,11 +13,9 @@ function PersonalListPage(props) {
     console.log("My Hosting Page");
 
     fetch("/api/hostings/list", {
-      method: "GET",
-      // headers: {
-      //   "Content-Type":"application.json"
-      // },
-      // body: JSON.stringify({})
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ user: user }),
     })
       .then((response) => {
         return response.json();
