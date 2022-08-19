@@ -98,6 +98,17 @@ export default function Create(props) {
     //set lat and lng states from the promise object
     //fulfill rest of the work in this async function
   }
+  async function deleteItem(){
+    try {
+     const result = await fetch("/api/hostings/:id", {
+      method: "delete"
+     })
+     console.log(result)
+     
+    } catch (error) {
+     console.log(error)
+    }
+  }
 
   return (
     <div className="HomePage">
@@ -126,6 +137,7 @@ export default function Create(props) {
             <button type="submit" class="book">
               Submit
             </button>
+        <button type ="submit" onSubmit={deleteItem}></button>
           </form>
         </div>
       </div>

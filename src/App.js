@@ -14,35 +14,35 @@ import ReservationsPage from "./Pages/ReservationsPage/ReservationsPage";
 function App() {
   //set state using hooks method
 
-  const [user, setUser] = useState(null);
-  const navigate = useNavigate();
+  const [user, setUser] = useState(null)
+  const navigate = useNavigate()
 
   //check for token everytime something renders so we don't relogin
   useEffect(() => {
     //check local storage for a token
-    let token = localStorage.getItem("token");
+    let token = localStorage.getItem('token')
 
     //if token exists, parse and update user state
     if (token) {
-      let userDoc = JSON.parse(atob(token.split(".")[1])).user;
+      let userDoc = JSON.parse(atob(token.split('.')[1])).user
 
       setUser(userDoc);
     }
-  }, []);
+  }, [])
 
   const handleLoginUpdate = (incomingUser) => {
     setUser(incomingUser);
   };
 
   const handleLogout = () => {
-    setUser(null);
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
+    setUser(null)
+    localStorage.removeItem('token')
+    navigate('/login')
+  }
 
   return (
-    <div className="App">
-      <div className="wireframe">
+    <div className='App'>
+      <div className='wireframe'>
         <Navbar handleLogout={handleLogout} user={user} />
         {user ? (
           <Routes>
@@ -53,6 +53,7 @@ function App() {
             />
             <Route path="/hostings/index" element={<PersonalListPage user={user} />} />
             <Route path="/hostings/create" element={<Create user={user} />} />
+            <Route path="/hostings/:id" element={<PersonalListPage user={user} />} />
             <Route
               path="/listings/map"
               element={<MapListingsPage user={user} />}
@@ -66,18 +67,18 @@ function App() {
         ) : (
           <Routes>
             <Route
-              path="/signup"
+              path='/signup'
               element={<SignUpForm handleLoginUpdate={handleLoginUpdate} />}
             ></Route>
             <Route
-              path="*"
+              path='*'
               element={<LoginForm handleLoginUpdate={handleLoginUpdate} />}
             />
           </Routes>
         )}
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
