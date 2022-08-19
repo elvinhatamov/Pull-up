@@ -37,9 +37,9 @@ async function update(req, res) {
   }
 }
 
+//FOR POPULATING MY HOSTINGS PAGE
 async function list(req, res) {
-  console.log("Made it to hostings/list!", req.body);
-
+  //fetch hostings owned by the user
   try {
     let list = await Listings.find({ user: req.body.user._id });
     res.status(200).json(list);
@@ -48,13 +48,12 @@ async function list(req, res) {
   }
 }
 
-//MAKE THIS ASYNC LATER WHEN WE ADD ACTUAL QUERIES
+//FOR POPULATING MAP, SHOW ALL LISTINGS EXCLUDING USER
 async function index(req, res) {
   try {
-    //some query to grab all  into the database
-
-    console.log("Map pathing works on api/listings/index!!");
-    let listings = await Listings.find();
+    console.log("Map pathing works on api/listings/index!!", req.body);
+    //grab all listings where user is NOT ($ne) equal to user id
+    let listings = await Listings.find({ user: { $ne: req.body.user._id } });
     console.log(listings);
 
     res.status(200).json(listings);
