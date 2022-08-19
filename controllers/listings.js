@@ -3,8 +3,10 @@ const Listings = require("../models/listing");
 
 async function deleted(req, res) {
   try {
+    console.log("Id successfull passed by params", req.params.id)
+
     await Listings.findByIdAndDelete(req.params.id);
-    res.status(200).json("Ithem has been deleted");
+    res.status(200).json("Item has been deleted");
   } catch (error) {
     res.status(500).json(error);
   }
