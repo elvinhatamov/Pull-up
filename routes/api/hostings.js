@@ -8,6 +8,6 @@ router.put("/:id", listingsCtrl.update);
 
 router.delete("/:id", listingsCtrl.deleted);
 
-router.get("/list", listingsCtrl.list);
+router.post("/list", listingsCtrl.list);
 
 module.exports = router;

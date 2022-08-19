@@ -8,6 +8,8 @@ module.exports = {
   signUp,
 };
 
+const SALT_ROUNDS = 6;
+
 //CREATE "async function create(req, res) another time"
 async function signUp(req, res) {
   console.log(
@@ -22,7 +24,7 @@ async function signUp(req, res) {
       throw new Error("User already exists!", { cause: "UserExists" });
     }
 
-    //const passwordHash = await bcrypt.hash(password, 10);
+    const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
 
     // const startingInfo = {
 
@@ -30,7 +32,7 @@ async function signUp(req, res) {
 
     const result = await User.create({
       username,
-      password,
+      password: passwordHash,
       email,
       firstName,
       lastName,
@@ -66,7 +68,9 @@ async function login(req, res) {
 
     console.log(user);
     //check if wrong password input, throw errors if wrong
-    if (req.body.password !== user.password)
+
+    if (!(await bcrypt.compare(req.body.password, user.password)))
+      //if (req.body.password !== user.password)
       throw new Error("Password Mismatch");
 
     console.log("Password is good!");
@@ -77,6 +81,6 @@ async function login(req, res) {
     res.status(200).json(token);
   } catch (err) {
     console.log(`Caught an error: ${err}`);
-    res.status(400).json("Bad Credentials");
+    res.status(400).json(err);
   }
 }
