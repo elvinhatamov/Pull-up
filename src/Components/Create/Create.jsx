@@ -6,7 +6,7 @@ import GooglePlacesAutocomplete, {
   getLatLng,
 } from "react-google-places-autocomplete";
 import "./Create.css";
-import { set } from "mongoose";
+
 //grab API key from env file
 const { REACT_APP_GOOGLE_MAPS_API_KEY } = process.env;
 
