@@ -14,8 +14,6 @@ import InfoCardSearch from "../InfoCardSearch/InfoCardSearch";
 export default function Map(props) {
   let listings = props.listings;
 
-  
-
   //Search Related Marker setup
   const searchAddress = props.searchAddress;
   const searchlat = parseFloat(props.lat);
@@ -53,7 +51,7 @@ export default function Map(props) {
   });
 
   useEffect(() => {
-    console.log("At this time listings looks like ," listings)
+    console.log("At this time listings looks like ", listings);
     setMarkers(mark);
   }, []);
 
