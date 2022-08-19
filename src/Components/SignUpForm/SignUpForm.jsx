@@ -67,6 +67,7 @@ export default class SignUpForm extends Component {
     return (
       <div className="SignUpForm" onSubmit={this.signupHandle} id="login">
         <form name="form-login">
+          <h1>USER SIGN UP</h1>
           <span class="fontawesome-user"></span>
           <input
             type="text"

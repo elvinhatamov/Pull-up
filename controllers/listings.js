@@ -3,8 +3,10 @@ const Listings = require("../models/listing");
 
 async function deleted(req, res) {
   try {
+    console.log("Id successfull passed by params", req.params.id)
+
     await Listings.findByIdAndDelete(req.params.id);
-    res.status(200).json("Ithem has been deleted");
+    res.status(200).json("Item has been deleted");
   } catch (error) {
     res.status(500).json(error);
   }
@@ -37,22 +39,23 @@ async function update(req, res) {
   }
 }
 
+//FOR POPULATING MY HOSTINGS PAGE
 async function list(req, res) {
+  //fetch hostings owned by the user
   try {
-    let list = await Listings.find().select(req.body.address);
+    let list = await Listings.find({ user: req.body.user._id });
     res.status(200).json(list);
   } catch (error) {
     res.status(500).json(error);
   }
 }
 
-//MAKE THIS ASYNC LATER WHEN WE ADD ACTUAL QUERIES
+//FOR POPULATING MAP, SHOW ALL LISTINGS EXCLUDING USER
 async function index(req, res) {
   try {
-    //some query to grab all  into the database
-
-    console.log("Map pathing works on api/listings/index!!");
-    let listings = await Listings.find();
+    console.log("Map pathing works on api/listings/index!!", req.body);
+    //grab all listings where user is NOT ($ne) equal to user id
+    let listings = await Listings.find({ user: { $ne: req.body.user._id } });
     console.log(listings);
 
     res.status(200).json(listings);

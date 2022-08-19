@@ -12,11 +12,11 @@ function ReservationCard(props) {
         <span className="ReservationCard__title">{props.address}</span>
         <br />
         <span className="ReservationCard__title">
-          Check-In:{props.dateStart}
+          Check-In: {props.dateStart}
         </span>
         <br />
         <span className="ReservationCard__title">
-          Check-out:{props.dateEnd}
+          Check-out: {props.dateEnd}
         </span>
         <button className="ReservationCard_button">Delete</button>
       </div>
