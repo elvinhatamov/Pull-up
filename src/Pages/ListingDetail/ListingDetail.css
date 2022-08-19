@@ -1,4 +1,4 @@
-/*======== LISTING DETAIL STYLING HERE *========*/
+/* ======== LISTING DETAIL STYLING HERE *========
 .ListingDetail {
   min-width: 320px;
   max-width: 800px;
@@ -103,4 +103,265 @@
   outline: 0;
   border: none;
   text-align: center;
+} */
+
+.ListingDetail h2 {
+  font-family: "Poppins";
+  font-size: 36px;
+
+  margin-bottom: 15px;
+}
+
+.ListingDetail h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(34, 34, 34, 0.5);
+
+  margin-bottom: 25px;
+  margin-top: 0px;
+}
+
+.ListingDetail h3,
+.ListingDetail span {
+  color: rgb(39, 38, 38);
+}
+.ListingDetail p {
+  color: rgb(17, 14, 14);
+}
+
+.ListingDetail .profile_container,
+.ListingDetail .info,
+.ListingDetail .back {
+  margin: 60px 100px 0px;
+  display: flex;
+  overflow-x: hidden;
+  justify-content: center;
+}
+
+.ListingDetail .back {
+  display: flex;
+  align-items: center;
+  color: rgba(34, 34, 34, 0.5);
+}
+
+.ListingDetail .back i {
+  margin-right: 15px;
+}
+
+.ListingDetail .profile_img-LG {
+  height: 400px;
+  width: 400px;
+  border-radius: 40px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  background-position: 40% 50%;
+  margin-left: 50px;
+}
+
+.ListingDetail .flag_wrapper {
+  width: 50px;
+  height: 50px;
+  background-color: #f2f2f2;
+  border-radius: 100%;
+  position: relative;
+  top: -70px;
+  left: 230px;
+}
+
+.ListingDetail .flag {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto auto;
+}
+
+.ListingDetail .description {
+  margin-bottom: 30px;
+  margin-top: -100px;
+}
+
+.ListingDetail .profile_img_section {
+  margin-right: 50px;
+  border-radius: 100px;
+}
+
+.profile_desc_section {
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 50px;
+}
+
+.interests_item {
+  display: inline-block;
+  padding: 5px 15px;
+  margin-right: 7.5px;
+  margin-bottom: 10px;
+  line-height: 35px;
+  background-color: #e6e6e6;
+  border-radius: 5px;
+
+  color: rgba(34, 34, 34, 0.5);
+}
+
+.info {
+  margin-top: -20px;
+  margin-left: 100px;
+}
+
+.link_img_wrapper {
+  width: 40px;
+  height: 40px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  position: relative;
+}
+
+.link_img {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto auto;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+li p {
+  margin-left: 30px;
+  color: rgba(27, 27, 27, 0.5);
+}
+
+@media screen and (max-width: 1000px) {
+  .profile_container,
+  .info,
+  .back {
+    margin: 60px 33px 0px;
+  }
+
+  .profile_container {
+    flex-direction: column;
+  }
+
+  .profile_img_section {
+    margin: 0 auto;
+  }
+
+  .profile_img-LG {
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+  }
+
+  .flag_wrapper {
+  }
+
+  .profile_desc_section {
+    margin-left: 0px;
+    margin-bottom: 10px;
+    margin-top: -40px;
+  }
+
+  .info {
+    margin-top: 10px;
+    margin-left: 33px;
+  }
+}
+
+.profile_banner-text-item {
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 20px;
+  align-items: flex-end;
+}
+
+.profile_banner-text-item .form {
+  flex: 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  width: 70%;
+  padding: 1% 6%;
+}
+
+.profile_form {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 25px px;
+  width: 100%;
+  padding: 20px;
+}
+
+.profile_banner-text-item input,
+.profile_banner-text-item .date,
+.profile_banner-text-item .book {
+  padding: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 18px;
+  font-family: Roboto;
+  border-radius: 5px;
+  outline: 0;
+  border: none;
+  text-align: center;
+}
+
+.profile_banner-text-item input {
+  width: 50%;
+  flex: 2;
+}
+.profile_banner-text-item > .profile_search-input-bar {
+  width: 50%;
+  flex: 2;
+}
+
+.profile_banner-text-item .date {
+  width: 20%;
+  flex: 1;
+}
+
+.profile_book {
+  width: 20%;
+  flex: 1;
+}
+
+.profile_book {
+  text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #e2cc3f;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: "Barlow Condensed";
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+}
+
+.profile_book:hover {
+  transition: 0.5s;
+  color: rgb(33, 28, 22);
 }
