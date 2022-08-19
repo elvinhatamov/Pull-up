@@ -9,8 +9,8 @@
     <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#technologies-used">Technologies Used</a></li>
-    <li><a href="#screen-shots">Screen Shots</a></li>
-    <li><a href="#Usage">Usage</a></li>
+    <li><a href="#screen-shots-is-down-below">Screen Shots</a></li>
+    <li><a href="#usage">Usage</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -31,7 +31,7 @@
 
 ### Getting Started:
 
-- The app has been uploaded to Heroku, and is accessible by clicking [Metazon](https://metazon.herokuapp.com/)
+- The app will be uploaded to Heroku
 - Click here to access our [Trello Board](https://trello.com/b/vROTpOq2/pull-up-project)
 
 <p align="right"><a href="#top">back to top</a></p>
@@ -80,7 +80,7 @@
 
 ### Usage:
 
-- In this porject, we install Google Map
+- In this porject, we install Google Map api
 - [How to create array of dates from date range](https://www.codegrepper.com/code-examples/javascript/convert+a+date+range+into+an+array+of+date+in+js)
 
 ### Next Steps:
