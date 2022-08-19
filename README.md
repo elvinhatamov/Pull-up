@@ -98,5 +98,10 @@ Check all member Github and Linkedin
 - Shadab | [Github](https://github.com/karims7) [Linkedin](https://www.linkedin.com/in/karims7/)
 - Elivin | [Github](https://github.com/elvinhatamov) [Linkedin](https://www.linkedin.com/in/elvinhatam/)
 - Lud | [Github](https://github.com/ludlin886) [Linkedin](linkedin.com/in/lud-lin-66b527210/)
+- UI/UX team
+- Danielle Scott | 
+- Claudia | 
+- Hudson Dowlatti | 
+- Valerie Martinez | 
 
 <p align="right"><a href="#top">back to top</a></p>
