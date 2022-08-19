@@ -51,6 +51,7 @@ export default function Map(props) {
   });
 
   useEffect(() => {
+    console.log("At this time listings looks like ", listings);
     setMarkers(mark);
   }, []);
 
