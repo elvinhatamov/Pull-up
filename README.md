@@ -1,6 +1,6 @@
 <div id="top"></div>
 
-## [Pull Up]
+## Pull Up
 
 <details>
   <summary>Table of Contents</summary>
@@ -21,7 +21,8 @@
 - This app's idea is based on Airbnb for people who have some extra spots on their driveway or garage and can rent these spots to others.
 - Pullup’s mission is to create a world where anyone can park anywhere, and we are focused on creating a parking space-sharing platform that will handle every part of your daily life and make it more convenient.
 
-<img width="1376" alt="Screen Shot 2022-07-28 at 9 46 25 PM" src="https://user-images.githubusercontent.com/106497653/181668541-96fba2f1-a958-421c-acc6-bf3dfc290915.png">
+![Screen Shot 2022-08-18 at 11 02 04 PM](https://user-images.githubusercontent.com/106497653/185625576-aa6c86b2-cee7-4382-95c5-bb430a2677e3.png)
+
 
 - The app allows users to sign up and log in to the website and allow them to become host or rent a parking space from the others.
 - There is an awesome map funcion which can let user clearly visaulize the location
@@ -59,24 +60,21 @@
 
 ### Screen Shots is down below:
 
-(Home Page)
-<img width="1376" alt="Screen Shot 2022-07-28 at 9 46 25 PM" src="https://user-images.githubusercontent.com/106497653/181668147-ab675909-ef52-40f6-bf70-df611d0f8e5a.png">
-(Home Page - Filter & Product)
-![Screen Shot 2022-07-28 at 9 47 08 PM](https://user-images.githubusercontent.com/106497653/181668153-801b9b4a-a466-4ae9-a277-bda295259df2.png)
-(Register Page)
-<img width="1391" alt="Screen Shot 2022-07-28 at 10 25 33 PM" src="https://user-images.githubusercontent.com/106497653/181670090-7fc61ae9-bd41-4759-b361-6e960ed72271.png">
-(Login Page)
-<img width="1390" alt="Screen Shot 2022-07-28 at 10 25 17 PM" src="https://user-images.githubusercontent.com/106497653/181670150-5c611ac2-895a-4140-9c72-430c3900470e.png">
-(Reset Password Page)
-<img width="1386" alt="Screen Shot 2022-07-28 at 10 25 48 PM" src="https://user-images.githubusercontent.com/106497653/181670134-56d6877f-28d3-4534-ba80-eb3b36e34ee1.png">
-(Product Detail Page)
-![Screen Shot 2022-07-28 at 9 47 29 PM](https://user-images.githubusercontent.com/106497653/181668154-9408cff4-fa15-48ac-b690-8794033b5bbf.png)
-(Cart Page)
-![Screen Shot 2022-07-28 at 9 48 11 PM](https://user-images.githubusercontent.com/106497653/181668155-4c485654-08e0-45c6-88c9-ac5e6c47bb0b.png)
-(Profile Page - Product for sell)
-![Screen Shot 2022-07-28 at 9 50 16 PM](https://user-images.githubusercontent.com/106497653/181668156-7c855839-a8f9-463f-89fd-7b36c5895baa.png)
-(Profile Page - Personal Collection)
-![Screen Shot 2022-07-28 at 9 50 55 PM](https://user-images.githubusercontent.com/106497653/181668158-780635ec-5497-450e-a25e-cb4b65eb65a0.png)
+(Home Page with the searching bar)
+![Screen Shot 2022-08-18 at 11 02 04 PM](https://user-images.githubusercontent.com/106497653/185626135-92be119f-08ff-47fc-8980-8c09e1954105.png)
+
+(Registering Hosting)
+![Screen Shot 2022-08-18 at 11 37 24 PM](https://user-images.githubusercontent.com/106497653/185626260-866b7904-1868-41d7-8291-c20b58baa022.png)
+
+(My Hostings detail)
+![Screen Shot 2022-08-18 at 11 32 25 PM](https://user-images.githubusercontent.com/106497653/185627110-2ab910ba-b48a-40b1-97ba-1abe72da5614.png)
+
+(Google Map)
+![Screen Shot 2022-08-18 at 11 03 42 PM](https://user-images.githubusercontent.com/106497653/185627291-7af5d1c1-e1da-44e3-a41a-d51151014269.png)
+![Screen Shot 2022-08-18 at 11 31 32 PM](https://user-images.githubusercontent.com/106497653/185627323-76f923ff-90d1-49f8-b662-10d2baba8733.png)
+
+(Reservation detail)
+![Screen Shot 2022-08-18 at 11 03 55 PM](https://user-images.githubusercontent.com/106497653/185627891-52560a8a-7969-494a-92bb-da885dd6c725.png)
 
 <p align="right"><a href="#top">back to top</a></p>
 
