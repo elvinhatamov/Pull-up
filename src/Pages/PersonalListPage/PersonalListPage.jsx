@@ -30,6 +30,14 @@ function PersonalListPage(props) {
     console.log("The data at the end is ", data)
   })
 }, [])
+
+async function deleteItem(id){
+  console.log(id)
+  await fetch(`/api/hostings/${id}`,{
+    method:"DELETE"
+  })
+
+}
   
 
   return (
@@ -38,9 +46,10 @@ function PersonalListPage(props) {
       {lists.map((hosting) => (
         <PersonalList
           address={hosting.address}
-           img={hosting.img}
-          
           // user={hosting.user}
+        
+           deleteItem ={()=>deleteItem(hosting.id)}
+           key={hosting.id}
           
         />
       ))}

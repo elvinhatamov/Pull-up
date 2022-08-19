@@ -53,6 +53,7 @@ function App() {
             />
             <Route path="/hostings/index" element={<PersonalListPage user={user} />} />
             <Route path="/hostings/create" element={<Create user={user} />} />
+            <Route path="/hostings/:id" element={<PersonalListPage user={user} />} />
             <Route
               path="/listings/map"
               element={<MapListingsPage user={user} />}
