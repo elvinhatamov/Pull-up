@@ -17,46 +17,43 @@
 
 ### About Our Project:
 
-Pull Up is a parking application that people can either rent the parking spot from others or become a host to rent your spot.
-This app's idea is based on Airbnb for people who have some extra spots on their driveway or garage and can rent these spots to others.
-Pullup’s mission is to create a world where anyone can park anywhere, and we are focused on creating a parking space-sharing platform that will handle every part of your daily life and make it more convenient.
+- Pull Up is a parking application that people can either rent the parking spot from others or become a host to rent your spot.
+- This app's idea is based on Airbnb for people who have some extra spots on their driveway or garage and can rent these spots to others.
+- Pullup’s mission is to create a world where anyone can park anywhere, and we are focused on creating a parking space-sharing platform that will handle every part of your daily life and make it more convenient.
 
 <img width="1376" alt="Screen Shot 2022-07-28 at 9 46 25 PM" src="https://user-images.githubusercontent.com/106497653/181668541-96fba2f1-a958-421c-acc6-bf3dfc290915.png">
 
-- The app allows users to log in to the website and access their profile, where a list of their products for sale are shown.
-- The profile page includes seller information and the collection of items they have purchased previously.
-- The app's home page illustrates a wide array of products, which are filterable by category type.
-- Clicking a product, users will see a more detailed page that provides further information. Users can add a product to their cart either from the home page or the detail page. When a user is ready to make a purchase, they can view their cart and hit checkout. Products will then be added to the users collection on their profile page.
+- The app allows users to sign up and log in to the website and allow them to become host or rent a parking space from the others.
+- There is an awesome map funcion which can let user clearly visaulize the location
 
 <p align="right"><a href="#top">back to top</a></p>
 
 ### Getting Started:
 
 - The app has been uploaded to Heroku, and is accessible by clicking [Metazon](https://metazon.herokuapp.com/)
-- Click here to access our [Trello Board](https://trello.com/b/eTO21UiG/sei-project-3)
+- Click here to access our [Trello Board](https://trello.com/b/vROTpOq2/pull-up-project)
 
 <p align="right"><a href="#top">back to top</a></p>
 
 ### Features:
 
-- Register a profile and with login and logout functionality
-- Personalized profile with a list of products being sold and collection (previously purchased items)
-- Post a new product, as well as edit and delete existing products
-- Naviagtion bar (menus that are simple to use and allow customers to browse product categories)
-- Product filtering (Add product filters to make it easier for customers to find what they’re looking for)
-- Cart Function
+- Register an user with login and logout functionality
+- Personalized register page and hosting detail page
+- Post a new parking space, as well delete existing
+- Naviagtion bar (menus that are simple and easy to use )
+- Fully function Google Map
+- Fully register system and create system
 
 <p align="right"><a href="#top">back to top</a></p>
 
 ### Technologies Used:
 
-- Django
-- PSQL
-- Materialize
+- React
+- MongoDB
+- Node.Js
 - HTML
 - CSS
 - JS
-- Python3
 
 <p align="right"><a href="#top">back to top</a></p>
 
@@ -85,28 +82,23 @@ Pullup’s mission is to create a world where anyone can park anywhere, and we a
 
 ### Usage:
 
-In this porject, we used the package for our cart from the online source.
-For more examples, please refer to the [Documentation](https://pypi.org/project/django-shopping-cart/)
+- In this porject, we install Google Map
+- [How to create array of dates from date range](https://www.codegrepper.com/code-examples/javascript/convert+a+date+range+into+an+array+of+date+in+js)
 
 ### Next Steps:
 
 Moving forward, a few items to further implement would be:
 
 1. Implement payment at checkout functionality
-2. Adding a reviews component to a product
-3. Applying additional filter features to the home page
-4. Adding a follow feature on a users profile so shoppers can follow their favourite accounts
+2. Adding a reviews and comment function
 
 ### Contact:
 
 Check all member Github and Linkedin
 
-- Paul | [Github](https://github.com/paulryeung) [Linkedin](linkedin.com/in/paul-yeung-13088738)
-- Shadab | [Github](https://github.com/karims7) [Linkedin](linkedin.com/in/karims7)
+- Paul | [Github](https://github.com/paulryeung) [Linkedin](https://www.linkedin.com/in/paul-yeung-13088738/)
+- Shadab | [Github](https://github.com/karims7) [Linkedin](https://www.linkedin.com/in/karims7/)
 - Elivin | [Github](https://github.com/elvinhatamov) [Linkedin](https://www.linkedin.com/in/elvinhatam/)
 - Lud | [Github](https://github.com/ludlin886) [Linkedin](linkedin.com/in/lud-lin-66b527210/)
 
 <p align="right"><a href="#top">back to top</a></p>
-
-How to create array of dates from date range
-https://www.codegrepper.com/code-examples/javascript/convert+a+date+range+into+an+array+of+date+in+js
