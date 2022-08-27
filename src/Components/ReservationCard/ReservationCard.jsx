@@ -22,7 +22,7 @@ function ReservationCard(props) {
           className="ReservationCard_button"
           onClick={() => props.deleteItem(props.id)}
         >
-          Delete
+          Cancel
         </button>
       </div>
     </div>
