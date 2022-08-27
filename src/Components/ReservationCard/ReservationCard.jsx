@@ -6,6 +6,15 @@ function ReservationCard(props) {
   //   const dateStart = Date.parse(props.dateStart);
   //   const dateEnd = Date.parse(props.dateEnd);
 
+  async function deleteItem(id) {
+    console.log("Delete button triggered!");
+    // try {
+    //   await fetch(`/api/hostings/${id}`, {
+    //     method:"DELETE"
+    //   })
+    // }
+  }
+
   return (
     <div className="ReservationCard">
       <div className="ReservationCard__content">
@@ -18,7 +27,12 @@ function ReservationCard(props) {
         <span className="ReservationCard__title">
           Check-out: {props.dateEnd}
         </span>
-        <button className="ReservationCard_button">Delete</button>
+        <button
+          className="ReservationCard_button"
+          onClick={() => deleteItem(1)}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );
