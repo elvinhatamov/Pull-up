@@ -5,14 +5,13 @@ const logger = require("morgan");
 require("dotenv").config();
 require("./config/database");
 
-
 const app = express();
 
 app.use(logger("dev"));
 app.use(express.json());
 
 // Configure both serve-favicon & static middlewares to serve from the production 'build' folder
-app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
+app.use(favicon(path.join(__dirname, "build", "p_icon.png")));
 app.use(express.static(path.join(__dirname, "build")));
 
 //user login and signup route here first

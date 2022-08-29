@@ -163,7 +163,20 @@ async function index(req, res) {
   }
 }
 
+//DELETE A RESERVATION
+async function deleted(req, res) {
+  console.log("Id in req params is", req.params.id);
+
+  try {
+    await Reservations.findByIdAndDelete(req.params.id);
+    res.status(200).json("Reservation has been deleted");
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
+
 module.exports = {
   create,
   index,
+  deleted,
 };

@@ -9,7 +9,7 @@ const reservationSchema = new Schema({
   },
   listing: {
     type: Schema.Types.ObjectId,
-    ref: "Listings",
+    ref: "Listing",
     required: true,
   },
   address: {
@@ -32,7 +32,6 @@ const reservationSchema = new Schema({
     type: Date,
     required: true,
   },
- 
 });
 
 module.exports = mongoose.model("Reservation", reservationSchema);

@@ -18,7 +18,12 @@ function ReservationCard(props) {
         <span className="ReservationCard__title">
           Check-out: {props.dateEnd}
         </span>
-        <button className="ReservationCard_button">Delete</button>
+        <button
+          className="ReservationCard_button"
+          onClick={() => props.deleteItem(props.id)}
+        >
+          Cancel
+        </button>
       </div>
     </div>
   );

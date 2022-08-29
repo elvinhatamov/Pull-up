@@ -25,7 +25,6 @@ function ReservationPage(props) {
         // address = data.address;
         // rate = data.rate;
         setMyReservations(data);
-        console.log("The data at the end is", data);
       });
   }, []);
 
@@ -35,9 +34,26 @@ function ReservationPage(props) {
       reserv.dateEnd = new Date(reserv.dateEnd);
       reserv.dateStart = reserv.dateStart.toDateString();
       reserv.dateEnd = reserv.dateEnd.toDateString();
-
-      console.log("The date start has been changed to ", reserv.dateStart);
     });
+  }
+
+  async function deleteItem(id) {
+    console.log("Delete button triggered!");
+    console.log("Reservation id is", id);
+    try {
+      await fetch(`/api/reservations/${id}`, {
+        method: "DELETE",
+      }).then((response) => {
+        //don't need the response but now you update the event
+        //filter away the list where id being deleted
+        const newRecords = myReservations.filter((el) => el._id !== id);
+
+        console.log("The new updated list after deletion is: ", newRecords);
+        setMyReservations(newRecords);
+      });
+    } catch (err) {
+      console.log("Error: ", err);
+    }
   }
 
   return (
@@ -48,10 +64,12 @@ function ReservationPage(props) {
         <div className="reservations-container">
           {myReservations.map((reservation) => (
             <ReservationCard
+              id={reservation._id}
               address={reservation.address}
               totalCost={reservation.totalCost}
               dateStart={reservation.dateStart}
               dateEnd={reservation.dateEnd}
+              deleteItem={deleteItem}
             />
           ))}
         </div>
