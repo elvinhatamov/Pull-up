@@ -1,11 +1,22 @@
 //model here
 const Listings = require("../models/listing");
+const Reservations = require("../models/reservation");
 
 async function deleted(req, res) {
   try {
-    console.log("Id successfull passed by params", req.params.id)
+    console.log("Id successfull passed by params", req.params.id);
 
-    await Listings.findByIdAndDelete(req.params.id);
+    //delete all reservations under this listing first
+    await Reservations.deleteMany({ listing: req.params.id });
+
+    //now delete the one reservation
+    await Listings.deleteOne({ _id: req.params.id });
+
+    // Listings.pre("deleteMany", function (next) {
+    //   //remove all the assigned reservations that reference removed listing
+    //   this.model("Reservations").deleteOne({ listing: req.params.id }, next);
+    // });
+
     res.status(200).json("Item has been deleted");
   } catch (error) {
     res.status(500).json(error);
