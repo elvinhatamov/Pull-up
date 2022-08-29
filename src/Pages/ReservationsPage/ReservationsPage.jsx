@@ -65,6 +65,7 @@ function ReservationPage(props) {
           {myReservations.map((reservation) => (
             <ReservationCard
               id={reservation._id}
+              listingId={reservation.listing}
               address={reservation.address}
               totalCost={reservation.totalCost}
               dateStart={reservation.dateStart}
